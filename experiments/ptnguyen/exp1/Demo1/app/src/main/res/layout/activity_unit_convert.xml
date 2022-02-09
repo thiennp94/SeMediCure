@@ -22,4 +22,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_kglb"
+        android:layout_width="261dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="120dp"
+        android:text="KG to LBS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btn_mft"
+        android:layout_width="261dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="120dp"
+        android:text="Meter TO FT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_kglb" />
+
+    <Button
+        android:id="@+id/btn_cf"
+        android:layout_width="261dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="120dp"
+        android:text="C TO F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_mft" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
