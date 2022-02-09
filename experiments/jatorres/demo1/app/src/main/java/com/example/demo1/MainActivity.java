@@ -9,11 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = null;
-    public static final String SONG_MESSAGE = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +23,16 @@ public class MainActivity extends AppCompatActivity {
         Button button = findViewById(R.id.button);
     }
 
+    public void startPlayer(View view) {
+        startActivity(new Intent(this, MusicPlayer.class));
+    }
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
+        Intent musicIntent = new Intent(this, MusicPlayer.class);
         EditText editText = (EditText) findViewById(R.id.editTextTextPersonName);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         startActivityForResult(intent, 1);
     }
     @Override

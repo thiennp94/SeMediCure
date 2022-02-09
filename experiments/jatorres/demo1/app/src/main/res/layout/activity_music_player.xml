@@ -6,4 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".MusicPlayer">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="410dp"
+        android:layout_height="167dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_media_pause"
+            android:onClick="pauseMusic" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="105dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_media_play"
+            android:onClick="playMusic" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
