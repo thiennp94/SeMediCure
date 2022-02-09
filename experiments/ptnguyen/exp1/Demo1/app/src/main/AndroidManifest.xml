@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo1">
         <activity
+            android:name=".WeatherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalendarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalculatorActivity"
+            android:exported="false" />
+        <activity
             android:name=".UnitConvertActivity"
             android:exported="false" />
         <activity
