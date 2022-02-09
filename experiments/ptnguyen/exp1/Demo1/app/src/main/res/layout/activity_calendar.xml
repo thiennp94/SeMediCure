@@ -14,16 +14,18 @@
         android:orientation="horizontal"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp">
+
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/back"
-            android:textColor="@color/blue"
             android:background="@null"
-            android:textStyle="bold"
             android:onClick="previousMonthAction"
-            android:textSize="20sp"/>
+            android:text="Back"
+            android:textColor="@color/design_default_color_primary_variant"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/monthYearTV"
@@ -39,12 +41,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/forward"
-            android:textColor="@color/blue"
             android:background="@null"
-            android:textStyle="bold"
             android:onClick="nextMonthAction"
-            android:textSize="20sp"/>
+            android:text="Forward"
+            android:textColor="@color/design_default_color_primary_variant"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 
@@ -58,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="SUN"
-            android:textColor="@color/gray"
+            android:textColor="@android:color/system_accent2_500"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
@@ -67,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="MON"
-            android:textColor="@color/gray"
+            android:textColor="@android:color/system_accent2_500"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
@@ -76,16 +79,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="TUE"
-            android:textColor="@color/gray"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textColor="@android:color/system_accent2_500"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="WED"
-            android:textColor="@color/gray"
+            android:textColor="@android:color/system_accent2_500"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
@@ -94,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="THUR"
-            android:textColor="@color/gray"
+            android:textColor="@android:color/system_accent2_500"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
@@ -103,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="FRI"
-            android:textColor="@color/gray"
+            android:textColor="@android:color/system_accent2_500"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
@@ -112,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="SAT"
-            android:textColor="@color/gray"
+            android:textColor="@android:color/system_accent2_500"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
