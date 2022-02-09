@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class CalculatorActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class CalculatorActivity extends AppCompatActivity {
     private Button mult;
     private Button div;
     private Button clear;
-    private Button result;
+    private Button equal;
     private TextView txt_input;
     private TextView txt_result;
     private final char ADDITION = '+';
@@ -148,6 +149,31 @@ public class CalculatorActivity extends AppCompatActivity {
                 txt_input.setText(null);
             }
         });
+
+        equal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                compute();
+                ACTION = EQU;
+                txt_result.setText(String.valueOf(val1));
+                txt_input.setText(null);
+            }
+        });
+
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(txt_input.getText().length() > 0){
+                    CharSequence name = txt_input.getText().toString();
+                    txt_input.setText(name.subSequence(0,name.length()-1));
+                } else {
+                    val1 = Double.NaN;
+                    val2 = Double.NaN;
+                    txt_input.setText(null);
+                    txt_result.setText(null);
+                }
+            }
+        });
     }
 
     private void setupUIView() {
@@ -166,7 +192,7 @@ public class CalculatorActivity extends AppCompatActivity {
         mult = (Button) findViewById(R.id.btn_mult);
         div = (Button) findViewById(R.id.btn_div);
         clear = (Button) findViewById(R.id.btn_clr);
-        result = (Button) findViewById(R.id.btn_result);
+        equal = (Button) findViewById(R.id.btn_result);
         txt_input = (TextView) findViewById(R.id.txtInput);
         txt_result = (TextView) findViewById(R.id.txtResult);
     }

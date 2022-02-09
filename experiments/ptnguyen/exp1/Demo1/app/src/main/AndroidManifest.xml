@@ -10,6 +10,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo1">
         <activity
+            android:name=".CToFActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MToFtActivity"
+            android:exported="false" />
+        <activity
+            android:name=".KgToLbsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConvertCToFActivity"
+            android:exported="false"
+            android:label="@string/title_activity_convert_cto_factivity"
+            android:theme="@style/Theme.Demo1.NoActionBar" />
+        <activity
+            android:name=".ConvertMToFtActivity"
+            android:exported="false"
+            android:label="@string/title_activity_convert_mto_ft"
+            android:theme="@style/Theme.Demo1.NoActionBar" />
+        <activity
+            android:name=".ConvertKgToLbsActivity"
+            android:exported="false" />
+        <activity
             android:name=".WeatherActivity"
             android:exported="false" />
         <activity
