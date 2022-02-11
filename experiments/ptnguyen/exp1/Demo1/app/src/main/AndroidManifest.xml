@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.demo1">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Demo1">
+        <activity
+            android:name=".CToFActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MToFtActivity"
+            android:exported="false" />
+        <activity
+            android:name=".KgToLbsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConvertCToFActivity"
+            android:exported="false"
+            android:label="@string/title_activity_convert_cto_factivity"
+            android:theme="@style/Theme.Demo1.NoActionBar" />
+        <activity
+            android:name=".ConvertMToFtActivity"
+            android:exported="false"
+            android:label="@string/title_activity_convert_mto_ft"
+            android:theme="@style/Theme.Demo1.NoActionBar" />
+        <activity
+            android:name=".ConvertKgToLbsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WeatherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalendarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UnitConvertActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HelpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
