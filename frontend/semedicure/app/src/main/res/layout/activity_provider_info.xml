@@ -6,4 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Provider_Info">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="408dp"
+        android:layout_height="48dp"
+        android:background="#000000"
+        android:foregroundTint="#870A0A"
+        android:text="PROVIDER INFO"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#76EBFA"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
