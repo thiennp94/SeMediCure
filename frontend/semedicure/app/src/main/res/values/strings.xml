@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">semedicure</string>
+    <string name="edit_email">Enter Email</string>
+    <string name="edit_password">Enter Password</string>
+    <string name="button_existinguser">Returning User</string>
+    <string name="button_login">Login</string>
 </resources>
