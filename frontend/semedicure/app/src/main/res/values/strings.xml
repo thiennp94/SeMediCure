@@ -4,4 +4,5 @@
     <string name="edit_password">Enter Password</string>
     <string name="button_existinguser">Returning User</string>
     <string name="button_login">Login</string>
+    <string name="button_newuser">New User</string>
 </resources>
