@@ -13,8 +13,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,15 +29,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
     }
-    private void requestString() {
+    private void requestJson() {
         RequestQueue rQueue = Volley.newRequestQueue(this);
         String url = "https://8be4f6a4-40fe-40de-8be1-e9c3df6a16f7.mock.pstmn.io/Object/";
 
-        StringRequest sRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(String response) {
-                email = response.toString();
-                Toast.makeText(LoginActivity.this, email, Toast.LENGTH_SHORT).show();
+            public void onResponse(JSONObject response) {
+                Toast.makeText(LoginActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -43,10 +45,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        rQueue.add(sRequest);
+        rQueue.add(jsonRequest);
 
     }
+
     public void login(View view){
-        requestString();
+        requestJson();
     }
 }
