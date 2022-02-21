@@ -23,44 +23,34 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtFName"
+        android:id="@+id/txtProviderName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="First Name"
+        android:text="Provider Name"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="59dp" />
 
     <EditText
-        android:id="@+id/txtLName"
+        android:id="@+id/txtProviderAddr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Last Name"
+        android:text="Provider Address"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="120dp" />
 
     <EditText
-        android:id="@+id/txtDOB"
+        android:id="@+id/txtProviderEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Date Of Birth"
+        android:text="Provider Email"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="177dp" />
-
-    <EditText
-        android:id="@+id/txtSocial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Social Number"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="238dp" />
+        tools:layout_editor_absoluteY="179dp" />
 
     <EditText
         android:id="@+id/txtPhone"
@@ -70,7 +60,7 @@
         android:inputType="textPersonName"
         android:text="Phone Number"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="300dp" />
+        tools:layout_editor_absoluteY="239dp" />
 
     <EditText
         android:id="@+id/txtAddress"
@@ -80,6 +70,6 @@
         android:inputType="textPersonName"
         android:text="Address"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="362dp" />
+        tools:layout_editor_absoluteY="302dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
