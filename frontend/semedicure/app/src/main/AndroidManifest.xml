@@ -16,10 +16,10 @@
             android:name=".Help"
             android:exported="false" />
         <activity
-            android:name=".Provider_Info"
+            android:name=".Provider_Profile"
             android:exported="false" />
         <activity
-            android:name=".Client_Info"
+            android:name=".Patient_Profile"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

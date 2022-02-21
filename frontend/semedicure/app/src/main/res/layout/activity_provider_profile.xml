@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Client_Info">
+    tools:context=".Provider_Profile">
 
     <TextView
         android:id="@+id/textView"
@@ -12,7 +12,7 @@
         android:layout_height="48dp"
         android:background="#000000"
         android:foregroundTint="#870A0A"
-        android:text="CLIENT INFO"
+        android:text="PROVIDER INFO"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#76EBFA"
