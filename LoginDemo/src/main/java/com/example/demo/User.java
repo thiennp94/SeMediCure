@@ -27,6 +27,12 @@ public class User {
 	@Column(nullable = false, length = 25)
 	private String lastName;
 	
+	@Column(nullable = false, length = 25)
+	private String phoneNumber;
+	
+	@Column(nullable = false, length = 64)
+	private String address;
+	
 	public Long getId() {
 		return id;
 	}
@@ -56,6 +62,18 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	

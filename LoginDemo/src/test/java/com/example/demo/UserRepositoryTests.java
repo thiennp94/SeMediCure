@@ -24,10 +24,14 @@ public class UserRepositoryTests {
 	@Test 
 	public void testCreateUser() {
 		User user = new User();
-		user.setEmail("will@email.com");
+		user.setEmail("ben@email.com");
 		user.setPassword("password");
-		user.setFirstName("Will");
-		user.setLastName("Postler");
+		user.setFirstName("Ben");
+		user.setLastName("Benny");
+		user.setPhoneNumber("1234567890");
+		user.setAddress("123 Main St, Ames, IA 50014");
+		
+		
 		
 		User savedUser = repo.save(user);
 		
