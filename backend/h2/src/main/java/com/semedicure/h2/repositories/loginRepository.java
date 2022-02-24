@@ -7,5 +7,5 @@ import com.semedicure.h2.models.login;
 
 @Repository
 public interface loginRepository extends JpaRepository<login, String> {
-
+	//declare but not implement api methods here
 }

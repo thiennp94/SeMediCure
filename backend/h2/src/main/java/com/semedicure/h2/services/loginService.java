@@ -8,7 +8,7 @@ import com.semedicure.h2.models.login;
 import com.semedicure.h2.repositories.loginRepository;
 
 @Service
-public class loginService 
+public class loginService
 {
 	@Autowired
 	private static loginRepository LR;
@@ -16,4 +16,6 @@ public class loginService
 	public static java.util.List<login> list() {
 		return LR.findAll();
 	}
+	
+	//where you lay out methods for restful api
 }
