@@ -11,8 +11,6 @@ import javax.persistence.Table;
 @Table(name = "patient")
 public class Login {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "firstName")
 	private String firstName;
 
@@ -43,6 +41,8 @@ public class Login {
 	@Column(name = "stateInitials")
 	private String stateInitials;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ssn")
 	private int ssn;
 
