@@ -13,12 +13,6 @@
             android:name=".Clinic_Profile"
             android:exported="false" />
         <activity
-            android:name=".About"
-            android:exported="false" />
-        <activity
-            android:name=".Help"
-            android:exported="false" />
-        <activity
             android:name=".Provider_Profile"
             android:exported="false" />
         <activity
