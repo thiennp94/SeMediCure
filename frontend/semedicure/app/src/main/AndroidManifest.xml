@@ -21,6 +21,15 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".Clinic_Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Provider_Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Patient_Profile"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
