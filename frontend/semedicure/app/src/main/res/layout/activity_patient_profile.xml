@@ -133,6 +133,61 @@
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
+            <TableRow>
+                <EditText
+                    android:id="@+id/txtState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="State Initials"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+            <TableRow>
+                <EditText
+                    android:id="@+id/txtSSN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Social Security Number"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+            <TableRow>
+                <EditText
+                    android:id="@+id/txtInsurer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Insurer Name"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+            <TableRow>
+                <EditText
+                    android:id="@+id/txtPolicyHolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Policy Holder"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+            <TableRow>
+                <EditText
+                    android:id="@+id/txtGroupNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Group Number"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
 
         </TableLayout>
 
