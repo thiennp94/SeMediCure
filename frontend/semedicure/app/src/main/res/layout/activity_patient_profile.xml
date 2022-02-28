@@ -36,7 +36,7 @@
 
             <TableRow>
                 <EditText
-                    android:id="@+id/txtPatientName"
+                    android:id="@+id/txtPatientFName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -47,25 +47,25 @@
             </TableRow>
             <TableRow>
                 <EditText
-                    android:id="@+id/txtClinicPhone"
+                    android:id="@+id/txtPatientMName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Date Of Birth"
+                    android:text="Middle Name"
                     tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="177dp" />
+                    tools:layout_editor_absoluteY="59dp" />
             </TableRow>
             <TableRow>
                 <EditText
-                    android:id="@+id/txtProviderEmail"
+                    android:id="@+id/txtPatientLName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Social Number"
+                    android:text="Last Name"
                     tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="238dp" />
+                    tools:layout_editor_absoluteY="59dp" />
             </TableRow>
             <TableRow>
                 <EditText
@@ -76,85 +76,62 @@
                     android:inputType="textPersonName"
                     android:text="Phone Number"
                     tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="300dp" />
+                    tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow android:layout_height="101dp">
-                <EditText
-                    android:id="@+id/txtAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Address"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="362dp" />
-            </TableRow>
-
             <TableRow>
                 <EditText
-                    android:id="@+id/txtProviderName1"
+                    android:id="@+id/txtPatientEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="First Name"
+                    android:text="Email Address"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
             <TableRow>
                 <EditText
-                    android:id="@+id/txtProviderAddr1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Last Name"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="120dp" />
-            </TableRow>
-            <TableRow>
-                <EditText
-                    android:id="@+id/txtClinicPhone1"
+                    android:id="@+id/txtDOB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Date Of Birth"
                     tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="177dp" />
+                    tools:layout_editor_absoluteY="59dp" />
             </TableRow>
             <TableRow>
                 <EditText
-                    android:id="@+id/txtProviderEmail1"
+                    android:id="@+id/txtStAddr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Social Number"
+                    android:text="Street Address"
                     tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="238dp" />
+                    tools:layout_editor_absoluteY="59dp" />
             </TableRow>
             <TableRow>
                 <EditText
-                    android:id="@+id/txtPhone1"
+                    android:id="@+id/txtCity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Phone Number"
+                    android:text="City"
                     tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="300dp" />
+                    tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow android:layout_height="101dp">
+            <TableRow>
                 <EditText
-                    android:id="@+id/txtAddress1"
+                    android:id="@+id/txtZip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Address"
+                    android:text="Zip Code"
                     tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="362dp" />
+                    tools:layout_editor_absoluteY="59dp" />
             </TableRow>
 
         </TableLayout>
