@@ -27,7 +27,7 @@
             android:name=".Provider_Profile"
             android:exported="false" />
         <activity
-            android:name=".Patient_Profile"
+            android:name=".PatientProfileActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

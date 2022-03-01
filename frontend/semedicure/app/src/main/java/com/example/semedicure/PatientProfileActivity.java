@@ -56,16 +56,20 @@ public class PatientProfileActivity extends AppCompatActivity {
         mTextViewInsurer = findViewById(R.id.txtInsurer);
         mTextViewPolicyHolder = findViewById(R.id.txtPolicyHolder);
         mTextViewGroupNum = findViewById(R.id.txtGroupNum);
-        Button buttonCreate = findViewById(R.id.buttonUpdate);
+//        Button buttonCreate = findViewById(R.id.buttonUpdate);
 
         mQueue = Volley.newRequestQueue(this);
 
-        buttonCreate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                jsonParse();
-            }
-        });
+//        buttonCreate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                jsonParse();
+//            }
+//        });
+    }
+
+    public void patientInfo(View view){
+        jsonParse();
     }
 
     private void jsonParse() {
@@ -89,15 +93,28 @@ public class PatientProfileActivity extends AppCompatActivity {
                                 String email = patient.getString("email");
                                 String dob = patient.getString("dob");
                                 String address = patient.getString("address");
-                                String email = patient.getString("email");
-                                String email = patient.getString("email");
-                                String email = patient.getString("email");
-                                String email = patient.getString("email");
-                                String email = patient.getString("email");
-                                String email = patient.getString("email");
-                                String email = patient.getString("email");
+                                String city = patient.getString("city");
+                                String state = patient.getString("state");
+                                String zip = patient.getString("zip");
+                                String ssn = patient.getString("ssn");
+                                String insurer = patient.getString("insurer");
+                                String policyholder = patient.getString("policyholder");
+                                String group = patient.getString("group");
 
-                                mTextViewResult.append(firstName + ", " + String.valueOf(age) + ", " + mail + "\n\n");
+                                mTextViewPatientFName.setText(firstName);
+                                mTextViewPatientMName.setText(middleName);
+                                mTextViewPatientLName.setText(lastName);
+                                mTextViewPhone.setText(phone);
+                                mTextViewEmail.setText(email);
+                                mTextViewDOB.setText(dob);
+                                mTextViewAddr.setText(address);
+                                mTextViewCity.setText(city);
+                                mTextViewZip.setText(zip);
+                                mTextViewState.setText(state);
+                                mTextViewSSN.setText(ssn);
+                                mTextViewInsurer.setText(insurer);
+                                mTextViewPolicyHolder.setText(policyholder);
+                                mTextViewGroupNum.setText(group);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -111,6 +128,23 @@ public class PatientProfileActivity extends AppCompatActivity {
         });
 
         mQueue.add(request);
+    }
+
+    public void clearPatientInfo(View view){
+        mTextViewPatientFName.setText("");
+        mTextViewPatientMName.setText("");
+        mTextViewPatientLName.setText("");
+        mTextViewPhone.setText("");
+        mTextViewEmail.setText("");
+        mTextViewDOB.setText("");
+        mTextViewAddr.setText("");
+        mTextViewCity.setText("");
+        mTextViewZip.setText("");
+        mTextViewState.setText("");
+        mTextViewSSN.setText("");
+        mTextViewInsurer.setText("");
+        mTextViewPolicyHolder.setText("");
+        mTextViewGroupNum.setText("");
     }
 
 //    private void requestJson() {
