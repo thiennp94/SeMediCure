@@ -24,13 +24,13 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Clinic_Profile"
+            android:name=".ClinicProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".Provider_Profile"
+            android:name=".AdminProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".Patient_Profile"
+            android:name=".PatientProfileActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

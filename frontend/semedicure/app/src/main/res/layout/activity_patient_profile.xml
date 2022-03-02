@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Patient_Profile">
+    android:onClick="patientInfo"
+    tools:context=".PatientProfileActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -24,17 +25,20 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="680dp"
+        android:layout_height="565dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
+<!--        android:layout_height="680dp"-->
+<!--        android:fillViewport="true"-->
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:stretchColumns="10">
 
-            <TableRow>
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewPatientFName"
                     android:layout_width="wrap_content"
@@ -49,12 +53,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="First Name"
                     android:inputType="textPersonName"
-                    android:text="First Name"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewPatientMName"
                     android:layout_width="wrap_content"
@@ -69,12 +75,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="Middle Name"
                     android:inputType="textPersonName"
-                    android:text="Middle Name"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewPatientLName"
                     android:layout_width="wrap_content"
@@ -89,12 +97,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="Last Name"
                     android:inputType="textPersonName"
-                    android:text="Last Name"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewPhone"
                     android:layout_width="wrap_content"
@@ -109,12 +119,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="Phone Number"
                     android:inputType="phone"
-                    android:text="Phone Number"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewEmail"
                     android:layout_width="wrap_content"
@@ -130,11 +142,13 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textEmailAddress"
-                    android:text="Email Address"
+                    android:hint="Email Address"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewDOB"
                     android:layout_width="wrap_content"
@@ -150,11 +164,13 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="date"
-                    android:text="Date Of Birth"
+                    android:hint="Date Of Birth"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewAddr"
                     android:layout_width="wrap_content"
@@ -170,11 +186,13 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPostalAddress"
-                    android:text="Street Address"
+                    android:hint="Street Address"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewCity"
                     android:layout_width="wrap_content"
@@ -190,11 +208,13 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="text"
-                    android:text="City"
+                    android:hint="City"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewZip"
                     android:layout_width="wrap_content"
@@ -210,11 +230,13 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="Zip Code"
+                    android:hint="Zip Code"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewState"
                     android:layout_width="wrap_content"
@@ -230,11 +252,13 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="text"
-                    android:text="State Initials"
+                    android:hint="State Initials"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewSSN"
                     android:layout_width="wrap_content"
@@ -250,11 +274,13 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="Social Security Number"
+                    android:hint="Social Security Number"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewInsurer"
                     android:layout_width="wrap_content"
@@ -270,11 +296,13 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Insurer Name"
+                    android:hint="Insurer Name"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewPolicyHolder"
                     android:layout_width="wrap_content"
@@ -290,11 +318,13 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Policy Holder"
+                    android:hint="Policy Holder"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <TextView
                     android:id="@+id/textViewGroupNum"
                     android:layout_width="wrap_content"
@@ -310,21 +340,25 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="Group Number"
+                    android:hint="Group Number"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
-            <TableRow>
+
+            <TableRow android:minHeight="150px">
+
                 <Button
                     android:id="@+id/buttonUpdate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="patientInfo"
                     android:text="Create" />
 
                 <Button
                     android:id="@+id/buttonClear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="clearPatientInfo"
                     android:text="Clear" />
             </TableRow>
 
