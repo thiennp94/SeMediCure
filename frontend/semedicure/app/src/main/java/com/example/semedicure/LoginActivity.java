@@ -19,11 +19,11 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LoginActivity extends AppCompatActivity {
-
-    private String email;
-    private String password;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +43,16 @@ public class LoginActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(LoginActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
-        });
+
+        }) {
+           @Override
+            protected Map<String,String> getParams() {
+               Map<String, String> params = new HashMap<>();
+               params.put("email", findViewById(R.id.editTextTextPersonName).toString());
+               params.put("password", findViewById(R.id.editTextTextPersonName2).toString());
+               return params;
+           }
+        };
 
         rQueue.add(jsonRequest);
 
