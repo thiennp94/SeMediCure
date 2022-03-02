@@ -9,4 +9,5 @@
     <string name="button_newadmin">Administrator</string>
     <string name="button_provider">Healthcare Provider</string>
     <string name="button_forgotpass">Forgot Password</string>
+    <string name="button_resetpass">Reset Password</string>
 </resources>
