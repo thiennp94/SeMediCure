@@ -39,64 +39,20 @@
             <TableRow android:minHeight="150px">
 
                 <TextView
-                    android:id="@+id/textViewPatientFName"
+                    android:id="@+id/textViewClinicName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:text="First Name:"
+                    android:text="Clinic Name:"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/txtPatientFName"
+                    android:id="@+id/txtClinicName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="First Name"
-                    android:inputType="textPersonName"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="59dp" />
-            </TableRow>
-
-            <TableRow android:minHeight="150px">
-
-                <TextView
-                    android:id="@+id/textViewPatientMName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="Middle Name:"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/txtPatientMName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Middle Name"
-                    android:inputType="textPersonName"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="59dp" />
-            </TableRow>
-
-            <TableRow android:minHeight="150px">
-
-                <TextView
-                    android:id="@+id/textViewPatientLName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="Last Name:"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/txtPatientLName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Last Name"
+                    android:hint="Clinic Name"
                     android:inputType="textPersonName"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
@@ -136,34 +92,12 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/txtPatientEmail"
+                    android:id="@+id/txtClinicEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textEmailAddress"
                     android:hint="Email Address"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="59dp" />
-            </TableRow>
-
-            <TableRow android:minHeight="150px">
-
-                <TextView
-                    android:id="@+id/textViewDOB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="Date Of Birth:"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/txtDOB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="date"
-                    android:hint="Date Of Birth"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
@@ -256,95 +190,7 @@
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
 
-            <TableRow android:minHeight="150px">
-
-                <TextView
-                    android:id="@+id/textViewSSN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="Social Security Number:"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/txtSSN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:hint="Social Security Number"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="59dp" />
-            </TableRow>
-
-            <TableRow android:minHeight="150px">
-
-                <TextView
-                    android:id="@+id/textViewInsurer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="Insurer Name:"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/txtInsurer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:hint="Insurer Name"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="59dp" />
-            </TableRow>
-
-            <TableRow android:minHeight="150px">
-
-                <TextView
-                    android:id="@+id/textViewPolicyHolder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="Policy Holder:"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/txtPolicyHolder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:hint="Policy Holder"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="59dp" />
-            </TableRow>
-
-            <TableRow android:minHeight="150px">
-
-                <TextView
-                    android:id="@+id/textViewGroupNum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="Group Number:"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/txtGroupNum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:hint="Group Number"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="59dp" />
-            </TableRow>
-
-            <TableRow android:minHeight="150px">
+           <TableRow android:minHeight="150px">
 
                 <Button
                     android:id="@+id/buttonUpdate"

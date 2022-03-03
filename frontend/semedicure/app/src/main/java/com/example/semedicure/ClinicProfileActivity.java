@@ -21,20 +21,13 @@ import org.json.JSONObject;
 
 public class ClinicProfileActivity extends AppCompatActivity {
 
-    private TextView mTextViewPatientFName;
-    private TextView mTextViewPatientMName;
-    private TextView mTextViewPatientLName;
+    private TextView mTextViewClinicName;
     private TextView mTextViewPhone;
     private TextView mTextViewEmail;
-    private TextView mTextViewDOB;
     private TextView mTextViewAddr;
     private TextView mTextViewCity;
     private TextView mTextViewZip;
     private TextView mTextViewState;
-    private TextView mTextViewSSN;
-    private TextView mTextViewInsurer;
-    private TextView mTextViewPolicyHolder;
-    private TextView mTextViewGroupNum;
     private RequestQueue mQueue;
 
     @Override
@@ -42,20 +35,13 @@ public class ClinicProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clinic_profile);
 
-        mTextViewPatientFName = findViewById(R.id.txtPatientFName);
-        mTextViewPatientMName = findViewById(R.id.txtPatientMName);
-        mTextViewPatientLName = findViewById(R.id.txtPatientLName);
+        mTextViewClinicName = findViewById(R.id.txtClinicName);
         mTextViewPhone = findViewById(R.id.txtPhone);
-        mTextViewEmail = findViewById(R.id.txtPatientEmail);
-        mTextViewDOB = findViewById(R.id.txtDOB);
+        mTextViewEmail = findViewById(R.id.txtClinicEmail);
         mTextViewAddr = findViewById(R.id.txtStAddr);
         mTextViewCity = findViewById(R.id.txtCity);
         mTextViewZip = findViewById(R.id.txtZip);
         mTextViewState = findViewById(R.id.txtState);
-        mTextViewSSN = findViewById(R.id.txtSSN);
-        mTextViewInsurer = findViewById(R.id.txtInsurer);
-        mTextViewPolicyHolder = findViewById(R.id.txtPolicyHolder);
-        mTextViewGroupNum = findViewById(R.id.txtGroupNum);
         mQueue = Volley.newRequestQueue(this);
     }
 
@@ -72,40 +58,27 @@ public class ClinicProfileActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray jsonArray = response.getJSONArray("patients");
+                            JSONArray jsonArray = response.getJSONArray("clinics");
 
                             for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject patient = jsonArray.getJSONObject(i);
+                                JSONObject clinic = jsonArray.getJSONObject(i);
 
-                                String firstName = patient.getString("firstname");
-                                String middleName = patient.getString("middlename");
-                                String lastName = patient.getString("lastname");
-                                String phone = patient.getString("phone");
-                                String email = patient.getString("email");
-                                String dob = patient.getString("dob");
-                                String address = patient.getString("address");
-                                String city = patient.getString("city");
-                                String state = patient.getString("state");
-                                String zip = patient.getString("zip");
-                                String ssn = patient.getString("ssn");
-                                String insurer = patient.getString("insurer");
-                                String policyholder = patient.getString("policyholder");
-                                String group = patient.getString("group");
+                                String clinicName = clinic.getString("clinicname");
+                                String phone = clinic.getString("phone");
+                                String email = clinic.getString("email");
+                                String dob = clinic.getString("dob");
+                                String address = clinic.getString("address");
+                                String city = clinic.getString("city");
+                                String state = clinic.getString("state");
+                                String zip = clinic.getString("zip");
 
-                                mTextViewPatientFName.setText(firstName);
-                                mTextViewPatientMName.setText(middleName);
-                                mTextViewPatientLName.setText(lastName);
+                                mTextViewClinicName.setText(clinicName);
                                 mTextViewPhone.setText(phone);
                                 mTextViewEmail.setText(email);
-                                mTextViewDOB.setText(dob);
                                 mTextViewAddr.setText(address);
                                 mTextViewCity.setText(city);
                                 mTextViewZip.setText(zip);
                                 mTextViewState.setText(state);
-                                mTextViewSSN.setText(ssn);
-                                mTextViewInsurer.setText(insurer);
-                                mTextViewPolicyHolder.setText(policyholder);
-                                mTextViewGroupNum.setText(group);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -122,20 +95,13 @@ public class ClinicProfileActivity extends AppCompatActivity {
     }
 
     public void clearClinicInfo(View view){
-        mTextViewPatientFName.setText("");
-        mTextViewPatientMName.setText("");
-        mTextViewPatientLName.setText("");
+        mTextViewClinicName.setText("");
         mTextViewPhone.setText("");
         mTextViewEmail.setText("");
-        mTextViewDOB.setText("");
         mTextViewAddr.setText("");
         mTextViewCity.setText("");
         mTextViewZip.setText("");
         mTextViewState.setText("");
-        mTextViewSSN.setText("");
-        mTextViewInsurer.setText("");
-        mTextViewPolicyHolder.setText("");
-        mTextViewGroupNum.setText("");
     }
 
 }
