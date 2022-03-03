@@ -8,16 +8,21 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PatientProfileActivity extends AppCompatActivity {
 
@@ -68,10 +73,15 @@ public class PatientProfileActivity extends AppCompatActivity {
 //        });
     }
 
-    public void patientInfo(View view){
+    public void getPatientInfo(View view){
         jsonParse();
     }
 
+    public void sendPatientInfo(View view){
+        sendString();
+    }
+
+    // GET
     private void jsonParse() {
 
         String url = "https://4c1cb4dc-453e-425d-a7bb-82fec8d336d0.mock.pstmn.io/clients/";
@@ -147,23 +157,45 @@ public class PatientProfileActivity extends AppCompatActivity {
         mTextViewGroupNum.setText("");
     }
 
-//    private void requestJson() {
-//        RequestQueue rQueue = Volley.newRequestQueue(this);
-//        String url = "https://4c1cb4dc-453e-425d-a7bb-82fec8d336d0.mock.pstmn.io/clients/";
-//
-//        JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
-//            @Override
-//            public void onResponse(JSONObject response) {
-//                Toast.makeText(PatientProfileActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Toast.makeText(PatientProfileActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        rQueue.add(jsonRequest);
-//
-//    }
+    // POST
+    private void sendString() {
+        RequestQueue rQueue = Volley.newRequestQueue(this);
+        String url = "https://8be4f6a4-40fe-40de-8be1-e9c3df6a16f7.mock.pstmn.io/Object/";
+
+        StringRequest strRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(PatientProfileActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(PatientProfileActivity.this, "Error", Toast.LENGTH_SHORT).show();
+            }
+
+        }) {
+            @Override
+            protected Map<String,String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("firstname", mTextViewPatientFName.getText().toString());
+                params.put("middlename", mTextViewPatientMName.getText().toString());
+                params.put("last", mTextViewPatientLName.getText().toString());
+                params.put("phone", mTextViewPhone.getText().toString());
+                params.put("email", mTextViewEmail.getText().toString());
+                params.put("dob", mTextViewDOB.getText().toString());
+                params.put("address", mTextViewAddr.getText().toString());
+                params.put("city", mTextViewCity.getText().toString());
+                params.put("zip", mTextViewZip.getText().toString());
+                params.put("state", mTextViewState.getText().toString());
+                params.put("ssn", mTextViewSSN.getText().toString());
+                params.put("insurer", mTextViewInsurer.getText().toString());
+                params.put("policyholder", mTextViewPolicyHolder.getText().toString());
+                params.put("group", mTextViewGroupNum.getText().toString());
+                return params;
+            }
+        };
+
+        rQueue.add(strRequest);
+
+    }
 }
