@@ -351,14 +351,14 @@
                     android:id="@+id/buttonUpdate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="patientInfo"
+                    android:onClick="getPatientInfo"
                     android:text="Create" />
 
                 <Button
                     android:id="@+id/buttonClear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="clearPatientInfo"
+                    android:onClick="sendPatientInfo"
                     android:text="Clear" />
             </TableRow>
 
