@@ -31,7 +31,7 @@ public class NewPatientRepositoryTests {
         newPatient.setMiddleName("G");
         newPatient.setLastName("Postler");
         newPatient.setPhoneNumber("1234567890");
-        newPatient.setEmailAddress("will@email.com");
+        newPatient.setEmailAddress("ryan@email.com");
         newPatient.setDateOfBirth("12/31/00");
         newPatient.setSsn("123456789");
         newPatient.setStreetAddress("123 Main St");
