@@ -12,10 +12,12 @@
         <entry key="app/src/main/res/layout/activity_clinic_profile.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/activity_forgot_pass.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_help.xml" value="0.28940217391304346" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28940217391304346" />
-        <entry key="app/src/main/res/layout/activity_patient_profile.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_patient.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/activity_patient_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_provider_info.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/activity_provider_profile.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_select_user.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_string_request.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.26" />
