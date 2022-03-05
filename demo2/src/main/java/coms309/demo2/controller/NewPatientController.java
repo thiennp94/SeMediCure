@@ -13,12 +13,12 @@ public class NewPatientController {
     @Autowired
     NewPatientRepository newPatientRepository;
 
-    @GetMapping("/login/new/patient/")
+    @GetMapping("/login/patient/id?")
     List<NewPatient> GetAllNewPatient(){
         return newPatientRepository.findAll();
     }
 
-    @PostMapping("/login/post/new/patient")
+    @PostMapping("/login/post/patient")
     NewPatient PostNewPatientByPath(@RequestBody NewPatient newNewPatient){
         newPatientRepository.save(newNewPatient);
         return newNewPatient;
