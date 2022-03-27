@@ -8,7 +8,7 @@ maven-build:   #this is a JOB
   tags:
     - springboot_tag  # this is LINK to the shell runner on the remote-server 
   script:
-    - cd Backend
+    - cd backend
     - mvn package
 
 android-build: #this is another job
@@ -20,6 +20,6 @@ android-build: #this is another job
     - export GRADLE_USER_HOME=`pwd`/.gradle
     - chmod +x ./Frontend/gradlew
   script:
-    - cd Frontend
+    - cd frontend
     - ./gradlew assemble
 
