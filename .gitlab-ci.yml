@@ -8,7 +8,7 @@ maven-build:   #this is a JOB
   tags:
     - springboot_tag  # this is LINK to the shell runner on the remote-server 
   script:
-    - cd backend/h2/bin/.mvn/wrapper
+    - cd backend/h2/bin/
     - mvn package
 
 android-build: #this is another job
