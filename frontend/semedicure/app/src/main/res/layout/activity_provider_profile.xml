@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClinicProfileActivity">
+    tools:context=".ProviderProfileActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -12,7 +12,7 @@
         android:layout_height="48dp"
         android:background="#000000"
         android:foregroundTint="#870A0A"
-        android:text="CLINIC INFORMATION"
+        android:text="PROVIDER INFORMATION"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#76EBFA"
@@ -39,20 +39,20 @@
             <TableRow android:minHeight="150px">
 
                 <TextView
-                    android:id="@+id/textViewClinicName"
+                    android:id="@+id/textViewProviderName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:text="Clinic Name:"
+                    android:text="Provider Name:"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/txtClinicName"
+                    android:id="@+id/txtProviderName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Clinic Name"
+                    android:hint="Provider Name"
                     android:inputType="textPersonName"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
@@ -92,7 +92,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/txtClinicEmail"
+                    android:id="@+id/txtProviderEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
