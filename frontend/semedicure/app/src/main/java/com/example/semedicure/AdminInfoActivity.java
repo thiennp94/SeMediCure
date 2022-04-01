@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,9 +17,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ClinicProfileActivity extends AppCompatActivity {
+public class AdminInfoActivity extends AppCompatActivity {
 
-    private TextView mTextViewClinicName;
+    private TextView mTextViewAdminName;
     private TextView mTextViewPhone;
     private TextView mTextViewEmail;
     private TextView mTextViewAddr;
@@ -33,11 +31,11 @@ public class ClinicProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clinic_profile);
+        setContentView(R.layout.activity_admin_info);
 
-        mTextViewClinicName = findViewById(R.id.txtClinicName);
+        mTextViewAdminName = findViewById(R.id.txtAdminName);
         mTextViewPhone = findViewById(R.id.txtPhone);
-        mTextViewEmail = findViewById(R.id.txtClinicEmail);
+        mTextViewEmail = findViewById(R.id.txtAdminEmail);
         mTextViewAddr = findViewById(R.id.txtStAddr);
         mTextViewCity = findViewById(R.id.txtCity);
         mTextViewZip = findViewById(R.id.txtZip);
@@ -45,7 +43,7 @@ public class ClinicProfileActivity extends AppCompatActivity {
         mQueue = Volley.newRequestQueue(this);
     }
 
-    public void clinicInfo(View view){
+    public void AdminInfo(View view){
         jsonParse();
     }
 
@@ -58,21 +56,21 @@ public class ClinicProfileActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray jsonArray = response.getJSONArray("clinics");
+                            JSONArray jsonArray = response.getJSONArray("Admins");
 
                             for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject clinic = jsonArray.getJSONObject(i);
+                                JSONObject Admin = jsonArray.getJSONObject(i);
 
-                                String clinicName = clinic.getString("clinicname");
-                                String phone = clinic.getString("phone");
-                                String email = clinic.getString("email");
-                                String dob = clinic.getString("dob");
-                                String address = clinic.getString("address");
-                                String city = clinic.getString("city");
-                                String state = clinic.getString("state");
-                                String zip = clinic.getString("zip");
+                                String AdminName = Admin.getString("adminname");
+                                String phone = Admin.getString("phone");
+                                String email = Admin.getString("email");
+                                String dob = Admin.getString("dob");
+                                String address = Admin.getString("address");
+                                String city = Admin.getString("city");
+                                String state = Admin.getString("state");
+                                String zip = Admin.getString("zip");
 
-                                mTextViewClinicName.setText(clinicName);
+                                mTextViewAdminName.setText(AdminName);
                                 mTextViewPhone.setText(phone);
                                 mTextViewEmail.setText(email);
                                 mTextViewAddr.setText(address);
@@ -94,8 +92,8 @@ public class ClinicProfileActivity extends AppCompatActivity {
         mQueue.add(request);
     }
 
-    public void clearClinicInfo(View view){
-        mTextViewClinicName.setText("");
+    public void clearAdminInfo(View view){
+        mTextViewAdminName.setText("");
         mTextViewPhone.setText("");
         mTextViewEmail.setText("");
         mTextViewAddr.setText("");
@@ -103,5 +101,4 @@ public class ClinicProfileActivity extends AppCompatActivity {
         mTextViewZip.setText("");
         mTextViewState.setText("");
     }
-
 }
