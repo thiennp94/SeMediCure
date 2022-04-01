@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">semedicure</string>
+    <string name="app_name">Semedicure</string>
     <string name="edit_email">Enter Email</string>
     <string name="edit_password">Enter Password</string>
     <string name="button_existinguser">Returning User</string>
@@ -12,4 +12,10 @@
     <string name="button_resetpass">Reset Password</string>
     <string name="button_create">Create</string>
     <string name="button_clear">Clear</string>
+    <string name="button_qr">Scan QR Code</string>
+    <string name="button_requestAppt">Request Appointment</string>
+    <string name="button_updateMed">View/Update Medical History</string>
+    <string name="button_profile">Personal Information</string>
+    <string name="button_currMed">Current Medications</string>
+    <string name="button_apptHist">Appointment History</string>
 </resources>

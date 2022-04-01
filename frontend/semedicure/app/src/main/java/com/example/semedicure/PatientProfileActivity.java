@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class SelectUserActivity extends AppCompatActivity {
+public class PatientProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_user);
+        setContentView(R.layout.activity_patient_profile);
     }
 
     public void patientInfo(View view) {
@@ -19,13 +19,13 @@ public class SelectUserActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void adminInfo(View view) {
-        Intent intent = new Intent(this, AdminInfoActivity.class);
+    public void currentMedication(View view) {
+        Intent intent = new Intent(this, PatientInfoActivity.class);
         startActivity(intent);
     }
 
-    public void providerInfo(View view) {
-        Intent intent = new Intent(this, ProviderInfoActivity.class);
+    public void appointmentHistory(View view) {
+        Intent intent = new Intent(this, PatientInfoActivity.class);
         startActivity(intent);
     }
 }

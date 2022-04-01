@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectUserActivity">
+    tools:context=".PatientProfileActivity">
 
     <ImageView
         android:layout_width="fill_parent"
@@ -13,14 +13,32 @@
         android:src="@drawable/bg1"
         android:scaleType="centerCrop" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="336dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/amaranth"
+        android:text="Patient Profile"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#22BCCF"
+        android:textSize="42dp"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.711" />
+
     <Button
         android:id="@+id/button6"
-        android:layout_width="214dp"
+        android:layout_width="280dp"
         android:layout_height="48dp"
         android:layout_marginTop="64dp"
         android:backgroundTint="@color/material_dynamic_primary50"
-        android:onClick="providerInfo"
-        android:text="@string/button_provider"
+        android:onClick="appointmentHistory"
+        android:text="@string/button_apptHist"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.53"
@@ -30,11 +48,11 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="214dp"
+        android:layout_width="280dp"
         android:layout_height="48dp"
         android:layout_marginTop="280dp"
         android:onClick="patientInfo"
-        android:text="@string/button_newpatient"
+        android:text="@string/button_profile"
         android:backgroundTint="@color/material_dynamic_primary50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.519"
@@ -43,51 +61,15 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="214dp"
+        android:layout_width="280dp"
         android:layout_height="48dp"
         android:layout_marginTop="72dp"
-        android:onClick="adminInfo"
-        android:text="@string/button_newadmin"
+        android:onClick="currentMedication"
+        android:text="@string/button_currMed"
         android:backgroundTint="@color/material_dynamic_primary50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="336dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="40dp"
-        android:fontFamily="@font/amaranth"
-        android:text="Please select the"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#22BCCF"
-        android:textSize="42dp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="336dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="40dp"
-        android:fontFamily="@font/amaranth"
-        android:text="type of user"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#22BCCF"
-        android:textSize="42dp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.652" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
