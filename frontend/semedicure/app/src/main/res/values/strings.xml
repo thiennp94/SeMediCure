@@ -4,10 +4,12 @@
     <string name="edit_password">Enter Password</string>
     <string name="button_existinguser">Returning User</string>
     <string name="button_login">Login</string>
-    <string name="button_newuser">New User</string>
+    <string name="button_newuser">Create New Account</string>
     <string name="button_newpatient">Patient</string>
     <string name="button_newadmin">Administrator</string>
     <string name="button_provider">Healthcare Provider</string>
     <string name="button_forgotpass">Forgot Password</string>
     <string name="button_resetpass">Reset Password</string>
+    <string name="button_create">Create</string>
+    <string name="button_clear">Clear</string>
 </resources>

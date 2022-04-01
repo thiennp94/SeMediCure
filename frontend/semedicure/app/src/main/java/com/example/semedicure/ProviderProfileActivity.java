@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,7 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ClinicProfileActivity extends AppCompatActivity {
+public class ProviderProfileActivity extends AppCompatActivity {
 
     private TextView mTextViewClinicName;
     private TextView mTextViewPhone;
@@ -33,7 +31,7 @@ public class ClinicProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clinic_profile);
+        setContentView(R.layout.activity_provider_profile);
 
         mTextViewClinicName = findViewById(R.id.txtClinicName);
         mTextViewPhone = findViewById(R.id.txtPhone);

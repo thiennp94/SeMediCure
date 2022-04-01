@@ -27,7 +27,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ClinicProfileActivity"
+            android:name=".ProviderProfileActivity"
             android:exported="false" />
         <activity
             android:name=".AdminProfileActivity"
