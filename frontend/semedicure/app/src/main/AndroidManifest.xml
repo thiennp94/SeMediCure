@@ -12,26 +12,38 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Semedicure">
         <activity
-            android:name=".ForgotPassActivity"
+            android:name=".PatientProfileActivity"
             android:exported="false" />
+        <activity
+            android:name=".RequestAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PatientPortalActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ForgotPassActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".SelectUserActivity"
             android:exported="false" />
         <activity
-            android:name=".StringRequestActivity"
-            android:exported="false" />
-        <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".ClinicProfileActivity"
-            android:exported="false" />
+            android:name=".ProviderInfoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".AdminProfileActivity"
-            android:exported="false" />
+            android:name=".AdminInfoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".PatientProfileActivity"
-            android:exported="false" />
+            android:name=".PatientInfoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -14,18 +14,18 @@ public class SelectUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_user);
     }
 
-    public void patientProfile(View view) {
-        Intent intent = new Intent(this, PatientProfileActivity.class);
+    public void patientInfo(View view) {
+        Intent intent = new Intent(this, PatientInfoActivity.class);
         startActivity(intent);
     }
 
-    public void adminProfile(View view) {
-        Intent intent = new Intent(this, AdminProfileActivity.class);
+    public void adminInfo(View view) {
+        Intent intent = new Intent(this, AdminInfoActivity.class);
         startActivity(intent);
     }
 
-    public void clinicProfile(View view) {
-        Intent intent = new Intent(this, ClinicProfileActivity.class);
+    public void providerInfo(View view) {
+        Intent intent = new Intent(this, ProviderInfoActivity.class);
         startActivity(intent);
     }
 }
