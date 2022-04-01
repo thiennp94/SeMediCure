@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Semedicure">
         <activity
+            android:name=".RequestAppointmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".PatientPortalActivity"
             android:exported="false" />
         <activity
@@ -19,9 +22,6 @@
             android:exported="false" />
         <activity
             android:name=".SelectUserActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StringRequestActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
