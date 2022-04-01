@@ -168,28 +168,6 @@
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
 
-            <TableRow android:minHeight="150px">
-
-                <TextView
-                    android:id="@+id/textViewCity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="City:"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/txtCity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:hint="City"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="59dp" />
-            </TableRow>
-
             <Button
                     android:id="@+id/buttonUpdate"
                     android:layout_width="wrap_content"
