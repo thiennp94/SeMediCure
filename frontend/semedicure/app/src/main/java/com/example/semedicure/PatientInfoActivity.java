@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +23,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PatientProfileActivity extends AppCompatActivity {
+public class PatientInfoActivity extends AppCompatActivity {
 
     private TextView mTextViewPatientFName;
     private TextView mTextViewPatientMName;
@@ -45,7 +44,7 @@ public class PatientProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_patient_profile);
+        setContentView(R.layout.activity_patient_info);
 
         mTextViewPatientFName = findViewById(R.id.txtPatientFName);
         mTextViewPatientMName = findViewById(R.id.txtPatientMName);
@@ -165,12 +164,12 @@ public class PatientProfileActivity extends AppCompatActivity {
         StringRequest strRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(PatientProfileActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PatientInfoActivity.this, "Success!", Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(PatientProfileActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PatientInfoActivity.this, "Error", Toast.LENGTH_SHORT).show();
             }
 
         }) {

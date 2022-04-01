@@ -17,9 +17,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class AdminProfileActivity extends AppCompatActivity {
+public class ProviderInfoActivity extends AppCompatActivity {
 
-    private TextView mTextViewAdminName;
+    private TextView mTextViewClinicName;
     private TextView mTextViewPhone;
     private TextView mTextViewEmail;
     private TextView mTextViewAddr;
@@ -31,11 +31,11 @@ public class AdminProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_profile);
+        setContentView(R.layout.activity_provider_info);
 
-        mTextViewAdminName = findViewById(R.id.txtAdminName);
+        mTextViewClinicName = findViewById(R.id.txtClinicName);
         mTextViewPhone = findViewById(R.id.txtPhone);
-        mTextViewEmail = findViewById(R.id.txtAdminEmail);
+        mTextViewEmail = findViewById(R.id.txtClinicEmail);
         mTextViewAddr = findViewById(R.id.txtStAddr);
         mTextViewCity = findViewById(R.id.txtCity);
         mTextViewZip = findViewById(R.id.txtZip);
@@ -43,7 +43,7 @@ public class AdminProfileActivity extends AppCompatActivity {
         mQueue = Volley.newRequestQueue(this);
     }
 
-    public void AdminInfo(View view){
+    public void clinicInfo(View view){
         jsonParse();
     }
 
@@ -56,21 +56,21 @@ public class AdminProfileActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray jsonArray = response.getJSONArray("Admins");
+                            JSONArray jsonArray = response.getJSONArray("clinics");
 
                             for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject Admin = jsonArray.getJSONObject(i);
+                                JSONObject clinic = jsonArray.getJSONObject(i);
 
-                                String AdminName = Admin.getString("adminname");
-                                String phone = Admin.getString("phone");
-                                String email = Admin.getString("email");
-                                String dob = Admin.getString("dob");
-                                String address = Admin.getString("address");
-                                String city = Admin.getString("city");
-                                String state = Admin.getString("state");
-                                String zip = Admin.getString("zip");
+                                String clinicName = clinic.getString("clinicname");
+                                String phone = clinic.getString("phone");
+                                String email = clinic.getString("email");
+                                String dob = clinic.getString("dob");
+                                String address = clinic.getString("address");
+                                String city = clinic.getString("city");
+                                String state = clinic.getString("state");
+                                String zip = clinic.getString("zip");
 
-                                mTextViewAdminName.setText(AdminName);
+                                mTextViewClinicName.setText(clinicName);
                                 mTextViewPhone.setText(phone);
                                 mTextViewEmail.setText(email);
                                 mTextViewAddr.setText(address);
@@ -92,8 +92,8 @@ public class AdminProfileActivity extends AppCompatActivity {
         mQueue.add(request);
     }
 
-    public void clearAdminInfo(View view){
-        mTextViewAdminName.setText("");
+    public void clearClinicInfo(View view){
+        mTextViewClinicName.setText("");
         mTextViewPhone.setText("");
         mTextViewEmail.setText("");
         mTextViewAddr.setText("");
@@ -101,4 +101,5 @@ public class AdminProfileActivity extends AppCompatActivity {
         mTextViewZip.setText("");
         mTextViewState.setText("");
     }
+
 }

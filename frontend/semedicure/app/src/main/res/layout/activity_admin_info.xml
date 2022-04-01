@@ -4,27 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProviderProfileActivity">
+    tools:context=".AdminInfoActivity">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView1"
+        android:src="@drawable/bg1"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="408dp"
-        android:layout_height="48dp"
-        android:background="#000000"
-        android:foregroundTint="#870A0A"
-        android:text="CLINIC INFORMATION"
+        android:layout_width="360dp"
+        android:layout_height="56dp"
+        android:fontFamily="@font/amaranth"
+        android:text="Admin Information"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#76EBFA"
-        android:textSize="34sp"
-        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#22BCCF"
+        android:textSize="42dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="565dp"
+        android:layout_height="600dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -32,27 +40,27 @@
         <!--        android:fillViewport="true"-->
 
         <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:stretchColumns="10">
 
             <TableRow android:minHeight="150px">
 
                 <TextView
-                    android:id="@+id/textViewClinicName"
+                    android:id="@+id/textViewAdminName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:text="Clinic Name:"
+                    android:text="Admin Name:"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/txtClinicName"
+                    android:id="@+id/txtAdminName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Clinic Name"
+                    android:hint="Admin Name"
                     android:inputType="textPersonName"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
@@ -92,7 +100,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/txtClinicEmail"
+                    android:id="@+id/txtAdminEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -190,22 +198,21 @@
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
 
-           <TableRow android:minHeight="150px">
+            <Button
+                android:id="@+id/buttonCreate"
+                android:layout_width="221dp"
+                android:layout_height="46dp"
+                android:backgroundTint="@color/material_dynamic_primary50"
+                android:onClick="clinicInfo"
+                android:text="@string/button_create" />
 
-                <Button
-                    android:id="@+id/buttonUpdate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="clinicInfo"
-                    android:text="Create" />
-
-                <Button
-                    android:id="@+id/buttonClear"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="clearClinicInfo"
-                    android:text="Clear" />
-            </TableRow>
+            <Button
+                android:id="@+id/buttonClear"
+                android:layout_width="221dp"
+                android:layout_height="46dp"
+                android:backgroundTint="@color/material_dynamic_primary50"
+                android:onClick="clearAdminInfo"
+                android:text="@string/button_clear" />
 
         </TableLayout>
 

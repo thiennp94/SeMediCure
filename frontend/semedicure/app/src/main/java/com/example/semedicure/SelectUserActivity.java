@@ -15,17 +15,17 @@ public class SelectUserActivity extends AppCompatActivity {
     }
 
     public void patientProfile(View view) {
-        Intent intent = new Intent(this, PatientProfileActivity.class);
+        Intent intent = new Intent(this, PatientInfoActivity.class);
         startActivity(intent);
     }
 
     public void adminProfile(View view) {
-        Intent intent = new Intent(this, AdminProfileActivity.class);
+        Intent intent = new Intent(this, AdminInfoActivity.class);
         startActivity(intent);
     }
 
-    public void clinicProfile(View view) {
-        Intent intent = new Intent(this, ProviderProfileActivity.class);
+    public void providerProfile(View view) {
+        Intent intent = new Intent(this, ProviderInfoActivity.class);
         startActivity(intent);
     }
 }
