@@ -69,6 +69,9 @@ public class LoginActivity extends AppCompatActivity {
         else {
             Toast.makeText(LoginActivity.this, "Please enter a valid response", Toast.LENGTH_LONG).show();
         }
+
+//        Intent intent = new Intent(this, PatientPortalActivity.class);
+//        startActivity(intent);
     }
 
     public void forgotPassword(View view){
