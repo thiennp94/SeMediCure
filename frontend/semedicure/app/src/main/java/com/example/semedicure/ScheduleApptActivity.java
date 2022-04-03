@@ -2,6 +2,7 @@ package com.example.semedicure;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
@@ -24,18 +25,19 @@ public class ScheduleApptActivity extends AppCompatActivity {
         setContentView(R.layout.activity_schedule_appt);
 
         calendar = findViewById(R.id.calendarView);
-        timeButton = findViewById((R.id.button7));
+        timeButton = findViewById((R.id.button8));
     }
     public void selectTime(View view) {
         TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selHr, int selMin) {
                 hour = selHr;
-                minute = selMin; 
-                timeButton.setText(String.format(Locale.getDefault(), "%02d, %02d", selHr, selMin));
+                minute = selMin;
+                timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d", selHr, selMin));
             }
         };
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, false);
+        int style = AlertDialog.THEME_HOLO_LIGHT;
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, style, onTimeSetListener, hour, minute, false);
         timePickerDialog.show();
     }
 }

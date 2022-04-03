@@ -17,7 +17,7 @@
         <entry key="app/src/main/res/layout/activity_provider_profile.xml" value="0.5541666666666667" />
         <entry key="app/src/main/res/layout/activity_request_appointment.xml" value="0.5541666666666667" />
         <entry key="app/src/main/res/layout/activity_scan_qrcode.xml" value="0.5541666666666667" />
-        <entry key="app/src/main/res/layout/activity_schedule_appt.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/activity_schedule_appt.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_select_user.xml" value="0.5541666666666667" />
         <entry key="app/src/main/res/layout/activity_string_request.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.26" />
