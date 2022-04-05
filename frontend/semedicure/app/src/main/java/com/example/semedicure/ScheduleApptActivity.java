@@ -1,5 +1,6 @@
 package com.example.semedicure;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -18,7 +19,9 @@ public class ScheduleApptActivity extends AppCompatActivity implements TimePicke
 
     private static final String TAG = "tag";
     private CalendarView calendar;
-    private long selectedDate;
+    private int selYear;
+    private int selMonth;
+    private int selDay;
     private Button timeButton;
 
     @Override
@@ -28,6 +31,15 @@ public class ScheduleApptActivity extends AppCompatActivity implements TimePicke
 
         calendar = findViewById(R.id.calendarView);
         timeButton = findViewById(R.id.button8);
+
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
+                selYear = year;
+                selMonth = month;
+                selDay = day;
+            }
+        });
     }
     public void selectTime(View view) {
         SelectTimeDialogFragment dialog = new SelectTimeDialogFragment();
