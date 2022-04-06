@@ -36,7 +36,7 @@ public class ScheduleApptActivity extends AppCompatActivity implements TimePicke
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
                 selYear = year;
-                selMonth = month;
+                selMonth = month + 1;
                 selDay = day;
             }
         });

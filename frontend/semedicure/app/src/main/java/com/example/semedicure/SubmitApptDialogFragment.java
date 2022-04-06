@@ -14,7 +14,7 @@ public class SubmitApptDialogFragment extends DialogFragment {
         Bundle bundle = getArguments();
         String selDate = bundle.getString("APPTDATE", "");
         builder.setTitle("Submit Appointment")
-                .setMessage("You have set and appointment for " + selDate + ", is this correct?")
+                .setMessage("You have set an appointment for " + selDate + ", is this correct?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
