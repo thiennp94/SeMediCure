@@ -1,7 +1,7 @@
 package coms309.demo2.controller;
 
-import coms309.demo2.model.NewPatient;
-import coms309.demo2.repository.NewPatientRepository;
+import coms309.demo2.model.Patient;
+import coms309.demo2.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class NewDoctorControllers {
+public class DoctorControllers {
 
     @Autowired
-    NewPatientRepository newPatientRepository;
+    PatientRepository newPatientRepository;
 
     @GetMapping("/login/provider/id?")
-    List<NewPatient> GetAllNewPatient(){
+    List<Patient> GetAllNewPatient(){
         return newPatientRepository.findAll();
     }
 
     @PostMapping("/login/post/provider")
-    NewPatient PostNewPatientByPath(@RequestBody NewPatient newNewPatient){
+    Patient PostNewPatientByPath(@RequestBody Patient newNewPatient){
         newPatientRepository.save(newNewPatient);
         return newNewPatient;
     }

@@ -3,7 +3,7 @@ package coms309.demo2.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "patientTest")
+@Table(name = "admin")
 public class Admin {
 
     public Admin() {
@@ -153,5 +153,22 @@ public class Admin {
         this.password = password;
     }
 
-
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", ssn='" + ssn + '\'' +
+                ", streetAddress='" + streetAddress + '\'' +
+                ", city='" + city + '\'' +
+                ", zip='" + zip + '\'' +
+                ", stateInitials='" + stateInitials + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

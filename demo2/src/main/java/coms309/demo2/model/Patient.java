@@ -3,10 +3,10 @@ package coms309.demo2.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "patientTest")
-public class NewPatient {
+@Table(name = "patient")
+public class Patient {
 
-    public NewPatient() {
+    public Patient() {
     }
 
     @Id
