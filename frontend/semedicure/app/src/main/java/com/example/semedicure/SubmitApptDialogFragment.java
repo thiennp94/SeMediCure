@@ -11,8 +11,10 @@ public class SubmitApptDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog (Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        Bundle bundle = getArguments();
+        String selDate = bundle.getString("APPTDATE", "");
         builder.setTitle("Submit Appointment")
-                .setMessage("Are you sure you want to submit a request for this appointment?")
+                .setMessage("You have set and appointment for " + selDate + ", is this correct?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

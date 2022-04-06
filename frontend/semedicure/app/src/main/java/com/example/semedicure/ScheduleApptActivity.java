@@ -47,6 +47,9 @@ public class ScheduleApptActivity extends AppCompatActivity implements TimePicke
     }
     public void submitAppointment(View view) {
         SubmitApptDialogFragment dialog = new SubmitApptDialogFragment();
+        Bundle dateBundle = new Bundle();
+        dateBundle.putString("APPTDATE", selMonth + "/" + selDay + "/" + selYear);
+        dialog.setArguments(dateBundle);
         dialog.show(getSupportFragmentManager(), "submit dialog");
     }
     @Override
