@@ -3,12 +3,12 @@ package coms309.demo2.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "admin")
-public class Admin {
+@Table(name = "patient")
+public class Patient {
 
-    public Admin() {
+    public Patient() {
     }
-// not done, need to set up DB and then modify this
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -45,6 +45,15 @@ public class Admin {
 
     @Column(nullable = false, length = 2)
     private String stateInitials;
+
+    @Column(nullable = true, length = 20)
+    private String insurersName;
+
+    @Column(nullable = true, length = 20)
+    private String policyHolder;
+
+    @Column(nullable = true, length = 20)
+    private String groupNumber;
 
     @Column(nullable = false, length = 64)
     private String password;
@@ -145,6 +154,30 @@ public class Admin {
         this.stateInitials = stateInitials;
     }
 
+    public String getInsurersName() {
+        return insurersName;
+    }
+
+    public void setInsurersName(String insurersName) {
+        this.insurersName = insurersName;
+    }
+
+    public String getPolicyHolder() {
+        return policyHolder;
+    }
+
+    public void setPolicyHolder(String policyHolder) {
+        this.policyHolder = policyHolder;
+    }
+
+    public String getGroupNumber() {
+        return groupNumber;
+    }
+
+    public void setGroupNumber(String groupNumber) {
+        this.groupNumber = groupNumber;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -153,22 +186,5 @@ public class Admin {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "Admin{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", ssn='" + ssn + '\'' +
-                ", streetAddress='" + streetAddress + '\'' +
-                ", city='" + city + '\'' +
-                ", zip='" + zip + '\'' +
-                ", stateInitials='" + stateInitials + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
+
 }
