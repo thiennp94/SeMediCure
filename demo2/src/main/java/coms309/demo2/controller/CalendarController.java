@@ -13,12 +13,12 @@ public class CalendarController {
     @Autowired
     CalendarRepository calendarRepository;
 
-    @GetMapping("/login/new/patient/")
+    @GetMapping("/visits")
     List<CalendarEvent> GetAllNewPatient(){
         return calendarRepository.findAll();
     }
 
-    @PostMapping("/login/post/new/patient")
+    @PostMapping("/visits")
     CalendarEvent PostAdminByPath(@RequestBody CalendarEvent newEvent){
         calendarRepository.save(newEvent);
         return newEvent;

@@ -4,6 +4,7 @@ import javax.persistence.*;
 @Table(name="visits")
 public class CalendarEvent 
 {
+	@Id
 	@Column(nullable=false, length = 20)
 	private String docName; // only last needed
 	
