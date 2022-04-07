@@ -24,6 +24,12 @@ public class SubmitApptDialogFragment extends DialogFragment {
                         Toast.makeText(getActivity(), "Appointment Successfully Scheduled", Toast.LENGTH_LONG).show();
                         startActivity(intent);
                     }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
                 });
         return builder.create();
     }
