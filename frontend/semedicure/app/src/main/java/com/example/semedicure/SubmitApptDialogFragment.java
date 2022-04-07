@@ -21,7 +21,7 @@ public class SubmitApptDialogFragment extends DialogFragment {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(getActivity(), "Appointment Successfully Scheduled", Toast.LENGTH_LONG);
+                        Toast.makeText(getActivity(), "Appointment Successfully Scheduled", Toast.LENGTH_LONG).show();
                         startActivity(intent);
                     }
                 });
