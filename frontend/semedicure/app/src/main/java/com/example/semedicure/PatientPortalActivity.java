@@ -15,12 +15,12 @@ public class PatientPortalActivity extends AppCompatActivity {
     }
 
     public void requestAppointment(View view) {
-        Intent intent = new Intent(this, RequestAppointmentActivity.class);
+        Intent intent = new Intent(this, ScheduleApptActivity.class);
         startActivity(intent);
     }
 
     public void scanQRCode(View view) {
-        Intent intent = new Intent(this, RequestAppointmentActivity.class);
+        Intent intent = new Intent(this, ScheduleApptActivity.class);
         startActivity(intent);
     }
 
