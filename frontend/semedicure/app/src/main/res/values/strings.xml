@@ -18,4 +18,7 @@
     <string name="button_profile">Personal Information</string>
     <string name="button_currMed">Current Medications</string>
     <string name="button_apptHist">Appointment History</string>
+    <string name="button_findPatient">Find Patient</string>
+    <string name="button_orderPres">Order Prescription</string>
+    <string name="button_updateProfile">View/Update Profile</string>
 </resources>
