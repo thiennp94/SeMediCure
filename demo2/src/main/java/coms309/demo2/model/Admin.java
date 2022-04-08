@@ -3,7 +3,7 @@ package coms309.demo2.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "patientTest")
+@Table(name = "admins")
 public class Admin {
 
     public Admin() {
