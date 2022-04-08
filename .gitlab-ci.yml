@@ -4,6 +4,7 @@ stages:
   - maventest
   - androidtry
   - androidtest
+  - mavendeploy
 
 maven-build:   #this is a JOB
   stage: maventry
@@ -48,4 +49,17 @@ android-test:
   script:
     - cd frontend/semedicure
     - ./gradlew test
+    
+# Below job builds, deploys, executes jar as service.
+autoDeploy:
+  stage: mavendeploy  #do make a stage with same name!
+  tags:
+   - springboot_tag
+  script:
+    - cd demo2
+    - mvn package
+    - sudo mv target/*.jar /target/web-demo.jar 
+    - sudo systemctl stop system-web-demo
+    - sudo systemctl start system-web-demo
+
 
