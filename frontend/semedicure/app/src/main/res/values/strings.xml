@@ -21,4 +21,6 @@
     <string name="button_findPatient">Find Patient</string>
     <string name="button_orderPres">Order Prescription</string>
     <string name="button_updateProfile">View/Update Profile</string>
+    <string name="button_find">Find</string>
+    <string name="button_orderNow">Order Now</string>
 </resources>
