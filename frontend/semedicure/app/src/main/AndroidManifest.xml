@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Semedicure">
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".OrderPrescriptionActivity"
             android:exported="false" />
         <activity
