@@ -32,7 +32,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="550dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -202,7 +202,7 @@
                 android:id="@+id/buttonUpdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/material_dynamic_primary50"
+                android:backgroundTint="@android:color/holo_blue_dark"
                 android:onClick="sendProviderInfo"
                 android:text="@string/button_create" />
 
@@ -210,7 +210,7 @@
                 android:id="@+id/buttonClear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/material_dynamic_primary50"
+                android:backgroundTint="@android:color/holo_blue_dark"
                 android:onClick="clearProviderInfo"
                 android:text="@string/button_clear" />
 

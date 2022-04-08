@@ -55,7 +55,7 @@
         android:layout_height="46dp"
         android:onClick="login"
         android:text="@string/button_resetpass"
-        android:backgroundTint="@color/material_dynamic_primary50"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

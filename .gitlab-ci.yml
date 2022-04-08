@@ -12,7 +12,7 @@ maven-build:   #this is a JOB
     - mvn package
 
 android-build: #this is another job
-  image: javiersantos/android-ci:latest      # this is a directive to DOCKER
+  image: gjandres/android-ci:latest      # this is a directive to DOCKER
   stage: androidtry
   tags:
    - android_tag         #this is LINK to the docker runner on the remote-server        

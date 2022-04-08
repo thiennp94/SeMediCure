@@ -1,6 +1,7 @@
 package com.example.semedicure;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.View;
@@ -37,6 +38,11 @@ public class AppointmentHistoryActivity extends AppCompatActivity {
         appointment1 = (TextView) findViewById(R.id.textView12);
         appointment2 = (TextView) findViewById(R.id.textView14);
         appointment3 = (TextView) findViewById(R.id.textView16);
+    }
+
+    public void appointmentDetails(View view) {
+        ApptHistoryDialogFragment dialog = new ApptHistoryDialogFragment();
+        dialog.show(getSupportFragmentManager(), "details dialog");
     }
 
     public void fetchAppointments(View view) {

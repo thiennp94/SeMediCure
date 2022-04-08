@@ -3,10 +3,10 @@ package coms309.demo2.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "patientTest")
-public class NewPatient {
+@Table(name = "doctor")
+public class Doctor {
 
-    public NewPatient() {
+    public Doctor() {
     }
 
     @Id
@@ -28,6 +28,54 @@ public class NewPatient {
     @Column(nullable = false, unique = true, length = 55)
     private String emailAddress;
 
+    //NPI = national provider id
+    @Column(nullable = false, unique = true, length = 20)
+    private String npi;
+
+    //DEA number
+    @Column(nullable = false, unique = true, length = 20)
+    private String dea;
+
+    //professional license number
+    @Column(nullable = false, unique = true, length = 20)
+    private String licenseNum;
+
+    //state controlled substance number
+    @Column(nullable = false, unique = true, length = 20)
+    private String stateControlledSubstrance;
+
+    public String getNpi() {
+        return npi;
+    }
+
+    public void setNpi(String npi) {
+        this.npi = npi;
+    }
+
+    public String getDea() {
+        return dea;
+    }
+
+    public void setDea(String dea) {
+        this.dea = dea;
+    }
+
+    public String getLicenseNum() {
+        return licenseNum;
+    }
+
+    public void setLicenseNum(String licenseNum) {
+        this.licenseNum = licenseNum;
+    }
+
+    public String getStateControlledSubstrance() {
+        return stateControlledSubstrance;
+    }
+
+    public void setStateControlledSubstrance(String stateControlledSubstrance) {
+        this.stateControlledSubstrance = stateControlledSubstrance;
+    }
+
     @Column(nullable = false, length = 20)
     private String dateOfBirth;
 
@@ -45,15 +93,6 @@ public class NewPatient {
 
     @Column(nullable = false, length = 2)
     private String stateInitials;
-
-    @Column(nullable = true, length = 20)
-    private String insurersName;
-
-    @Column(nullable = true, length = 20)
-    private String policyHolder;
-
-    @Column(nullable = true, length = 20)
-    private String groupNumber;
 
     @Column(nullable = false, length = 64)
     private String password;
@@ -154,30 +193,6 @@ public class NewPatient {
         this.stateInitials = stateInitials;
     }
 
-    public String getInsurersName() {
-        return insurersName;
-    }
-
-    public void setInsurersName(String insurersName) {
-        this.insurersName = insurersName;
-    }
-
-    public String getPolicyHolder() {
-        return policyHolder;
-    }
-
-    public void setPolicyHolder(String policyHolder) {
-        this.policyHolder = policyHolder;
-    }
-
-    public String getGroupNumber() {
-        return groupNumber;
-    }
-
-    public void setGroupNumber(String groupNumber) {
-        this.groupNumber = groupNumber;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -185,6 +200,5 @@ public class NewPatient {
     public void setPassword(String password) {
         this.password = password;
     }
-
 
 }
