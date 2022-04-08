@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Semedicure">
         <activity
+            android:name=".CheckInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ApproveApptActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdminPortalActivity"
             android:exported="false" />
         <activity
