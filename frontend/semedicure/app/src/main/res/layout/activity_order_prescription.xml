@@ -6,4 +6,136 @@
     android:layout_height="match_parent"
     tools:context=".OrderPrescriptionActivity">
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg1"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="336dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/amaranth"
+        android:text="Order Presciption"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#22BCCF"
+        android:textSize="42dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtClinicName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Pharmacy Name"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="182dp" />
+
+    <EditText
+        android:id="@+id/txtClinicName2"
+        android:layout_width="330dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:hint="Street address"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="320dp" />
+
+    <EditText
+        android:id="@+id/txtClinicName3"
+        android:layout_width="207dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:hint="City"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/txtClinicName4"
+        app:layout_constraintTop_toBottomOf="@+id/txtClinicName2" />
+
+    <EditText
+        android:id="@+id/txtClinicName6"
+        android:layout_width="207dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Phone number"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/txtClinicName5"
+        app:layout_constraintTop_toBottomOf="@+id/txtClinicName3" />
+
+    <EditText
+        android:id="@+id/txtClinicName4"
+        android:layout_width="108dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="State"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/txtClinicName2"
+        tools:layout_editor_absoluteX="263dp" />
+
+    <EditText
+        android:id="@+id/txtClinicName5"
+        android:layout_width="108dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Zip code"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/txtClinicName4"
+        tools:layout_editor_absoluteX="265dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Pharmacy:"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="158dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="250dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Pharmacy Information:"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="296dp" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="195dp"
+        android:layout_height="46dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:text="@string/button_orderNow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="525dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

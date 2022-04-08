@@ -6,4 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".FindPatientActivity">
 
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView1"
+        android:src="@drawable/bg1"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="336dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/amaranth"
+        android:text="Find Patient"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#22BCCF"
+        android:textSize="42dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtClinicName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="dd/mm/yy"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="182dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Date of Birth:"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="158dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Patient:"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="253dp" />
+
+    <ScrollView
+        android:layout_width="337dp"
+        android:layout_height="360dp"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="286dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="111dp"
+        android:layout_height="44dp"
+        android:text="@string/button_find"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        tools:layout_editor_absoluteX="262dp"
+        tools:layout_editor_absoluteY="182dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
