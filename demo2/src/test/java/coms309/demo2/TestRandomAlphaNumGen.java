@@ -1,16 +1,12 @@
 package coms309.demo2;
 
-import org.apache.commons.lang3.RandomStringUtils;
+import coms309.demo2.authToken.RandomAlphaNum;
 
 public class TestRandomAlphaNumGen {
 
-    public static void createRandomAlphaNum(){
-        String generatedString = RandomStringUtils.randomAlphanumeric(6);
-        System.out.println(generatedString);
-    }
-
     public static void main(String[] args) {
-        createRandomAlphaNum();
+        RandomAlphaNum test = new RandomAlphaNum();
+        test.createRandomAlphaNum();
     }
 
 }

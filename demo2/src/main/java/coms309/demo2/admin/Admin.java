@@ -1,4 +1,4 @@
-package coms309.demo2.model;
+package coms309.demo2.admin;
 
 import javax.persistence.*;
 

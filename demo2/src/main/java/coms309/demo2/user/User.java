@@ -1,61 +1,62 @@
-package coms309.demo2.model;
+package coms309.demo2.user;
 
 import javax.persistence.*;
+import java.time.LocalTime;
 
 @Entity
-@Table(name = "user")
+@Table(name = "auth")
 public class User {
 
-    public User() {
-    }
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String first;
 
     @Column(nullable = true, length = 20)
     private String middle;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String last;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String phone;
 
-    @Column(nullable = false, unique = true, length = 55)
+    @Column(nullable = true, length = 20)
     private String email;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String dob;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String type;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String user;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String pass;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String street;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String city;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String zip;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String state;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String ssn;
 
-    public User(long id, String first, String middle, String last, String phone, String email, String dob, String type, String user, String pass, String street, String city, String zip, String state, String ssn) {
+    public User() {
+    }
+
+    public User(Long id, String first, String middle, String last, String phone, String email, String dob, String type, String user, String pass, String street, String city, String zip, String state, String ssn) {
         this.id = id;
         this.first = first;
         this.middle = middle;
@@ -90,11 +91,11 @@ public class User {
         this.ssn = ssn;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
