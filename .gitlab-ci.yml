@@ -1,6 +1,7 @@
 # Example  .gitlab-ci.yml file
 stages:
   - maventry
+  - maventest
   - androidtry
   - androidtest
 
@@ -11,6 +12,18 @@ maven-build:   #this is a JOB
   script:
     - cd demo2
     - mvn package
+
+maven-test:
+  stage: maventest
+  tags:
+    - springboot_tag
+  script:
+    - cd demo2
+    - mvn test
+  artifacts:
+    paths:
+      - demo2/target/*.jar
+
     
 android-build: #this is another job
   image: gjandres/android-ci:latest      # this is a directive to DOCKER
