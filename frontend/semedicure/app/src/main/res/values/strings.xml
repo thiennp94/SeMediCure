@@ -18,7 +18,9 @@
     <string name="button_profile">Personal Information</string>
     <string name="button_currMed">Current Medications</string>
     <string name="button_apptHist">Appointment History</string>
-	<!-- TODO: Remove or change this placeholder text -->
+    <string name="button_checkIn">Check in Patient</string>
+    <string name="button_approveAppt">Approve Appt Request</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="button_findPatient">Find Patient</string>
     <string name="button_orderPres">Order Prescription</string>
