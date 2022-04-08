@@ -1,7 +1,6 @@
-package coms309.demo2.AuthToken;
+package coms309.demo2.authToken;
 
 import org.apache.commons.lang3.time.StopWatch;
-import java.lang.Object;
 
 public class Timer {
 

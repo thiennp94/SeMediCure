@@ -1,4 +1,4 @@
-package coms309.demo2.AuthToken;
+package coms309.demo2.authToken;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -9,6 +9,5 @@ public class RandomAlphaNum {
 
         System.out.println(generatedString);
     }
-
 
 }

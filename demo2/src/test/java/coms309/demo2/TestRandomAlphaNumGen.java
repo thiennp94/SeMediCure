@@ -1,7 +1,6 @@
 package coms309.demo2;
 
-import coms309.demo2.AuthToken.RandomAlphaNum;
-import org.apache.commons.lang3.RandomStringUtils;
+import coms309.demo2.authToken.RandomAlphaNum;
 
 public class TestRandomAlphaNumGen {
 

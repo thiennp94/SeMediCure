@@ -1,4 +1,4 @@
-package coms309.demo2.controller;
+package coms309.demo2.hello;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

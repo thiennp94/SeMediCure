@@ -1,9 +1,5 @@
-package coms309.demo2.AuthToken;
+package coms309.demo2.authToken;
 
-
-import java.lang.String;
-import coms309.demo2.AuthToken.RandomAlphaNum;
-import coms309.demo2.AuthToken.Timer;
 
 /*  This class will start the timer on a countdown create the authentication code,
     store it in the patient database and then when the timer ends repeat the process.
