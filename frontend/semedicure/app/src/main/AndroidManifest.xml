@@ -12,7 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Semedicure">
         <activity
-            android:name=".MainActivity"
+            android:name=".OrderPrescriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FindPatientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProviderPortalActivity"
             android:exported="false" />
         <activity
             android:name=".PatientProfileActivity"
