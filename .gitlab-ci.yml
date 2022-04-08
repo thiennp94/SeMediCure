@@ -10,7 +10,7 @@ maven-build:   #this is a JOB
   script:
     - cd demo2
     - mvn package
-
+    
 android-build: #this is another job
   image: gjandres/android-ci:latest      # this is a directive to DOCKER
   stage: androidtry
@@ -22,4 +22,16 @@ android-build: #this is another job
   script:
     - cd frontend/semedicure
     - ./gradlew assemble
+
+android-test:
+  image: gjandres/android-ci:latest
+  stage: androidtest
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+    - chmod +x ./frontend/semedicure/gradlew
+  tags:
+   - android_tag
+  script:
+    - cd frontend/semedicure
+    - ./gradlew test
 
