@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -70,8 +71,11 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(LoginActivity.this, "Please enter a valid response", Toast.LENGTH_LONG).show();
         }
 
-//        Intent intent = new Intent(this, PatientPortalActivity.class);
-//        startActivity(intent);
+        if(email.getText().toString().equals("patient1") && password.getText().toString().equals("patient1")) {
+            Log.i("TAG", email.getText().toString());
+            Intent intent = new Intent(this, PatientPortalActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void forgotPassword(View view){
