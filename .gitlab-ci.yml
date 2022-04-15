@@ -1,7 +1,10 @@
 # Example  .gitlab-ci.yml file
 stages:
   - maventry
+  - maventest
   - androidtry
+  - androidtest
+  - mavendeploy
 
 maven-build:   #this is a JOB
   stage: maventry
@@ -11,6 +14,18 @@ maven-build:   #this is a JOB
     - cd demo2
     - mvn package
 
+maven-test:
+  stage: maventest
+  tags:
+    - springboot_tag
+  script:
+    - cd demo2
+    - mvn test
+  artifacts:
+    paths:
+      - demo2/target/*.jar
+
+    
 android-build: #this is another job
   image: gjandres/android-ci:latest      # this is a directive to DOCKER
   stage: androidtry
@@ -22,4 +37,29 @@ android-build: #this is another job
   script:
     - cd frontend/semedicure
     - ./gradlew assemble
+
+android-test:
+  image: gjandres/android-ci:latest
+  stage: androidtest
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+    - chmod +x ./frontend/semedicure/gradlew
+  tags:
+   - android_tag
+  script:
+    - cd frontend/semedicure
+    - ./gradlew test
+    
+# Below job builds, deploys, executes jar as service.
+autoDeploy:
+  stage: mavendeploy  #do make a stage with same name!
+  tags:
+   - springboot_tag
+  script:
+    - cd demo2
+    - mvn package
+    - sudo mv target/*.jar /target/web-demo.jar 
+    - sudo systemctl stop system-web-demo
+    - sudo systemctl start system-web-demo
+
 

@@ -1,8 +1,6 @@
 package coms309.demo2;
 
-import coms309.demo2.AuthToken.AuthCode;
-import coms309.demo2.AuthToken.Timer;
-import org.apache.commons.lang3.time.StopWatch;
+import coms309.demo2.authToken.Timer;
 
 public class CountdownTimerTest {
 

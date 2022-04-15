@@ -15,6 +15,15 @@
             android:name=".ScheduleApptActivity"
             android:exported="false" />
         <activity
+            android:name=".OrderPrescriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FindPatientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProviderPortalActivity"
+            android:exported="false" />
+        <activity
             android:name=".PatientProfileActivity"
             android:exported="false" />
         <activity
