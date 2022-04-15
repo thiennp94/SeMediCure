@@ -9,7 +9,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
+/**
+ * Acts as the view that for the confirmation dialog.
+ */
 public class SubmitApptDialogFragment extends DialogFragment {
+    /**
+     * Builds the confirmation dialog.
+     * @param savedInstanceState The UI state data.
+     * @return The generated dialog.
+     */
     @Override
     public Dialog onCreateDialog (Bundle savedInstanceState) {
         Intent intent = new Intent(getActivity(), PatientPortalActivity.class);
