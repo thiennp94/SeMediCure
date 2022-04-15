@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 
+/**
+ * Acts as the view for the forgot password screen.
+ */
 public class ForgotPassActivity extends AppCompatActivity {
 
     @Override
