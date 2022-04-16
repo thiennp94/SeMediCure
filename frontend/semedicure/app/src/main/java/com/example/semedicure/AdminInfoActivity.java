@@ -17,6 +17,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * The admin information activity of the app.
+ * The entry point/welcome screen > Login > Admin Portal > Admin Info
+ */
 public class AdminInfoActivity extends AppCompatActivity {
 
     private TextView mTextViewAdminName;
@@ -92,6 +96,10 @@ public class AdminInfoActivity extends AppCompatActivity {
         mQueue.add(request);
     }
 
+    /**
+     * Clear all the data user input on admin info screen.
+     * @param view
+     */
     public void clearAdminInfo(View view){
         mTextViewAdminName.setText("");
         mTextViewPhone.setText("");
