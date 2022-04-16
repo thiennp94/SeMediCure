@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 /**
  * The check-in activity of the app.
- * The entry point/welcome screen > Login > Admin Portal > Check-in
+ * The entry point/welcome screen > Login > Provider Portal > Check-in
  */
 public class CheckInActivity extends AppCompatActivity {
 

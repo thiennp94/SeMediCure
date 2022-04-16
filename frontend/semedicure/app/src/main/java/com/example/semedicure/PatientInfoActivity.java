@@ -23,6 +23,10 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The patient information activity of the app.
+ * The entry point/welcome screen > Login > Patient Portal > Patient Info
+ */
 public class PatientInfoActivity extends AppCompatActivity {
 
     private TextView mTextViewPatientFName;
@@ -139,6 +143,10 @@ public class PatientInfoActivity extends AppCompatActivity {
         mQueue.add(request);
     }
 
+    /**
+     * Clear all the data user input on patient info screen.
+     * @param view
+     */
     public void clearPatientInfo(View view){
         mTextViewPatientFName.setText("");
         mTextViewPatientMName.setText("");
