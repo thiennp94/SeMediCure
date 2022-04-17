@@ -17,6 +17,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * The patient profile activity of the app.
+ * The entry point/welcome screen > Login > Provider Portal > Provider Info
+ */
 public class ProviderInfoActivity extends AppCompatActivity {
 
     private TextView mTextViewClinicName;
@@ -92,6 +96,10 @@ public class ProviderInfoActivity extends AppCompatActivity {
         mQueue.add(request);
     }
 
+    /**
+     * Clear all the data user input on provider info screen.
+     * @param view
+     */
     public void clearClinicInfo(View view){
         mTextViewClinicName.setText("");
         mTextViewPhone.setText("");
