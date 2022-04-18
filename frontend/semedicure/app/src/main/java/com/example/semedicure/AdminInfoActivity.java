@@ -51,6 +51,9 @@ public class AdminInfoActivity extends AppCompatActivity {
         jsonParse();
     }
 
+    /**
+     * Parse JSON object data into screen fields.
+     */
     private void jsonParse() {
 
         String url = "https://4c1cb4dc-453e-425d-a7bb-82fec8d336d0.mock.pstmn.io/clients/";
