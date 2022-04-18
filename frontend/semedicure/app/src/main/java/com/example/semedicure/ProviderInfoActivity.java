@@ -17,6 +17,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * The patient profile activity of the app.
+ * The entry point/welcome screen > Login > Provider Portal > Provider Info
+ */
 public class ProviderInfoActivity extends AppCompatActivity {
 
     private TextView mTextViewClinicName;
@@ -47,6 +51,9 @@ public class ProviderInfoActivity extends AppCompatActivity {
         jsonParse();
     }
 
+    /**
+     * Parse JSON object data into screen fields.
+     */
     private void jsonParse() {
 
         String url = "https://4c1cb4dc-453e-425d-a7bb-82fec8d336d0.mock.pstmn.io/clients/";
@@ -92,6 +99,10 @@ public class ProviderInfoActivity extends AppCompatActivity {
         mQueue.add(request);
     }
 
+    /**
+     * Clear all the data user input on provider info screen.
+     * @param view
+     */
     public void clearClinicInfo(View view){
         mTextViewClinicName.setText("");
         mTextViewPhone.setText("");
