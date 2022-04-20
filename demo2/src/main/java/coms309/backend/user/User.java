@@ -12,10 +12,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String email;
-    private String password;
     private String name;
     private String dob;
+    private String email;
+    private String password;
+    private String userType;
+
 
     public User() {
     }
@@ -59,4 +61,13 @@ public class User {
     public void setDob(String dob) {
         this.dob = dob;
     }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
 }
