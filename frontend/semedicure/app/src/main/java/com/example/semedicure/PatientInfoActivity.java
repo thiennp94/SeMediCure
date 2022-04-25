@@ -22,12 +22,32 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * The patient information activity of the app.
  * The entry point/welcome screen > Login > Patient Portal > Patient Info
  */
 public class PatientInfoActivity extends AppCompatActivity {
+
+    private static final String EMAIL_PATTERN =
+            "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+    private static final String PHONE_PATTERN = "^\\d{10}$";
+    private static final String ADDR_PATTERN = "^\\d.{0,4}?\\s\\w+$";
+    private static final String ZIP_PATTERN = "^\\d{5}$";
+    private static final String STATE_PATTERN = "^\\[A-Za-z]{2}$";
+    private static final String SSN_PATTERN = "^\\d{10}$";
+
+    //TODO
+    // DOB, PolicyNumber, GroupNum format
+
+    private static final Pattern emailPattern = Pattern.compile(EMAIL_PATTERN);
+    private static final Pattern phonePattern = Pattern.compile(PHONE_PATTERN);
+    private static final Pattern addrPattern = Pattern.compile(ADDR_PATTERN);
+    private static final Pattern zipPattern = Pattern.compile(ZIP_PATTERN);
+    private static final Pattern statePattern = Pattern.compile(STATE_PATTERN);
+    private static final Pattern ssnPattern = Pattern.compile(SSN_PATTERN);
 
     private TextView mTextViewPatientFName;
     private TextView mTextViewPatientMName;
@@ -81,7 +101,92 @@ public class PatientInfoActivity extends AppCompatActivity {
     }
 
     public void sendPatientInfo(View view){
-        sendString();
+        if(CheckAllFields())
+            sendString();
+    }
+
+    /**
+     * Validate all user inputs.
+     */
+    private boolean CheckAllFields() {
+        if (mTextViewPatientFName.length() == 0) {
+            mTextViewPatientFName.setError("This field is required");
+            return false;
+        }
+
+        if (mTextViewPatientLName.length() == 0) {
+            mTextViewPatientLName.setError("This field is required");
+            return false;
+        }
+
+        if (mTextViewDOB.length() == 0) {
+            mTextViewDOB.setError("This field is required");
+            return false;
+        }
+
+        if (mTextViewSSN.length() == 0) {
+            mTextViewSSN.setError("This field is required");
+            return false;
+        }
+
+        if (mTextViewInsurer.length() == 0) {
+            mTextViewInsurer.setError("This field is required");
+            return false;
+        }
+
+        if (mTextViewPolicyHolder.length() == 0) {
+            mTextViewPolicyHolder.setError("This field is required");
+            return false;
+        }
+
+        if (mTextViewGroupNum.length() == 0) {
+            mTextViewGroupNum.setError("This field is required");
+            return false;
+        }
+
+        if (mTextViewPhone.length() == 0) {
+            mTextViewPhone.setError("This field is required");
+            return false;
+        }
+
+        if (mTextViewEmail.length() == 0) {
+            mTextViewEmail.setError("Email is required");
+            return false;
+        }
+
+        if (mTextViewAddr.length() == 0) {
+            mTextViewAddr.setError("Email is required");
+            return false;
+        }
+
+        if (mTextViewCity.length() == 0) {
+            mTextViewCity.setError("Email is required");
+            return false;
+        }
+
+        if (mTextViewZip.length() == 0) {
+            mTextViewZip.setError("Email is required");
+            return false;
+        }
+
+        if (mTextViewState.length() == 0) {
+            mTextViewState.setError("Email is required");
+            return false;
+        }
+
+        Matcher emailMatcher = emailPattern.matcher(mTextViewEmail.toString());
+        Matcher phoneMatcher = phonePattern.matcher(mTextViewPhone.toString());
+        Matcher addrMatcher = addrPattern.matcher(mTextViewAddr.toString());
+        Matcher zipMatcher = zipPattern.matcher(mTextViewZip.toString());
+        Matcher stateMatcher = statePattern.matcher(mTextViewState.toString());
+        Matcher ssnMatcher = ssnPattern.matcher(mTextViewSSN.toString());
+
+        if (emailMatcher.matches() && phoneMatcher.matches() && addrMatcher.matches()
+                && zipMatcher.matches() && stateMatcher.matches() && ssnMatcher.matches()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // GET
