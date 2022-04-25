@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        spinner.setPrompt("Select a User");
     }
 
     /**
@@ -123,7 +124,17 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        user = adapterView.getItemAtPosition(i).toString();
+        switch(i) {
+            case 0:
+                user = "patients";
+                break;
+            case 1:
+                user = "doctors";
+                break;
+            case 2:
+                user = "admins";
+                break;
+        }
     }
 
     @Override
