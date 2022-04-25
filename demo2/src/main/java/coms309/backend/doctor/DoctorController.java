@@ -1,4 +1,4 @@
-//package coms309.backend.Patients;
+//package coms309.backend.Doctors;
 //
 //import java.util.List;
 //
@@ -12,8 +12,8 @@
 //import org.springframework.web.bind.annotation.RequestBody;
 //import org.springframework.web.bind.annotation.RestController;
 //
-//import coms309.backend.Patients.Patients;
-//import coms309.backend.Patients.PatientsRepository;
+//import coms309.backend.Doctors.Doctors;
+//import coms309.backend.Doctors.DoctorsRepository;
 //
 ///**
 // * 
@@ -22,76 +22,77 @@
 // */ 
 //
 //@RestController
-//public class PatientsController {
+//public class DoctorsController {
 //
 //    @Autowired
-//    PatientsRepository patientsRepository;
+//    DoctorsRepository doctorsRepository;
 //    
 //    private String success = "{\"message\":\"success\"}";
 //    private String failure = "{\"message\":\"failure\"}";
 //
-//    @GetMapping(path = "/patients")
-//    List<Patients> getAllAdmins(){
-//        return patientsRepository.findAll();
+//    @GetMapping(path = "/doctors")
+//    List<Doctors> getAllDoctors(){
+//        return doctorsRepository.findAll();
 //    }
 //
-//    @GetMapping(path = "/patients/{id}")
-//    Patients getPatientsById(@PathVariable int id){
-//        return patientsRepository.findById(id);
+//    @GetMapping(path = "/doctors/{id}")
+//    Doctors getDoctorsById(@PathVariable int id){
+//        return doctorsRepository.findById(id);
 //    }
 //
-//    @PostMapping(path = "/patients")
-//    String createPatients(@RequestBody Patients patient){
-//        if (patient == null)
+//    @PostMapping(path = "/doctors")
+//    String createDoctors(@RequestBody Doctors doctor){
+//        if (doctor == null)
 //            return failure;
-//        patientsRepository.save(patient);
+//        doctorsRepository.save(doctor);
 //        return success;
 //    }
 //
-//    @PutMapping(path = "/patients/{id}")
-//    Patients updatePatients(@PathVariable int id, @RequestBody Patients request){
-//        Patients patient = patientsRepository.findById(id);
-//        if(patient == null)
+//    @PutMapping(path = "/doctorss/{id}")
+//    Doctors updateDoctors(@PathVariable int id, @RequestBody Doctors request){
+//        Doctors doctor = doctorsRepository.findById(id);
+//        if(doctor == null)
 //            return null;
-//        patientsRepository.save(request);
-//        return patientsRepository.findById(id);
+//        doctorsRepository.save(request);
+//        return doctorsRepository.findById(id);
 //    }
 //
-//    @DeleteMapping(path = "/patients/{id}")
-//    String deleteLaptop(@PathVariable int id){
+//    @DeleteMapping(path = "/doctors/{id}")
+//    String deleteDoctor(@PathVariable int id){
 //
 //        // delete the laptop if the changes have not been reflected by the above statement
-//        patientsRepository.deleteById(id);
+//        doctorsRepository.deleteById(id);
 //        return success;
 //    }
 //}
-
-package coms309.backend.Patients;
+package coms309.backend.doctor;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import coms309.backend.admin.Admin;
+
 import java.util.List;
 
 @RestController
-public class PatientsController {
+public class DoctorController {
     @Autowired
-    PatientsRepository patientRepository;
+    DoctorRepository doctorRepository;
 
     //created a new JSON object to put the user JSON data in during the login process.
    JSONObject output = new JSONObject();
 
-    @GetMapping("patients/all")
-    List<Patients> GetAllPatients(){
-        return patientRepository.findAll();
+    @GetMapping("doctor/all")
+    List<Doctor> GetAllUsers(){
+        return doctorRepository.findAll();
     }
 
     //this post method uses the body of the site via a JSON to post to the database
-    @PostMapping("patients/post")
-    Patients PostTriviaByBody(@RequestBody Patients newPatient){
-        patientRepository.save(newPatient);
-        return newPatient;
+    @PostMapping("doctor/post")
+    Doctor PostTriviaByBody(@RequestBody Doctor newDoctor){
+        doctorRepository.save(newDoctor);
+        return newDoctor;
     }
     /* This will verify get the login information from the front end.  It will then check the database to verify
     there their email exists and that the password matches. Once that occures it will send back the data to the frontend
@@ -100,9 +101,9 @@ public class PatientsController {
         the status (1 = no email, 2 = password is incorrect, 3 = successful login)
         and the userInfo which will contain the user JSON if the login is successful.
      */
-    @GetMapping("/login")
+    @GetMapping("doctor/login")
     JSONObject LoginEmailVerification(@RequestParam String email, @RequestParam String password) {
-        Patients temp = patientRepository.findByEmail(email);
+        Doctor temp = doctorRepository.findByEmail(email);
         if (temp == null) {
             output.put("status", 1); //status code for wrong email
             output.put("userInfo", null);
@@ -120,4 +121,3 @@ public class PatientsController {
         }
     }
 }
-
