@@ -1,4 +1,4 @@
-package coms309.backend.Patients;
+package coms309.backend.patient;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,11 +9,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import java.util.ArrayList;
 
-public class Patients {
+@Entity
+public class Patient {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
 	private String firstName;
 	private String middleName;
 	private String lastName;
@@ -33,9 +35,11 @@ public class Patients {
 	private String policyHolderName;
 	private String insurerName;
 	
-	public Patients(String firstName, String middleName, String lastName, int phoneNumber, String email, int dateOfBirth, String username, String password, String streetAddress, String city,
-			int zip, String state, int ssn, int height, int weight, String policyHolderName, String insurerName)
-	{
+	public Patient(String firstName, String middleName, String lastName, int phoneNumber, String email,
+			int dateOfBirth, String username, String password, String streetAddress, String city, int zip, String state,
+			int ssn, int height, int weight, ArrayList<String> prescriptions, String policyHolderName,
+			String insurerName) {
+		super();
 		this.firstName = firstName;
 		this.middleName = middleName;
 		this.lastName = lastName;
@@ -51,205 +55,160 @@ public class Patients {
 		this.ssn = ssn;
 		this.height = height;
 		this.weight = weight;
+		this.prescriptions = prescriptions;
 		this.policyHolderName = policyHolderName;
 		this.insurerName = insurerName;
 	}
 	
-	public Patients() {}
-	
-	public int getId()
-	{
+	public int getId() {
 		return id;
 	}
-	
-	public void setId(int id)
-	{
+
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getFirstName()
-	{
+	public String getFirstName() {
 		return firstName;
 	}
-	
-	public void setFirstName(String firstName)
-	{
+
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	
-	public String getMiddleName()
-	{
+
+	public String getMiddleName() {
 		return middleName;
 	}
-	
-	public void setMiddleName(String middleName)
-	{
+
+	public void setMiddleName(String middleName) {
 		this.middleName = middleName;
 	}
-	
-	public String getLastName()
-	{
-		return this.lastName;
+
+	public String getLastName() {
+		return lastName;
 	}
-	
-	public void setLastName(String lastName)
-	{
+
+	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	public int getPhoneNumber()
-	{
+
+	public int getPhoneNumber() {
 		return phoneNumber;
 	}
-	
-	public void setPhoneNumber(int phoneNumber)
-	{
+
+	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	
-	public String getEmail()
-	{
-		return this.email;
+
+	public String getEmail() {
+		return email;
 	}
-	
-	public void setEmail(String email)
-	{
+
+	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public int getDateOfBirth()
-	{
+
+	public int getDateOfBirth() {
 		return dateOfBirth;
 	}
-	
-	public void setDateOfBirth(int dateOfBirth)
-	{
+
+	public void setDateOfBirth(int dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	
-	public String getUsername()
-	{
-		return this.username;
+
+	public String getUsername() {
+		return username;
 	}
-	
-	public void setUsername(String username)
-	{
+
+	public void setUsername(String username) {
 		this.username = username;
 	}
-	
-	public String getPassword()
-	{
-		return this.password;
+
+	public String getPassword() {
+		return password;
 	}
-	
-	public void setPassword(String password)
-	{
+
+	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public String getStreetAddress()
-	{
+
+	public String getStreetAddress() {
 		return streetAddress;
 	}
-	
-	public void setStreetAddress(String streetAddress)
-	{
+
+	public void setStreetAddress(String streetAddress) {
 		this.streetAddress = streetAddress;
 	}
-	
-	public String getCity()
-	{
+
+	public String getCity() {
 		return city;
 	}
-	
-	public void setCity(String city)
-	{
+
+	public void setCity(String city) {
 		this.city = city;
 	}
-	
-	public int getZip()
-	{
+
+	public int getZip() {
 		return zip;
 	}
-	
-	public void setZip(int zip)
-	{
+
+	public void setZip(int zip) {
 		this.zip = zip;
 	}
-	
-	public String getState()
-	{
+
+	public String getState() {
 		return state;
 	}
-	
-	public void setState(String state)
-	{
+
+	public void setState(String state) {
 		this.state = state;
 	}
-	
-	public int getSsn()
-	{
+
+	public int getSsn() {
 		return ssn;
 	}
-	
-	public void setSsn(int ssn)
-	{
+
+	public void setSsn(int ssn) {
 		this.ssn = ssn;
 	}
-	
-	public int getHeight()
-	{
+
+	public int getHeight() {
 		return height;
 	}
-	
-	public void setHeight(int height)
-	{
+
+	public void setHeight(int height) {
 		this.height = height;
 	}
-	
-	public int getWeight()
-	{
+
+	public int getWeight() {
 		return weight;
 	}
-	
-	public void setWeight(int weight)
-	{
+
+	public void setWeight(int weight) {
 		this.weight = weight;
 	}
-	
-	public void addPrescription(String drug)
-	{
-		prescriptions.add(drug);
-	}
-	
-	public void removePrescription(int i)
 
-	{
-		prescriptions.remove(i);
-	}
-
-	public ArrayList<String> getPrescriptions()
-	{
+	public ArrayList<String> getPrescriptions() {
 		return prescriptions;
 	}
-	
-	public String getPolicyHolderName()
-	{
+
+	public void setPrescriptions(ArrayList<String> prescriptions) {
+		this.prescriptions = prescriptions;
+	}
+
+	public String getPolicyHolderName() {
 		return policyHolderName;
 	}
-	
-	public void setPolicyHolderName(String policyHolderName)
-	{
+
+	public void setPolicyHolderName(String policyHolderName) {
 		this.policyHolderName = policyHolderName;
 	}
-	
-	public String getInsurerName()
-	{
+
+	public String getInsurerName() {
 		return insurerName;
 	}
-	
-	public void setInsurerName(String insurerName)
-	{
+
+	public void setInsurerName(String insurerName) {
 		this.insurerName = insurerName;
 	}
 }

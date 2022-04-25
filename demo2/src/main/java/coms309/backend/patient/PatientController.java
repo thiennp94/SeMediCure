@@ -1,4 +1,4 @@
-//package coms309.backend.Admins;
+//package coms309.backend.Patients;
 //
 //import java.util.List;
 //
@@ -12,8 +12,8 @@
 //import org.springframework.web.bind.annotation.RequestBody;
 //import org.springframework.web.bind.annotation.RestController;
 //
-//import coms309.backend.Admins.Admins;
-//import coms309.backend.Admins.AdminsRepository;
+//import coms309.backend.Patients.Patients;
+//import coms309.backend.Patients.PatientsRepository;
 //
 ///**
 // * 
@@ -22,50 +22,51 @@
 // */ 
 //
 //@RestController
-//public class AdminsController {
+//public class PatientsController {
 //
 //    @Autowired
-//    AdminsRepository adminsRepository;
+//    PatientsRepository patientsRepository;
 //    
 //    private String success = "{\"message\":\"success\"}";
 //    private String failure = "{\"message\":\"failure\"}";
 //
-//    @GetMapping(path = "/admins")
-//    List<Admins> getAllAdmins(){
-//        return adminsRepository.findAll();
+//    @GetMapping(path = "/patients")
+//    List<Patients> getAllAdmins(){
+//        return patientsRepository.findAll();
 //    }
 //
-//    @GetMapping(path = "/admins/{id}")
-//    Admins getAdminsById(@PathVariable int id){
-//        return adminsRepository.findById(id);
+//    @GetMapping(path = "/patients/{id}")
+//    Patients getPatientsById(@PathVariable int id){
+//        return patientsRepository.findById(id);
 //    }
 //
-//    @PostMapping(path = "/admins")
-//    String createAdmins(@RequestBody Admins admin){
-//        if (admin == null)
+//    @PostMapping(path = "/patients")
+//    String createPatients(@RequestBody Patients patient){
+//        if (patient == null)
 //            return failure;
-//        adminsRepository.save(admin);
+//        patientsRepository.save(patient);
 //        return success;
 //    }
 //
-//    @PutMapping(path = "/admins/{id}")
-//    Admins updateAdmins(@PathVariable int id, @RequestBody Admins request){
-//        Admins admin = adminsRepository.findById(id);
-//        if(admin == null)
+//    @PutMapping(path = "/patients/{id}")
+//    Patients updatePatients(@PathVariable int id, @RequestBody Patients request){
+//        Patients patient = patientsRepository.findById(id);
+//        if(patient == null)
 //            return null;
-//        adminsRepository.save(request);
-//        return adminsRepository.findById(id);
+//        patientsRepository.save(request);
+//        return patientsRepository.findById(id);
 //    }
 //
-//    @DeleteMapping(path = "/admins/{id}")
+//    @DeleteMapping(path = "/patients/{id}")
 //    String deleteLaptop(@PathVariable int id){
 //
 //        // delete the laptop if the changes have not been reflected by the above statement
-//        adminsRepository.deleteById(id);
+//        patientsRepository.deleteById(id);
 //        return success;
 //    }
 //}
-package coms309.backend.Admins;
+
+package coms309.backend.patient;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,23 +75,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class AdminsController {
+public class PatientController {
     @Autowired
-    AdminsRepository adminRepository;
+    PatientRepository patientRepository;
 
     //created a new JSON object to put the user JSON data in during the login process.
    JSONObject output = new JSONObject();
 
-    @GetMapping("admins/all")
-    List<Admins> GetAllAdmins(){
-        return adminRepository.findAll();
+    @GetMapping("patient/all")
+    List<Patient> GetAllPatients(){
+        return patientRepository.findAll();
     }
 
     //this post method uses the body of the site via a JSON to post to the database
-    @PostMapping("admins/post")
-    Admins PostTriviaByBody(@RequestBody Admins newAdmin){
-        adminRepository.save(newAdmin);
-        return newAdmin;
+    @PostMapping("patient/post")
+    Patient PostTriviaByBody(@RequestBody Patient newPatient){
+        patientRepository.save(newPatient);
+        return newPatient;
     }
     /* This will verify get the login information from the front end.  It will then check the database to verify
     there their email exists and that the password matches. Once that occures it will send back the data to the frontend
@@ -99,9 +100,9 @@ public class AdminsController {
         the status (1 = no email, 2 = password is incorrect, 3 = successful login)
         and the userInfo which will contain the user JSON if the login is successful.
      */
-    @GetMapping("/login")
+    @GetMapping("patient/login")
     JSONObject LoginEmailVerification(@RequestParam String email, @RequestParam String password) {
-        Admins temp = adminRepository.findByEmail(email);
+        Patient temp = patientRepository.findByEmail(email);
         if (temp == null) {
             output.put("status", 1); //status code for wrong email
             output.put("userInfo", null);
@@ -119,3 +120,4 @@ public class AdminsController {
         }
     }
 }
+
