@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+/**
+ * The appointment approve activity of the app.
+ * The entry point/welcome screen > Login > Admin Portal > Approve Apointment
+ */
 public class ApproveApptActivity extends AppCompatActivity {
 
     @Override

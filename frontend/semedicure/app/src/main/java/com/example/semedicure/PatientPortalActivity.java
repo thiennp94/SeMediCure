@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * The patient portal activity of the app.
+ * The entry point/welcome screen > Login > Patient Portal
+ */
 public class PatientPortalActivity extends AppCompatActivity {
 
     @Override
@@ -14,16 +18,28 @@ public class PatientPortalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_patient_portal);
     }
 
+    /**
+     * Starts the ScheduleApptActivity.
+     * @param view
+     */
     public void requestAppointment(View view) {
         Intent intent = new Intent(this, ScheduleApptActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Starts the GenerateCodeActivity.
+     * @param view
+     */
     public void scanQRCode(View view) {
         Intent intent = new Intent(this, ScheduleApptActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Starts the PatientProfileActivity.
+     * @param view
+     */
     public void updateMedicalHistory(View view) {
         Intent intent = new Intent(this, PatientProfileActivity.class);
         startActivity(intent);

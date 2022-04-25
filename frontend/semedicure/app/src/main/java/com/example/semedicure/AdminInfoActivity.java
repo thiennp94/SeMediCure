@@ -17,6 +17,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * The admin information activity of the app.
+ * The entry point/welcome screen > Login > Admin Portal > Admin Info
+ */
 public class AdminInfoActivity extends AppCompatActivity {
 
     private TextView mTextViewAdminName;
@@ -47,6 +51,9 @@ public class AdminInfoActivity extends AppCompatActivity {
         jsonParse();
     }
 
+    /**
+     * Parse JSON object data into screen fields.
+     */
     private void jsonParse() {
 
         String url = "https://4c1cb4dc-453e-425d-a7bb-82fec8d336d0.mock.pstmn.io/clients/";
@@ -92,6 +99,10 @@ public class AdminInfoActivity extends AppCompatActivity {
         mQueue.add(request);
     }
 
+    /**
+     * Clear all the data user input on admin info screen.
+     * @param view
+     */
     public void clearAdminInfo(View view){
         mTextViewAdminName.setText("");
         mTextViewPhone.setText("");
