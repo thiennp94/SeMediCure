@@ -29,8 +29,11 @@ public class LoginActivity extends AppCompatActivity {
     // digit + lowercase char + uppercase char + punctuation + symbol
     private static final String PASSWORD_PATTERN =
             "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
+    private static final String EMAIL_PATTERN =
+            "^[\\\\w!#$%&’*+/=?`{|}~^-]+(?:\\\\.[\\\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,6}$";
 
-    private static final Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+    private static final Pattern pattern1 = Pattern.compile(PASSWORD_PATTERN);
+    private static final Pattern pattern2 = Pattern.compile(EMAIL_PATTERN);
 
     private EditText email;
     private EditText password;
@@ -98,8 +101,18 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         }
 
-        Matcher matcher = pattern.matcher(password.toString());
-        return matcher.matches();
+        if (password.length() == 0) {
+            password.setError("Password is required");
+            return false;
+        }
+
+        Matcher matcher1 = pattern1.matcher(password.toString());
+        Matcher matcher2 = pattern2.matcher(email.toString());
+
+        if (matcher1.matches() && matcher2.matches())
+            return true;
+
+        return false;
     }
 
     /**
