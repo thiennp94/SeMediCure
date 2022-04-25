@@ -1,17 +1,20 @@
 package coms309.backend.Admins;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
-/**
- * 
- * @author Vivek Bengre
- * 
- */ 
+import java.util.List;
 
+@Repository
 public interface AdminsRepository extends JpaRepository<Admins, Long> {
-    Admins findById(int id);
 
-    @Transactional
-    void deleteById(int id);
+    /*
+    This is where login logic... and everything will go.
+     */
+    //premade query where if they give you a username and password I will find it here.
+    List<Admins> findByEmailAndPassword(String email, String password);
+
+    Admins findByEmail(String email);
+    Admins findByPassword(String password);
+
 }
