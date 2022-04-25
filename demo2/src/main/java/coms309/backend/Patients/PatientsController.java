@@ -83,7 +83,7 @@ public class PatientsController {
    JSONObject output = new JSONObject();
 
     @GetMapping("patients/all")
-    List<Patients> GetAllUsers(){
+    List<Patients> GetAllPatients(){
         return patientRepository.findAll();
     }
 
