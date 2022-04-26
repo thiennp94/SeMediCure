@@ -17,11 +17,30 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * The patient profile activity of the app.
  * The entry point/welcome screen > Login > Provider Portal > Provider Info
  */
 public class ProviderInfoActivity extends AppCompatActivity {
+
+    private static final String EMAIL_PATTERN =
+            "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+    private static final String PHONE_PATTERN = "^\\d{10}$";
+    private static final String ADDR_PATTERN = "^\\d.{0,4}?\\s\\w+$";
+    private static final String ZIP_PATTERN = "^\\d{5}$";
+    private static final String STATE_PATTERN = "^\\[A-Za-z]{2}$";
+
+    //TODO
+    // DOB, PolicyNumber, GroupNum format
+
+    private static final Pattern emailPattern = Pattern.compile(EMAIL_PATTERN);
+    private static final Pattern phonePattern = Pattern.compile(PHONE_PATTERN);
+    private static final Pattern addrPattern = Pattern.compile(ADDR_PATTERN);
+    private static final Pattern zipPattern = Pattern.compile(ZIP_PATTERN);
+    private static final Pattern statePattern = Pattern.compile(STATE_PATTERN);
 
     private TextView mTextViewClinicName;
     private TextView mTextViewPhone;
@@ -48,7 +67,62 @@ public class ProviderInfoActivity extends AppCompatActivity {
     }
 
     public void clinicInfo(View view){
-        jsonParse();
+        if(CheckAllFields())
+            jsonParse();
+    }
+
+    /**
+     * Validate all user inputs.
+     */
+    private boolean CheckAllFields() {
+
+        if (mTextViewClinicName.length() == 0) {
+            mTextViewClinicName.setError("This field is required");
+            return false;
+        }
+
+        if (mTextViewPhone.length() == 0) {
+            mTextViewPhone.setError("This field is required");
+            return false;
+        }
+
+        if (mTextViewEmail.length() == 0) {
+            mTextViewEmail.setError("Email is required");
+            return false;
+        }
+
+        if (mTextViewAddr.length() == 0) {
+            mTextViewAddr.setError("Email is required");
+            return false;
+        }
+
+        if (mTextViewCity.length() == 0) {
+            mTextViewCity.setError("Email is required");
+            return false;
+        }
+
+        if (mTextViewZip.length() == 0) {
+            mTextViewZip.setError("Email is required");
+            return false;
+        }
+
+        if (mTextViewState.length() == 0) {
+            mTextViewState.setError("Email is required");
+            return false;
+        }
+
+        Matcher emailMatcher = emailPattern.matcher(mTextViewEmail.toString());
+        Matcher phoneMatcher = phonePattern.matcher(mTextViewPhone.toString());
+        Matcher addrMatcher = addrPattern.matcher(mTextViewAddr.toString());
+        Matcher zipMatcher = zipPattern.matcher(mTextViewZip.toString());
+        Matcher stateMatcher = statePattern.matcher(mTextViewState.toString());
+
+        if (emailMatcher.matches() && phoneMatcher.matches() && addrMatcher.matches()
+                && zipMatcher.matches() && stateMatcher.matches()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

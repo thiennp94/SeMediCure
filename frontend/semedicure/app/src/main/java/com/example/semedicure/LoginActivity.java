@@ -18,11 +18,22 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Acts as the view for the login screen.
  */
 public class LoginActivity extends AppCompatActivity {
+
+    // digit + lowercase char + uppercase char + punctuation + symbol
+    private static final String PASSWORD_PATTERN =
+            "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
+    private static final String EMAIL_PATTERN =
+            "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+
+    private static final Pattern passwdPattern = Pattern.compile(PASSWORD_PATTERN);
+    private static final Pattern emailPattern = Pattern.compile(EMAIL_PATTERN);
 
     private EditText email;
     private EditText password;
@@ -82,14 +93,37 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
+     * Validate all user inputs.
+     */
+    private boolean CheckAllFields() {
+        if (email.length() == 0) {
+            email.setError("Email is required");
+            return false;
+        }
+
+        if (password.length() == 0) {
+            password.setError("Password is required");
+            return false;
+        }
+
+        Matcher passwdMatcher = passwdPattern.matcher(password.toString());
+        Matcher emailMatcher = emailPattern.matcher(email.toString());
+
+        if (passwdMatcher.matches() && emailMatcher.matches()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      *
      * @param view
      */
     public void login(View view){
-        if(email.getText().toString().length() > 0 && password.getText().toString().length() > 0) {
-            requestString();
-        }
-        else {
+        if(CheckAllFields()) {
+                requestString();
+        } else {
             Toast.makeText(LoginActivity.this, "Please enter a valid response", Toast.LENGTH_LONG).show();
         }
 
