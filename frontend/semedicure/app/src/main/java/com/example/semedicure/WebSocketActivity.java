@@ -12,6 +12,8 @@ import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.handshake.ServerHandshake;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -25,12 +27,20 @@ public class WebSocketActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_socket);
 
+        JSONObject json = new JSONObject();
+        try {
+            json.put("email", getIntent().getStringExtra("email"));
+            json.put("password", getIntent().getStringExtra("password"));
+            json.put("user", getIntent().getStringExtra("user"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         String intentData = getIntent().getStringExtra("UniqueId");
         String email = getIntent().getStringExtra("email");
         String password = getIntent().getStringExtra("password");
         String user = getIntent().getStringExtra("user");
 
-        String w = "ws://coms-309-024.class.las.iastate.edu:8080/websocket/test";
+        String w = "ws://coms-309-024.class.las.iastate.edu:8080/websocket/";
         Draft[] drafts = { new Draft_6455() };
         try {
             cc = new WebSocketClient(new URI(w), (Draft) drafts[0]) {
@@ -40,15 +50,17 @@ public class WebSocketActivity extends AppCompatActivity {
                     if(getIntent().getStringExtra("UniqueId") != null) {
                         if (getIntent().getStringExtra("UniqueId").equals("login")) {
                             cc.send(getIntent().getStringExtra("email"));
-                            cc.send(getIntent().getStringExtra("password"));
-                            cc.send(getIntent().getStringExtra("user"));
+                            //cc.send(String.valueOf(json));
+                            //cc.send(getIntent().getStringExtra("password"));
+                            //cc.send(getIntent().getStringExtra("user"));
                         }
                     }
                 }
 
                 @Override
                 public void onMessage(String s) {
-                    if(getIntent().getStringExtra("user").equals("patients")) {
+                    Log.i("msg", s);
+                    /*if(getIntent().getStringExtra("user").equals("patients")) {
                         Intent intent = new Intent(getApplicationContext(), PatientPortalActivity.class)
                         intent.putExtra("data", s);
                         startActivity(intent);
@@ -62,8 +74,8 @@ public class WebSocketActivity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), AdminPortalActivity.class)
                         intent.putExtra("data", s);
                         startActivity(intent);
-                    }
-                    finish();
+                    }*/
+                    //finish();
                 }
 
                 @Override
