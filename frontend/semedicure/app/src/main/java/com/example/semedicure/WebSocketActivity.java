@@ -2,6 +2,7 @@ package com.example.semedicure;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,7 +39,6 @@ public class WebSocketActivity extends AppCompatActivity {
                     Log.i("OPEN", "run() returned: " + "is connecting");
                     if(getIntent().getStringExtra("UniqueId") != null) {
                         if (getIntent().getStringExtra("UniqueId").equals("login")) {
-                            Log.i("Email", getIntent().getStringExtra("email"));
                             cc.send(getIntent().getStringExtra("email"));
                             cc.send(getIntent().getStringExtra("password"));
                             cc.send(getIntent().getStringExtra("user"));
@@ -48,7 +48,22 @@ public class WebSocketActivity extends AppCompatActivity {
 
                 @Override
                 public void onMessage(String s) {
-
+                    if(getIntent().getStringExtra("user").equals("patients")) {
+                        Intent intent = new Intent(getApplicationContext(), PatientPortalActivity.class)
+                        intent.putExtra("data", s);
+                        startActivity(intent);
+                    }
+                    else if(getIntent().getStringExtra("user").equals("doctors")) {
+                        Intent intent = new Intent(getApplicationContext(), ProviderPortalActivity.class)
+                        intent.putExtra("data", s);
+                        startActivity(intent);
+                    }
+                    else {
+                        Intent intent = new Intent(getApplicationContext(), AdminPortalActivity.class)
+                        intent.putExtra("data", s);
+                        startActivity(intent);
+                    }
+                    finish();
                 }
 
                 @Override
@@ -62,7 +77,8 @@ public class WebSocketActivity extends AppCompatActivity {
                 }
             };
         } catch (URISyntaxException e) {
-
+            Log.d("Exception:", e.getMessage().toString());
+            e.printStackTrace();
         }
         cc.connect();
     }
