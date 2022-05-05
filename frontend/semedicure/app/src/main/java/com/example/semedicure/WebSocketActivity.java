@@ -3,10 +3,13 @@ package com.example.semedicure;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.handshake.ServerHandshake;
 
 import java.net.URI;
@@ -26,39 +29,41 @@ public class WebSocketActivity extends AppCompatActivity {
         String password = getIntent().getStringExtra("password");
         String user = getIntent().getStringExtra("user");
 
-        String w = "ws://localhost:8080/websocket/";
+        String w = "ws://coms-309-024.class.las.iastate.edu:8080/websocket/test";
+        Draft[] drafts = { new Draft_6455() };
         try {
-            cc = new WebSocketClient(new URI(w)) {
+            cc = new WebSocketClient(new URI(w), (Draft) drafts[0]) {
                 @Override
                 public void onOpen(ServerHandshake serverHandshake) {
+                    Log.i("OPEN", "run() returned: " + "is connecting");
+                    if(getIntent().getStringExtra("UniqueId") != null) {
+                        if (getIntent().getStringExtra("UniqueId").equals("login")) {
+                            Log.i("Email", getIntent().getStringExtra("email"));
+                            cc.send(getIntent().getStringExtra("email"));
+                            cc.send(getIntent().getStringExtra("password"));
+                            cc.send(getIntent().getStringExtra("user"));
+                        }
+                    }
                 }
 
                 @Override
                 public void onMessage(String s) {
-                    Toast.makeText(WebSocketActivity.this, s, Toast.LENGTH_SHORT).show();
+
                 }
 
                 @Override
                 public void onClose(int i, String s, boolean b) {
-
+                    Log.i("CLOSE", "onClose() returned: " + s);
                 }
 
                 @Override
                 public void onError(Exception e) {
-
+                    Log.i("Exception:", e.toString());
                 }
             };
         } catch (URISyntaxException e) {
 
         }
         cc.connect();
-
-        if(intentData != null) {
-            if (intentData.equals("login")) {
-                cc.send(email);
-                cc.send(password);
-                cc.send(user);
-            }
-        }
     }
 }
