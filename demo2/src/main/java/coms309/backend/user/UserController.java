@@ -37,7 +37,7 @@ public class UserController {
 
     /*
     This will verify get the login information from the front end.  It will then check the database to verify
-    there their email exists and that the password matches. Once that occures it will send back the data to the frontend
+    there their email exists and that the password matches. Once that occurs it will send back the data to the frontend
     To do this and be able to display the correct error message we packed the user JSON into another JSON called output
     the output JSON will have two variables:
         the status (1 = no email, 2 = password is incorrect, 3 = successful login)
