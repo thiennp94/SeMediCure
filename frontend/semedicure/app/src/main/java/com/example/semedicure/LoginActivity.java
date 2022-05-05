@@ -45,7 +45,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
-        spinner.setPrompt("Select a User");
     }
 
     /**
