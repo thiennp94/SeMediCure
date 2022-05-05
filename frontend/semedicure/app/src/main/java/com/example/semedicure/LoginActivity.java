@@ -98,7 +98,14 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
      * @param view
      */
     public void login(View view){
-        if(email.getText().toString().length() > 0 && password.getText().toString().length() > 0) {
+        Intent intent = new Intent(this, WebSocketActivity.class);
+        intent.putExtra("UniqueId", "login");
+        intent.putExtra("email", email.getText().toString());
+        intent.putExtra("password", password.getText().toString());
+        intent.putExtra("user", user);
+        startActivity(intent);
+
+        /*if(email.getText().toString().length() > 0 && password.getText().toString().length() > 0) {
             requestString();
         }
         else {
@@ -108,7 +115,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         if(email.getText().toString().equals("patient1") && password.getText().toString().equals("patient1")) {
             Intent intent = new Intent(this, PatientPortalActivity.class);
             startActivity(intent);
-        }
+        }*/
     }
 
     /**
