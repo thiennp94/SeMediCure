@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Patient {
@@ -59,7 +60,12 @@ public class Patient {
 		this.policyHolderName = policyHolderName;
 		this.insurerName = insurerName;
 	}
-	
+
+	public Patient() {
+
+	}
+
+
 	public int getId() {
 		return id;
 	}
