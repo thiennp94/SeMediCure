@@ -203,7 +203,7 @@
                 android:layout_width="221dp"
                 android:layout_height="46dp"
                 android:backgroundTint="@android:color/holo_blue_dark"
-                android:onClick="clinicInfo"
+                android:onClick="createAdminInfo"
                 android:text="@string/button_create" />
 
             <Button
