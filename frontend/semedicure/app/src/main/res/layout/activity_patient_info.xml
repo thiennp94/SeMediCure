@@ -179,6 +179,72 @@
             <TableRow android:minHeight="150px">
 
                 <TextView
+                    android:id="@+id/textViewSSN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="Social Security Number:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtSSN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="date"
+                    android:hint="Spcial Security Number"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+
+            <TableRow android:minHeight="150px">
+
+                <TextView
+                    android:id="@+id/textViewHeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="Height:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtHeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:hint="Height"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+
+            <TableRow android:minHeight="150px">
+
+                <TextView
+                    android:id="@+id/textViewWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="Weight:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:hint="Weight"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+
+            <TableRow android:minHeight="150px">
+
+                <TextView
                     android:id="@+id/textViewAddr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -223,28 +289,6 @@
             <TableRow android:minHeight="150px">
 
                 <TextView
-                    android:id="@+id/textViewZip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="Zip Code:"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/txtZip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:hint="Zip Code"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="59dp" />
-            </TableRow>
-
-            <TableRow android:minHeight="150px">
-
-                <TextView
                     android:id="@+id/textViewState"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -267,21 +311,21 @@
             <TableRow android:minHeight="150px">
 
                 <TextView
-                    android:id="@+id/textViewSSN"
+                    android:id="@+id/textViewZip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:text="Social Security Number:"
+                    android:text="Zip Code:"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/txtSSN"
+                    android:id="@+id/txtZip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number"
-                    android:hint="Social Security Number"
+                    android:hint="Zip Code"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
@@ -311,11 +355,11 @@
             <TableRow android:minHeight="150px">
 
                 <TextView
-                    android:id="@+id/textViewPolicyHolder"
+                    android:id="@+id/textViewPolicyHolderName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:text="Policy Holder:"
+                    android:text="Policy Holder Name:"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -325,7 +369,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:hint="Policy Holder"
+                    android:hint="Policy Holder Name"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
@@ -333,21 +377,21 @@
             <TableRow android:minHeight="150px">
 
                 <TextView
-                    android:id="@+id/textViewGroupNum"
+                    android:id="@+id/textViewPrescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:text="Group Number:"
+                    android:text="Prescription:"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/txtGroupNum"
+                    android:id="@+id/txtPrescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="number"
-                    android:hint="Group Number"
+                    android:inputType="text"
+                    android:hint="Prescription"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
