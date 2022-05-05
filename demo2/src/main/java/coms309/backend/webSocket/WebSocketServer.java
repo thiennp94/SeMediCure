@@ -79,12 +79,14 @@ public class WebSocketServer {
         JSONObject login = new JSONObject();
         login.put("email", message);
 
-        Patient temp = patientRepository.findByEmail(message);
-        if (temp == null) {
-            broadcast("No email exists");
-        } else {
-            broadcast("Success!");
-        }
+        broadcast(login.toJSONString());
+
+//        Patient temp = patientRepository.findByEmail(message);
+//        if (temp == null) {
+//            broadcast("No email exists");
+//        } else {
+//            broadcast("Success!");
+//        }
 //        if (!password.equals(temp.getPassword())) {
 //            output.put("status", 2); //status code for incorrect password
 //            output.put("userInfo", null);
