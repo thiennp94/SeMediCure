@@ -56,7 +56,7 @@ public class WebSocketServer {
         usernameSessionMap.put(username, session);
 
         String message = "I got you login request";
-        broadcast(message);
+        //broadcast(message);
     }
 
     @OnMessage
@@ -79,10 +79,10 @@ public class WebSocketServer {
         JSONObject login = new JSONObject();
         login.put("email", message);
 
-        broadcast(login.toJSONString());
+        //broadcast(login.toJSONString());
 
-        Patient temp = patientRepository.findByEmail(message);
-        if (temp == null) {
+        //Patient temp = patientRepository.findByEmail(message);
+        if (message == null) {
             broadcast("No email exists");
         } else {
             broadcast("Success!");
