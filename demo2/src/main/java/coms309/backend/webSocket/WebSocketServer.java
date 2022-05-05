@@ -59,6 +59,7 @@ public class WebSocketServer {
         } else // Message to whole chat
         {
             broadcast(username + ": " + message);
+            System.out.println(username + ": " + message);
         }
     }
 
