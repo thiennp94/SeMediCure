@@ -99,7 +99,7 @@ public class AdminController {
         the status (1 = no email, 2 = password is incorrect, 3 = successful login)
         and the userInfo which will contain the user JSON if the login is successful.
      */
-    @GetMapping("admin/login")
+    @GetMapping("login/admin")
     JSONObject LoginEmailVerification(@RequestParam String email, @RequestParam String password) {
         Admin temp = adminRepository.findByEmail(email);
         if (temp == null) {
