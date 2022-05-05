@@ -20,6 +20,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,7 +55,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
      */
     private void requestString() {
         RequestQueue rQueue = Volley.newRequestQueue(this);
-        String url = "https://8be4f6a4-40fe-40de-8be1-e9c3df6a16f7.mock.pstmn.io/Object/";
+        String url = "https://coms-309-024.class.las.iastate.edu:8080";
 
         StringRequest strRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             /**
@@ -61,7 +64,19 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
              */
             @Override
             public void onResponse(String response) {
-                Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+                JSONObject json = new JSONObject();
+                try {
+                    json.put("json", response);
+                    String user = json.getString("user");
+                    Intent intent = new Intent(getApplicationContext(), PatientPortalActivity.class);
+                    intent.putExtra("userInfo", response);
+//                    if(user.equals("patient")) {
+//                        Intent intent = new Intent(getApplicationContext(), PatientPortalActivity.class);
+//                        intent.putExtra("userInfo", response);
+//                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             /**
