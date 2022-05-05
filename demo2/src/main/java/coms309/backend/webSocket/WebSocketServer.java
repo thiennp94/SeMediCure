@@ -81,11 +81,11 @@ public class WebSocketServer {
 
         //broadcast(login.toJSONString());
 
-        //Patient temp = patientRepository.findByEmail(message);
-        if (message == null) {
-            broadcast("No email exists");
+//        Patient temp = patientRepository.findByEmail(message);
+        if (patientRepository.findByEmail(message).getEmail() == message) {
+            broadcast("email match");
         } else {
-            broadcast("Success!");
+            broadcast("email does not exist!");
         }
 //        if (!password.equals(temp.getPassword())) {
 //            output.put("status", 2); //status code for incorrect password
