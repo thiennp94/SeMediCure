@@ -68,7 +68,6 @@
 
 package coms309.backend.patient;
 
-import coms309.backend.authCode.GenerateAuthCode;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -83,9 +82,6 @@ public class PatientController {
     //created a new JSON object to put the user JSON data in during the login process.
     JSONObject output = new JSONObject();
     JSONObject outputForAuth = new JSONObject();
-
-    GenerateAuthCode code = new GenerateAuthCode();
-    String code1 = code.newAuthCode();
 
     @GetMapping("patient/all")
     List<Patient> GetAllPatients() {
@@ -138,30 +134,5 @@ public class PatientController {
 //        return output;
 //    }
 
-        @GetMapping("/auth")
-        String JSONObject(@RequestParam String click) {
-        return code1;
-    }
-
-    @GetMapping("/verify")
-    JSONObject JSONObject(@RequestParam String last_name, @RequestParam String date_of_birth, @RequestParam String code2) {
-        if (code2 == code1) {
-            Patient temp = patientRepository.findByLastNameAndAndDateOfBirth(date_of_birth, last_name);
-            if (temp != null) {
-                outputForAuth.put("status", 4); //status code for correct authcode + dob and name
-                outputForAuth.put("userInfo", temp);
-                return outputForAuth;
-            } else {
-                outputForAuth.put("status", 6); //status code incorrect name or dob
-                outputForAuth.put("userInfo", null);
-                return outputForAuth;
-            }
-        } else {
-            outputForAuth.put("status", 5); //status code for wrong authcode
-            outputForAuth.put("userInfo", null);
-            return outputForAuth;
-        }
-
-    }
 }
 

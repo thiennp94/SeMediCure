@@ -15,6 +15,10 @@ import io.restassured.response.Response;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+import io.restassured.RestAssured.*;
+import io.restassured.matcher.RestAssuredMatchers.*;
+import org.hamcrest.Matchers.*;
+
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -26,9 +30,11 @@ public class SystemTest {
 
     @Before
     public void setUp() {
-        RestAssured.port = port;
-        RestAssured.baseURI = "http://coms-309-024.class.las.iastate.edu:8080";
+        RestAssured.port = 8080;
+        RestAssured.baseURI = "http://coms-309-024.class.las.iastate.edu";
     }
+
+
 
     //200 response code just makes sure it works.
     @Test
