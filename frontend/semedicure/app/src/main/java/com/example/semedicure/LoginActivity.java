@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -40,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText email;
     private EditText password;
+    private String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +124,26 @@ public class LoginActivity extends AppCompatActivity {
         };
 
         rQueue.add(stringRequest);
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        switch(i) {
+            case 0:
+                user = "patient";
+                break;
+            case 1:
+                user = "doctor";
+                break;
+            case 2:
+                user = "admin";
+                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
 
