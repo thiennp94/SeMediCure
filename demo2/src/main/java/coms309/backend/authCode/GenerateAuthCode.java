@@ -5,7 +5,7 @@ This class will generate an authentication code. Then start a timer on countdown
 When the timer is finished it will it repeat generating a new code.
  */
 
-public class GenerateAuthCode extends AuthCode {
+public class GenerateAuthCode  {
 
     public static GenerateAuthCode newAuthCode() {
         Timer time = new Timer();
@@ -15,8 +15,8 @@ public class GenerateAuthCode extends AuthCode {
         while(i < 3) {
             code.createAuthCode();
             time.countdown();
-//            System.out.println();
-//            i++;
+            System.out.println();
+            i++;
         }
         return newAuthCode();
     }

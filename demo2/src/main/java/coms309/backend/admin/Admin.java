@@ -1,13 +1,8 @@
 package coms309.backend.admin;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
 @Entity
 public class Admin {
 
@@ -18,20 +13,20 @@ public class Admin {
 	private String firstName;
 	private String middleName;
 	private String lastName;
-	private int phoneNumber;
+	private String phoneNumber;
 	private String email;
-	private int dateOfBirth;
+	private String dateOfBirth;
 	private String username;
 	private String password;
 	private String streetAddress;
 	private String city;
-	private int zip;
+	private String zip;
 	private String state;
-	private int ssn;
+	private String ssn;
 	
-	public Admin(int id, String firstName, String middleName, String lastName, int phoneNumber, String email,
-			int dateOfBirth, String username, String password, String streetAddress, String city, int zip, String state,
-			int ssn) {
+	public Admin(int id, String firstName, String middleName, String lastName, String phoneNumber, String email,
+				 String dateOfBirth, String username, String password, String streetAddress, String city, String zip, String state,
+				 String ssn) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -83,11 +78,11 @@ public class Admin {
 		this.lastName = lastName;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -99,11 +94,11 @@ public class Admin {
 		this.email = email;
 	}
 
-	public int getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(int dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -120,7 +115,12 @@ public class Admin {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		String output = "";
+        for(int i=0; i<password.length(); i++)
+        {
+            output = output + (password.charAt(i) + 5);
+        }
+		this.password = output;
 	}
 
 	public String getStreetAddress() {
@@ -139,11 +139,11 @@ public class Admin {
 		this.city = city;
 	}
 
-	public int getZip() {
+	public String getZip() {
 		return zip;
 	}
 
-	public void setZip(int zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 
@@ -155,11 +155,11 @@ public class Admin {
 		this.state = state;
 	}
 
-	public int getSsn() {
+	public String getSsn() {
 		return ssn;
 	}
 
-	public void setSsn(int ssn) {
+	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
 	

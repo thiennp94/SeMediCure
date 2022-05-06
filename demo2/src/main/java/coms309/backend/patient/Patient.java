@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Patient {
@@ -19,25 +20,25 @@ public class Patient {
 	private String firstName;
 	private String middleName;
 	private String lastName;
-	private int phoneNumber;
+	private String phoneNumber;
 	private String email;
-	private int dateOfBirth;
+	private String dateOfBirth;
 	private String username;
 	private String password;
 	private String streetAddress;
 	private String city;
-	private int zip;
+	private String zip;
 	private String state;
-	private int ssn;
-	private int height; // in inches
-	private int weight;
-	private ArrayList<String> prescriptions;
+	private String ssn;
+	private String height; // in inches
+	private String weight;
+	private String prescriptions;
 	private String policyHolderName;
 	private String insurerName;
 	
-	public Patient(String firstName, String middleName, String lastName, int phoneNumber, String email,
-			int dateOfBirth, String username, String password, String streetAddress, String city, int zip, String state,
-			int ssn, int height, int weight, ArrayList<String> prescriptions, String policyHolderName,
+	public Patient(String firstName, String middleName, String lastName, String phoneNumber, String email,
+				   String dateOfBirth, String username, String password, String streetAddress, String city, String zip, String state,
+				   String ssn, String height, String weight, String prescriptions, String policyHolderName,
 			String insurerName) {
 		super();
 		this.firstName = firstName;
@@ -59,7 +60,12 @@ public class Patient {
 		this.policyHolderName = policyHolderName;
 		this.insurerName = insurerName;
 	}
-	
+
+	public Patient() {
+
+	}
+
+
 	public int getId() {
 		return id;
 	}
@@ -92,11 +98,11 @@ public class Patient {
 		this.lastName = lastName;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -108,11 +114,11 @@ public class Patient {
 		this.email = email;
 	}
 
-	public int getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(int dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -129,7 +135,12 @@ public class Patient {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		String output = "";
+        for(int i=0; i<password.length(); i++)
+        {
+            output = output + (password.charAt(i) + 5);
+        }
+		this.password = output;
 	}
 
 	public String getStreetAddress() {
@@ -148,11 +159,11 @@ public class Patient {
 		this.city = city;
 	}
 
-	public int getZip() {
+	public String getZip() {
 		return zip;
 	}
 
-	public void setZip(int zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 
@@ -164,35 +175,35 @@ public class Patient {
 		this.state = state;
 	}
 
-	public int getSsn() {
+	public String getSsn() {
 		return ssn;
 	}
 
-	public void setSsn(int ssn) {
+	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
 
-	public int getHeight() {
+	public String getHeight() {
 		return height;
 	}
 
-	public void setHeight(int height) {
+	public void setHeight(String height) {
 		this.height = height;
 	}
 
-	public int getWeight() {
+	public String getWeight() {
 		return weight;
 	}
 
-	public void setWeight(int weight) {
+	public void setWeight(String weight) {
 		this.weight = weight;
 	}
 
-	public ArrayList<String> getPrescriptions() {
+	public String getPrescriptions() {
 		return prescriptions;
 	}
 
-	public void setPrescriptions(ArrayList<String> prescriptions) {
+	public void setPrescriptions(String prescriptions) {
 		this.prescriptions = prescriptions;
 	}
 
