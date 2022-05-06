@@ -44,4 +44,9 @@ public class PatientPortalActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PatientProfileActivity.class);
         startActivity(intent);
     }
+
+    public void msg(View view) {
+        Intent intent = new Intent(this, WebSocketActivity.class);
+        startActivity(intent);
+    }
 }
