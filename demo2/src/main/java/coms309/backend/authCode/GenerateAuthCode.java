@@ -5,11 +5,9 @@ This class will generate an authentication code. Then start a timer on countdown
 When the timer is finished it will it repeat generating a new code.
  */
 
-import java.util.Map;
-
 public class GenerateAuthCode  {
 
-    public static Map newAuthCode() {
+    public static GenerateAuthCode newAuthCode() {
         Timer time = new Timer();
         RandAlphaNum code = new RandAlphaNum();
         int i = 0;

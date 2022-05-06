@@ -11,10 +11,11 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
     /*
     This is where login logic... and everything will go.
      */
+    //premade query where if they give you a username and password I will find it here.
+    List<Patient> findByEmailAndPassword(String email, String password);
+
     Patient findByEmail(String email);
-
-    Patient findByLastNameAndAndDateOfBirth(String last_name, String date_of_birth);
-
+    Patient findByPassword(String password);
 
     
 
