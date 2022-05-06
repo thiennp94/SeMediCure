@@ -135,7 +135,12 @@ public class Patient {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		String output = "";
+        for(int i=0; i<password.length(); i++)
+        {
+            output = output + (password.charAt(i) + 5);
+        }
+		this.password = output;
 	}
 
 	public String getStreetAddress() {

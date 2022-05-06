@@ -91,6 +91,8 @@ public class DoctorController {
     //this post method uses the body of the site via a JSON to post to the database
     @PostMapping("doctor/post")
     Doctor PostTriviaByBody(@RequestBody Doctor newDoctor){
+    	String pass = toCipher(newDoctor.getPassword());
+    	newDoctor.setPassword(toCipher(newDoctor.getPassword()));
         doctorRepository.save(newDoctor);
         return newDoctor;
     }
@@ -119,5 +121,15 @@ public class DoctorController {
             return output;
 
         }
+    }
+    
+    public String toCipher(String input)
+    {
+        String output = "";
+        for(int i=0; i<input.length(); i++)
+        {
+            output = output + (input.charAt(i) + 5);
+        }
+        return output;
     }
 }

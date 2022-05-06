@@ -1,13 +1,8 @@
 package coms309.backend.admin;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
 @Entity
 public class Admin {
 
@@ -120,7 +115,12 @@ public class Admin {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		String output = "";
+        for(int i=0; i<password.length(); i++)
+        {
+            output = output + (password.charAt(i) + 5);
+        }
+		this.password = output;
 	}
 
 	public String getStreetAddress() {
