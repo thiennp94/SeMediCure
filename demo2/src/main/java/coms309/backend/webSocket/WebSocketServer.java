@@ -12,8 +12,16 @@ import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
+import coms309.backend.admin.Admin;
+import coms309.backend.admin.AdminRepository;
+import coms309.backend.doctor.DoctorRepository;
+import coms309.backend.patient.Patient;
+import coms309.backend.patient.PatientRepository;
+import coms309.backend.user.User;
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
@@ -26,6 +34,7 @@ import org.springframework.stereotype.Controller;
 @ServerEndpoint("/websocket/{username}")
 @Component
 public class WebSocketServer {
+
 
     // Store all socket session and their corresponding username.
     private static Map < Session, String > sessionUsernameMap = new Hashtable < > ();
@@ -41,8 +50,7 @@ public class WebSocketServer {
         sessionUsernameMap.put(session, username);
         usernameSessionMap.put(username, session);
 
-        String message = "User:" + username + " has Joined the Chat";
-        broadcast(message);
+        //broadcast(message);
     }
 
     @OnMessage
@@ -61,6 +69,8 @@ public class WebSocketServer {
             broadcast(username + ": " + message);
             System.out.println(username + ": " + message);
         }
+
+
     }
 
     @OnClose
@@ -88,6 +98,8 @@ public class WebSocketServer {
             logger.info("Exception: " + e.getMessage().toString());
             e.printStackTrace();
         }
+
+
     }
 
     private void broadcast(String message) {

@@ -16,7 +16,7 @@ public class RandAlphaNum {
               .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
               .toString();
 
-//      System.out.print(alphanum);
+      System.out.print(alphanum);
    }
 
 }
