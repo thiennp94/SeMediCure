@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.java_websocket.client.WebSocketClient;
@@ -22,60 +25,44 @@ public class WebSocketActivity extends AppCompatActivity {
 
     private WebSocketClient cc;
 
+    String firstName;
+    Button b1, b2;
+    EditText e1, e2;
+    TextView t1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_socket);
 
-        JSONObject json = new JSONObject();
-        try {
-            json.put("email", getIntent().getStringExtra("email"));
-            json.put("password", getIntent().getStringExtra("password"));
-            json.put("user", getIntent().getStringExtra("user"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        String intentData = getIntent().getStringExtra("UniqueId");
-        String email = getIntent().getStringExtra("email");
-        String password = getIntent().getStringExtra("password");
-        String user = getIntent().getStringExtra("user");
+        b2 = (Button) findViewById(R.id.bt2);
+        e2 = (EditText) findViewById(R.id.et2);
+        t1 = (TextView) findViewById(R.id.tx1);
 
-        String w = "ws://coms-309-024.class.las.iastate.edu:8080/websocket/";
+//        String data = getIntent().getStringExtra("data");
+//        try {
+//            JSONObject json = new JSONObject(data);
+//            JSONObject newJson = json.getJSONObject("userInfo");
+//            firstName = newJson.getString("firstName");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+
+        String w = "ws://coms-309-024.class.las.iastate.edu:8080/websocket/" + firstName;
         Draft[] drafts = { new Draft_6455() };
         try {
             cc = new WebSocketClient(new URI(w), (Draft) drafts[0]) {
                 @Override
                 public void onOpen(ServerHandshake serverHandshake) {
-                    Log.i("OPEN", "run() returned: " + "is connecting");
-                    if(getIntent().getStringExtra("UniqueId") != null) {
-                        if (getIntent().getStringExtra("UniqueId").equals("login")) {
-                            cc.send(getIntent().getStringExtra("email"));
-                            //cc.send(String.valueOf(json));
-                            //cc.send(getIntent().getStringExtra("password"));
-                            //cc.send(getIntent().getStringExtra("user"));
-                        }
-                    }
+                    Log.i("OPEN", "onOpen() returned: " + "is connecting");
                 }
 
                 @Override
                 public void onMessage(String s) {
                     Log.i("msg", s);
-                    /*if(getIntent().getStringExtra("user").equals("patients")) {
-                        Intent intent = new Intent(getApplicationContext(), PatientPortalActivity.class)
-                        intent.putExtra("data", s);
-                        startActivity(intent);
-                    }
-                    else if(getIntent().getStringExtra("user").equals("doctors")) {
-                        Intent intent = new Intent(getApplicationContext(), ProviderPortalActivity.class)
-                        intent.putExtra("data", s);
-                        startActivity(intent);
-                    }
-                    else {
-                        Intent intent = new Intent(getApplicationContext(), AdminPortalActivity.class)
-                        intent.putExtra("data", s);
-                        startActivity(intent);
-                    }*/
-                    //finish();
+                    String str = t1.getText().toString();
+                    t1.setText(s + "\nServer:" + s);
+
                 }
 
                 @Override
@@ -93,5 +80,13 @@ public class WebSocketActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         cc.connect();
+    }
+
+    public void click(View view) {
+        try {
+            cc.send(e2.getText().toString());
+        } catch (Exception e) {
+            Log.d("ExceptionSendMessage:", e.getMessage().toString());
+        }
     }
 }
