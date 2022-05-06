@@ -10,7 +10,7 @@
     <string name="button_provider">Healthcare Provider</string>
     <string name="button_forgotpass">Forgot Password</string>
     <string name="button_resetpass">Reset Password</string>
-    <string name="button_create">Submit</string>
+    <string name="button_create">Create</string>
     <string name="button_clear">Clear</string>
     <string name="button_qr">Scan QR Code</string>
     <string name="button_requestAppt">Request Appointment</string>
@@ -27,9 +27,4 @@
     <string name="button_updateProfile">View/Update Profile</string>
     <string name="button_find">Find</string>
     <string name="button_orderNow">Order Now</string>
-    <string-array name="login_dropdown">
-        <item>Patient</item>
-        <item>Doctor</item>
-        <item>Administrator</item>
-    </string-array>
 </resources>
