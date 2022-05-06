@@ -34,12 +34,7 @@ import org.springframework.stereotype.Controller;
 @ServerEndpoint("/websocket/{username}")
 @Component
 public class WebSocketServer {
-    @Autowired
-    PatientRepository patientRepository;
-    @Autowired
-    DoctorRepository doctorRepository;
-    @Autowired
-    AdminRepository adminRepository;
+
 
     // Store all socket session and their corresponding username.
     private static Map < Session, String > sessionUsernameMap = new Hashtable < > ();
@@ -55,46 +50,26 @@ public class WebSocketServer {
         sessionUsernameMap.put(session, username);
         usernameSessionMap.put(username, session);
 
-        String message = "I got you login request";
         //broadcast(message);
     }
 
     @OnMessage
     public void onMessage(Session session, String message) throws IOException {
         // Handle new messages
-//        logger.info("Entered into Message: Got Message:" + message);
-//        String username = sessionUsernameMap.get(session);
-//
-//        if (message.startsWith("@")) // Direct message to a user using the format "@username <message>"
-//        {
-//            String destUsername = message.split(" ")[0].substring(1); // don't do this in your code!
-//            sendMessageToPArticularUser(destUsername, "[DM] " + username + ": " + message);
-//            sendMessageToPArticularUser(username, "[DM] " + username + ": " + message);
-//        } else // Message to whole chat
-//        {
-//            broadcast(username + ": " + message);
-//            System.out.println(username + ": " + message);
-//        }
+        logger.info("Entered into Message: Got Message:" + message);
+        String username = sessionUsernameMap.get(session);
 
-        JSONObject login = new JSONObject();
-        login.put("email", message);
-
-        //broadcast(login.toJSONString());
-
-//        Patient temp = patientRepository.findByEmail(message);
-        if (patientRepository.findByEmail(message).getEmail() == message) {
-            broadcast("email match");
-        } else {
-            broadcast("email does not exist!");
+        if (message.startsWith("@")) // Direct message to a user using the format "@username <message>"
+        {
+            String destUsername = message.split(" ")[0].substring(1); // don't do this in your code!
+            sendMessageToPArticularUser(destUsername, "[DM] " + username + ": " + message);
+            sendMessageToPArticularUser(username, "[DM] " + username + ": " + message);
+        } else // Message to whole chat
+        {
+            broadcast(username + ": " + message);
+            System.out.println(username + ": " + message);
         }
-//        if (!password.equals(temp.getPassword())) {
-//            output.put("status", 2); //status code for incorrect password
-//            output.put("userInfo", null);
-//            return output;
-//        } else {
-//            output.put("status", 3); //status code for correct login information
-//            output.put("userInfo", temp);
-//            return output;
+
 
     }
 
