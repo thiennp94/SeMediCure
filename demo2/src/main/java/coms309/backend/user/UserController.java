@@ -12,11 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-public class UserController {
-//    @Autowired
-//    UserRepository userRepository;
 
+public class UserController {
     @Autowired
     PatientRepository patientRepository;
 
@@ -28,15 +25,6 @@ public class UserController {
 
     //created a new JSON object to put the user JSON data in during the login process.
    JSONObject output = new JSONObject();
-
-    /*
-    Notes from Will's meeting with David:
-    Status codes 0 = login success, 1 = email failed, 2 = password failed
-    If we are just sending over an int as a response how are we sending over additional information
-     -> one way is to create your own JSON by hand.  Spring will serialize into a JSON for you.
-     -> For this request, have the return type be a JSON object (which is just a key value pair).
-        -> put the current JSON return into another JSON with the status code
-     */
 
     /*
     This will verify get the login information from the front end.  It will then check the database to verify

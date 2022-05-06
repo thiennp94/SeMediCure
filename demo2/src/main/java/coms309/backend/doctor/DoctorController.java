@@ -89,10 +89,10 @@ public class DoctorController {
     }
 
     //this post method uses the body of the site via a JSON to post to the database
-    @PostMapping("doctor/post")
+    @PostMapping("doctor/new")
     Doctor PostTriviaByBody(@RequestBody Doctor newDoctor){
-    	String pass = toCipher(newDoctor.getPassword());
-    	newDoctor.setPassword(toCipher(newDoctor.getPassword()));
+//    	String pass = toCipher(newDoctor.getPassword());
+//    	newDoctor.setPassword(toCipher(newDoctor.getPassword()));
         doctorRepository.save(newDoctor);
         return newDoctor;
     }
@@ -103,33 +103,33 @@ public class DoctorController {
         the status (1 = no email, 2 = password is incorrect, 3 = successful login)
         and the userInfo which will contain the user JSON if the login is successful.
      */
-    @GetMapping("doctor/login")
-    JSONObject LoginEmailVerification(@RequestParam String email, @RequestParam String password) {
-        Doctor temp = doctorRepository.findByEmail(email);
-        if (temp == null) {
-            output.put("status", 1); //status code for wrong email
-            output.put("userInfo", null);
-            return output;
-        }
-        if (!password.equals(temp.getPassword())) {
-            output.put("status", 2); //status code for incorrect password
-            output.put("userInfo", null);
-            return output;
-        } else {
-            output.put("status", 3); //status code for correct login information
-            output.put("userInfo", temp);
-            return output;
-
-        }
-    }
+//    @GetMapping("doctor/login")
+//    JSONObject LoginEmailVerification(@RequestParam String email, @RequestParam String password) {
+//        Doctor temp = doctorRepository.findByEmail(email);
+//        if (temp == null) {
+//            output.put("status", 1); //status code for wrong email
+//            output.put("userInfo", null);
+//            return output;
+//        }
+//        if (!password.equals(temp.getPassword())) {
+//            output.put("status", 2); //status code for incorrect password
+//            output.put("userInfo", null);
+//            return output;
+//        } else {
+//            output.put("status", 3); //status code for correct login information
+//            output.put("userInfo", temp);
+//            return output;
+//
+//        }
+//    }
     
-    public String toCipher(String input)
-    {
-        String output = "";
-        for(int i=0; i<input.length(); i++)
-        {
-            output = output + (input.charAt(i) + 5);
-        }
-        return output;
-    }
+//    public String toCipher(String input)
+//    {
+//        String output = "";
+//        for(int i=0; i<input.length(); i++)
+//        {
+//            output = output + (input.charAt(i) + 5);
+//        }
+//        return output;
+//    }
 }
