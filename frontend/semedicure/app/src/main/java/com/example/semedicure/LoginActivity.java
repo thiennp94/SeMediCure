@@ -161,8 +161,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             return false;
         }
 
-        Matcher passwdMatcher = passwdPattern.matcher(password.toString());
-        Matcher emailMatcher = emailPattern.matcher(email.toString());
+        Matcher passwdMatcher = passwdPattern.matcher(password.getText().toString());
+        Matcher emailMatcher = emailPattern.matcher(email.getText().toString());
 
         if (passwdMatcher.matches() && emailMatcher.matches()) {
             return true;
