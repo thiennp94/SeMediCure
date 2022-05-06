@@ -47,21 +47,175 @@
             <TableRow android:minHeight="150px">
 
                 <TextView
-                    android:id="@+id/textViewClinicName"
+                    android:id="@+id/textViewClinicFName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:text="Clinic Name:"
+                    android:text="First Name:"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/txtClinicName"
+                    android:id="@+id/txtClinicFName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Clinic Name"
+                    android:hint="First Name"
                     android:inputType="textPersonName"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+
+            <TableRow android:minHeight="150px">
+
+                <TextView
+                    android:id="@+id/textViewClinicMName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="Middle Name:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtClinicMName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Middle Name"
+                    android:inputType="textPersonName"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+
+            <TableRow android:minHeight="150px">
+
+                <TextView
+                    android:id="@+id/textViewClinicLName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="Last Name:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtClinicLName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Last Name"
+                    android:inputType="textPersonName"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+
+            <TableRow android:minHeight="150px">
+
+                <TextView
+                    android:id="@+id/textViewSpecialty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="Specialty:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtSpecialty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Specialty"
+                    android:inputType="text"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+
+            <TableRow android:minHeight="150px">
+
+                <TextView
+                    android:id="@+id/textViewYOP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="Years Of Practice:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtYOP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Years Of Practice"
+                    android:inputType="text"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+
+            <TableRow android:minHeight="150px">
+
+                <TextView
+                    android:id="@+id/textViewDOB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="Date Of Birth:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtDOB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Date Of Birth"
+                    android:inputType="text"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+
+            <TableRow android:minHeight="150px">
+
+                <TextView
+                    android:id="@+id/textViewLicense"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="License Number:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtLicense"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="License Number"
+                    android:inputType="textPersonName"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+
+            <TableRow android:minHeight="150px">
+
+                <TextView
+                    android:id="@+id/textViewSSN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="SSN:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtSSN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="SSN"
+                    android:inputType="text"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
@@ -157,28 +311,6 @@
             <TableRow android:minHeight="150px">
 
                 <TextView
-                    android:id="@+id/textViewZip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="Zip Code:"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/txtZip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:hint="Zip Code"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="59dp" />
-            </TableRow>
-
-            <TableRow android:minHeight="150px">
-
-                <TextView
                     android:id="@+id/textViewState"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -194,6 +326,28 @@
                     android:ems="10"
                     android:inputType="text"
                     android:hint="State Initials"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="59dp" />
+            </TableRow>
+
+            <TableRow android:minHeight="150px">
+
+                <TextView
+                    android:id="@+id/textViewZip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="Zip Code:"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtZip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:hint="Zip Code"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="59dp" />
             </TableRow>
