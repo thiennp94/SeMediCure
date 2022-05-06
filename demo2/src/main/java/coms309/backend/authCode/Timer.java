@@ -12,7 +12,7 @@ public class Timer {
         StopWatch timer = new StopWatch();
 
         //set how long to run the timer. i = time in seconds
-        for (int i = 10; i > 0; i--) {
+        for (int i = 500; i > 0; i--) {
             timer.start();
             runtime(1000);
             timer.stop();

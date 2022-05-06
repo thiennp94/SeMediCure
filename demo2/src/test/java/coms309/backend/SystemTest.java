@@ -32,6 +32,42 @@ public class SystemTest {
 
     //200 response code just makes sure it works.
     @Test
+    public void testGetAdmin(){
+        Response response = RestAssured.given().
+                header("Content-Type", "text/plain").
+                header("charset","utf-8").
+//                body("hello").
+                when().
+                get("http://coms-309-024.class.las.iastate.edu:8080/admin/all");
+        int statusCode = response.getStatusCode();
+        assertEquals(200, statusCode);
+    }
+
+    @Test
+    public void testGetDoctor(){
+        Response response = RestAssured.given().
+                header("Content-Type", "text/plain").
+                header("charset","utf-8").
+//                body("hello").
+        when().
+                get("http://coms-309-024.class.las.iastate.edu:8080/doctor/all");
+        int statusCode = response.getStatusCode();
+        assertEquals(200, statusCode);
+    }
+
+    @Test
+    public void testGetPatient(){
+        Response response = RestAssured.given().
+                header("Content-Type", "text/plain").
+                header("charset","utf-8").
+//                body("hello").
+        when().
+                get("http://coms-309-024.class.las.iastate.edu:8080/patient/all");
+        int statusCode = response.getStatusCode();
+        assertEquals(200, statusCode);
+    }
+
+    @Test
     public void reverseTest() {
         // Send request and receive response
         Response response = RestAssured.given().
