@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -46,22 +47,44 @@ public class LoginActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.editTextTextPersonName);
         password = (EditText) findViewById(R.id.editTextTextPersonName2);
     }
-
     /**
      * Sends an HTTP string request to the server sending email and username as parameters.
      */
     private void requestString() {
         RequestQueue rQueue = Volley.newRequestQueue(this);
-        String url = "https://8be4f6a4-40fe-40de-8be1-e9c3df6a16f7.mock.pstmn.io/Object/";
 
-        StringRequest strRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        String num1 = email.getText().toString();
+        String num2 = password.getText().toString();
+        String num3 = user;
+
+        String uri = String.format("http://coms-309-024.class.las.iastate.edu:8080/login?email=%1$s&password=%2$s&user=%3$s",
+                num1,
+                num2,
+                num3);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, uri, new Response.Listener<String>() {
             /**
              * Displays a toast on-screen confirming a successful response from the server.
              * @param response String response from the server.
              */
             @Override
             public void onResponse(String response) {
-                Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+                if(user.equals("patient")) {
+                    Intent intent = new Intent(getApplicationContext(), PatientPortalActivity.class);
+                    intent.putExtra("data", response);
+                    startActivity(intent);
+                }
+                else if(user.equals("doctor")) {
+                    Intent intent = new Intent(getApplicationContext(), ProviderPortalActivity.class);
+                    intent.putExtra("data", response);
+                    startActivity(intent);
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), AdminPortalActivity.class);
+                    intent.putExtra("data", response);
+                    startActivity(intent);
+                }
+                Log.i("response", response.toString());
             }
         }, new Response.ErrorListener() {
             /**
@@ -71,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(LoginActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                Log.i("err", error.toString());
             }
 
         }) {
@@ -79,16 +103,17 @@ public class LoginActivity extends AppCompatActivity {
              * @return Hashmap containing the email and password.
              * @throws AuthFailureError
              */
-           @Override
+            @Override
             protected Map<String,String> getParams() throws AuthFailureError {
-               Map<String, String> params = new HashMap<>();
-               params.put("email", email.getText().toString());
-               params.put("password", password.getText().toString());
-               return params;
-           }
+                Map<String, String> params = new HashMap<>();
+                params.put("email", email.getText().toString());
+                params.put("password", password.getText().toString());
+                params.put("user", user);
+                return params;
+            }
         };
 
-        rQueue.add(strRequest);
+        rQueue.add(stringRequest);
 
     }
 
