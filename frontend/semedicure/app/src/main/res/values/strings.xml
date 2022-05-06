@@ -10,7 +10,7 @@
     <string name="button_provider">Healthcare Provider</string>
     <string name="button_forgotpass">Forgot Password</string>
     <string name="button_resetpass">Reset Password</string>
-    <string name="button_create">Create</string>
+    <string name="button_create">Submit</string>
     <string name="button_clear">Clear</string>
     <string name="button_qr">Scan QR Code</string>
     <string name="button_requestAppt">Request Appointment</string>

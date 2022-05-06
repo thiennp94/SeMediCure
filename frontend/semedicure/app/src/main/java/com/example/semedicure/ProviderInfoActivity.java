@@ -2,6 +2,7 @@ package com.example.semedicure;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -42,13 +43,20 @@ public class ProviderInfoActivity extends AppCompatActivity {
     private static final Pattern zipPattern = Pattern.compile(ZIP_PATTERN);
     private static final Pattern statePattern = Pattern.compile(STATE_PATTERN);
 
-    private TextView mTextViewClinicName;
+    private TextView mTextViewClinicFName;
+    private TextView mTextViewClinicMName;
+    private TextView mTextViewClinicLName;
     private TextView mTextViewPhone;
     private TextView mTextViewEmail;
     private TextView mTextViewAddr;
     private TextView mTextViewCity;
     private TextView mTextViewZip;
     private TextView mTextViewState;
+    private TextView mTextViewDOB;
+    private TextView mTextViewSSN;
+    private TextView mTextViewSpecialty;
+    private TextView mTextViewYearOfPractice;
+    private TextView mTextViewLicenseNumber;
     private RequestQueue mQueue;
 
     @Override
@@ -56,14 +64,58 @@ public class ProviderInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_provider_info);
 
-        mTextViewClinicName = findViewById(R.id.txtClinicName);
+        mTextViewClinicFName = findViewById(R.id.txtClinicFName);
+        mTextViewClinicMName = findViewById(R.id.txtClinicMName);
+        mTextViewClinicLName = findViewById(R.id.txtClinicLName);
         mTextViewPhone = findViewById(R.id.txtPhone);
         mTextViewEmail = findViewById(R.id.txtClinicEmail);
         mTextViewAddr = findViewById(R.id.txtStAddr);
         mTextViewCity = findViewById(R.id.txtCity);
         mTextViewZip = findViewById(R.id.txtZip);
         mTextViewState = findViewById(R.id.txtState);
+        mTextViewDOB = findViewById(R.id.txtDOB);
+        mTextViewSSN = findViewById(R.id.txtSSN);
+        mTextViewSpecialty = findViewById(R.id.txtSpecialty);
+        mTextViewYearOfPractice = findViewById(R.id.txtYOP);
+        mTextViewLicenseNumber = findViewById(R.id.txtLicense);
         mQueue = Volley.newRequestQueue(this);
+
+        // Get data from Provider Portal screen
+        Intent intent = getIntent();
+        if(intent.getIntExtra("id", 0) != 0) {
+            int id = intent.getIntExtra("id", 0);
+            String city = intent.getStringExtra("city");
+            int dateOfBirth = intent.getIntExtra("date_of_birth", 0);
+            String lastName = intent.getStringExtra("last_name");
+            String firstName = intent.getStringExtra("firstName");
+            String middleName = intent.getStringExtra("middle_name");
+            String password = intent.getStringExtra("password");
+            int phoneNumber = intent.getIntExtra("phone_number", 0);
+            int ssn = intent.getIntExtra("ssn", 0);
+            String streetAddress = intent.getStringExtra("street_address");
+            int zip = intent.getIntExtra("zip", 0);
+            String email = intent.getStringExtra("email");
+            String specialty = intent.getStringExtra("specialty");
+            String state = intent.getStringExtra("state");
+            String username = intent.getStringExtra("username");
+            String yearOfPractice = intent.getStringExtra("year_of_practice");
+            String licenseNumber = intent.getStringExtra("license_num");
+
+            mTextViewClinicFName.setText(firstName);
+            mTextViewClinicMName.setText(middleName);
+            mTextViewClinicLName.setText(lastName);
+            mTextViewPhone.setText(phoneNumber);
+            mTextViewEmail.setText(email);
+            mTextViewAddr.setText(streetAddress);
+            mTextViewCity.setText(city);
+            mTextViewZip.setText(zip);
+            mTextViewState.setText(state);
+            mTextViewSSN.setText(ssn);
+            mTextViewDOB.setText(dateOfBirth);
+            mTextViewSpecialty.setText(specialty);
+            mTextViewYearOfPractice.setText(yearOfPractice);
+            mTextViewLicenseNumber.setText(licenseNumber);
+        }
     }
 
     public void clinicInfo(View view){
@@ -76,8 +128,13 @@ public class ProviderInfoActivity extends AppCompatActivity {
      */
     private boolean CheckAllFields() {
 
-        if (mTextViewClinicName.length() == 0) {
-            mTextViewClinicName.setError("This field is required");
+        if (mTextViewClinicFName.length() == 0) {
+            mTextViewClinicFName.setError("This field is required");
+            return false;
+        }
+
+        if (mTextViewClinicLName.length() == 0) {
+            mTextViewClinicLName.setError("This field is required");
             return false;
         }
 
@@ -151,7 +208,7 @@ public class ProviderInfoActivity extends AppCompatActivity {
                                 String state = clinic.getString("state");
                                 String zip = clinic.getString("zip");
 
-                                mTextViewClinicName.setText(clinicName);
+                                mTextViewClinicFName.setText(clinicName);
                                 mTextViewPhone.setText(phone);
                                 mTextViewEmail.setText(email);
                                 mTextViewAddr.setText(address);
@@ -178,13 +235,20 @@ public class ProviderInfoActivity extends AppCompatActivity {
      * @param view
      */
     public void clearClinicInfo(View view){
-        mTextViewClinicName.setText("");
+        mTextViewClinicFName.setText("");
+        mTextViewClinicMName.setText("");
+        mTextViewClinicLName.setText("");
         mTextViewPhone.setText("");
         mTextViewEmail.setText("");
         mTextViewAddr.setText("");
         mTextViewCity.setText("");
         mTextViewZip.setText("");
         mTextViewState.setText("");
+        mTextViewSSN.setText("");
+        mTextViewDOB.setText("");
+        mTextViewSpecialty.setText("");
+        mTextViewYearOfPractice.setText("");
+        mTextViewLicenseNumber.setText("");
     }
 
 }

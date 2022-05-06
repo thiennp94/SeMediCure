@@ -21,10 +21,6 @@ public class PatientPortalActivity extends AppCompatActivity {
 
         // Get data from Login screen
         Intent intent = getIntent();
-        String value1 = intent.getStringExtra("Key_1");
-        int value2 = intent.getIntExtra("Key_2", 0);
-        boolean value3 = intent.getBooleanExtra("Key_3", false);
-
         int id = intent.getIntExtra("id", 0);
         String city = intent.getStringExtra("city");
         int dateOfBirth = intent.getIntExtra("date_of_birth", 0);
