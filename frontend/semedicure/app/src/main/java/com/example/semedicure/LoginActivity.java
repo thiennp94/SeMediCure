@@ -28,9 +28,9 @@ public class LoginActivity extends AppCompatActivity {
 
     // digit + lowercase char + uppercase char + punctuation + symbol
     private static final String PASSWORD_PATTERN =
-            "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
+            "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
     private static final String EMAIL_PATTERN =
-            "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+            "^[A-Za-z0-9+_.-]+@(.+)$";
 
     private static final Pattern passwdPattern = Pattern.compile(PASSWORD_PATTERN);
     private static final Pattern emailPattern = Pattern.compile(EMAIL_PATTERN);
