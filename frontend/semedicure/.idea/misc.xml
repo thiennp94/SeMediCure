@@ -20,7 +20,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2512019230769231" />
         <entry key="app/src/main/res/layout/activity_order_prescription.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_patient_info.xml" value="0.18425925925925926" />
-        <entry key="app/src/main/res/layout/activity_patient_portal.xml" value="0.19661335841956726" />
+        <entry key="app/src/main/res/layout/activity_patient_portal.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_patient_profile.xml" value="0.5541666666666667" />
         <entry key="app/src/main/res/layout/activity_provider_info.xml" value="0.5541666666666667" />
         <entry key="app/src/main/res/layout/activity_provider_portal.xml" value="0.24010416666666667" />

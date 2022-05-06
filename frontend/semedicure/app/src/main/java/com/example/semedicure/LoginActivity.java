@@ -17,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -55,28 +56,25 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
      */
     private void requestString() {
         RequestQueue rQueue = Volley.newRequestQueue(this);
-        String url = "https://coms-309-024.class.las.iastate.edu:8080";
+        String url = "http://coms-309-024.class.las.iastate.edu:8080/login?email=emily@email.com&password=1234&user=admin";
 
-        StringRequest strRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        String num1 = email.getText().toString();
+        String num2 = password.getText().toString();
+        String num3 = user;
+
+        String uri = String.format("http://coms-309-024.class.las.iastate.edu:8080/login?email=%1$s&password=%2$s&user=%3$s",
+                num1,
+                num2, 
+                num3);
+
+        StringRequest jsonObjectRequest = new StringRequest(Request.Method.GET, uri, new Response.Listener<String>() {
             /**
              * Displays a toast on-screen confirming a successful response from the server.
              * @param response String response from the server.
              */
             @Override
             public void onResponse(String response) {
-                JSONObject json = new JSONObject();
-                try {
-                    json.put("json", response);
-                    String user = json.getString("user");
-                    Intent intent = new Intent(getApplicationContext(), PatientPortalActivity.class);
-                    intent.putExtra("userInfo", response);
-//                    if(user.equals("patient")) {
-//                        Intent intent = new Intent(getApplicationContext(), PatientPortalActivity.class);
-//                        intent.putExtra("userInfo", response);
-//                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                Log.i("response", response.toString());
             }
         }, new Response.ErrorListener() {
             /**
@@ -86,6 +84,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(LoginActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                Log.i("err", error.toString());
             }
 
         }) {
@@ -104,7 +103,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
            }
         };
 
-        rQueue.add(strRequest);
+        rQueue.add(jsonObjectRequest);
 
     }
 
@@ -141,13 +140,13 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         switch(i) {
             case 0:
-                user = "patients";
+                user = "patient";
                 break;
             case 1:
-                user = "doctors";
+                user = "doctor";
                 break;
             case 2:
-                user = "admins";
+                user = "admin";
                 break;
         }
     }
