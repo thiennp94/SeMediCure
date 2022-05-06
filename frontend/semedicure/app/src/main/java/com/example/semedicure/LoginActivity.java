@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
      */
     private void requestString() {
         RequestQueue rQueue = Volley.newRequestQueue(this);
-        String url = "http://coms-309-024.class.las.iastate.edu:8080/login";
+        String url = "https://8be4f6a4-40fe-40de-8be1-e9c3df6a16f7.mock.pstmn.io/Object/";
 
         StringRequest strRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             /**
