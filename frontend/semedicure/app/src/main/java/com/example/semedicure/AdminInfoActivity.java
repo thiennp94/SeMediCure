@@ -2,7 +2,6 @@ package com.example.semedicure;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -40,11 +39,7 @@ public class AdminInfoActivity extends AppCompatActivity {
     private static final Pattern zipPattern = Pattern.compile(ZIP_PATTERN);
     private static final Pattern statePattern = Pattern.compile(STATE_PATTERN);
 
-    private TextView mTextViewAdminFName;
-    private TextView mTextViewAdminLName;
-    private TextView mTextViewAdminMName;
-    private TextView mTextViewDOB;
-    private TextView mTextViewSSN;
+    private TextView mTextViewAdminName;
     private TextView mTextViewPhone;
     private TextView mTextViewEmail;
     private TextView mTextViewAddr;
@@ -58,11 +53,7 @@ public class AdminInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_info);
 
-        mTextViewAdminFName = findViewById(R.id.txtAdminFName);
-        mTextViewAdminLName = findViewById(R.id.txtAdminLName);
-        mTextViewAdminMName = findViewById(R.id.txtAdminMName);
-        mTextViewDOB = findViewById(R.id.txtDOB);
-        mTextViewSSN = findViewById(R.id.txtSSN);
+        mTextViewAdminName = findViewById(R.id.txtAdminName);
         mTextViewPhone = findViewById(R.id.txtPhone);
         mTextViewEmail = findViewById(R.id.txtAdminEmail);
         mTextViewAddr = findViewById(R.id.txtStAddr);
@@ -70,38 +61,6 @@ public class AdminInfoActivity extends AppCompatActivity {
         mTextViewZip = findViewById(R.id.txtZip);
         mTextViewState = findViewById(R.id.txtState);
         mQueue = Volley.newRequestQueue(this);
-
-        // Get data from Admin Portal screen
-        Intent intent = getIntent();
-        // account exists
-        if (intent.getIntExtra("id", 0) != 0) {
-            int id = intent.getIntExtra("id", 0);
-            String city = intent.getStringExtra("city");
-            int dateOfBirth = intent.getIntExtra("date_of_birth", 0);
-            String firstName = intent.getStringExtra("firstName");
-            String lastName = intent.getStringExtra("last_name");
-            String middleName = intent.getStringExtra("middle_name");
-            String password = intent.getStringExtra("password");
-            int phoneNumber = intent.getIntExtra("phone_number", 0);
-            int ssn = intent.getIntExtra("ssn", 0);
-            String streetAddress = intent.getStringExtra("street_address");
-            int zip = intent.getIntExtra("zip", 0);
-            String email = intent.getStringExtra("email");
-            String state = intent.getStringExtra("state");
-            String username = intent.getStringExtra("username");
-
-            mTextViewAdminFName.setText(firstName);
-            mTextViewAdminLName.setText(lastName);
-            mTextViewAdminMName.setText(middleName);
-            mTextViewDOB.setText(dateOfBirth);
-            mTextViewSSN.setText(ssn);
-            mTextViewPhone.setText(phoneNumber);
-            mTextViewEmail.setText(email);
-            mTextViewAddr.setText(streetAddress);
-            mTextViewCity.setText(city);
-            mTextViewZip.setText(zip);
-            mTextViewState.setText(state);
-        }
     }
 
     public void createAdminInfo(View view){
@@ -113,13 +72,8 @@ public class AdminInfoActivity extends AppCompatActivity {
      * Validate all user inputs.
      */
     private boolean CheckAllFields() {
-        if (mTextViewAdminFName.length() == 0) {
-            mTextViewAdminFName.setError("This field is required");
-            return false;
-        }
-
-        if (mTextViewAdminLName.length() == 0) {
-            mTextViewAdminLName.setError("This field is required");
+        if (mTextViewAdminName.length() == 0) {
+            mTextViewAdminName.setError("This field is required");
             return false;
         }
 
@@ -193,7 +147,7 @@ public class AdminInfoActivity extends AppCompatActivity {
                                 String state = Admin.getString("state");
                                 String zip = Admin.getString("zip");
 
-//                                mTextViewAdminName.setText(AdminName);
+                                mTextViewAdminName.setText(AdminName);
                                 mTextViewPhone.setText(phone);
                                 mTextViewEmail.setText(email);
                                 mTextViewAddr.setText(address);
@@ -220,11 +174,7 @@ public class AdminInfoActivity extends AppCompatActivity {
      * @param view
      */
     public void clearAdminInfo(View view){
-        mTextViewAdminFName.setText("");
-        mTextViewAdminLName.setText("");
-        mTextViewAdminMName.setText("");
-        mTextViewDOB.setText("");
-        mTextViewSSN.setText("");
+        mTextViewAdminName.setText("");
         mTextViewPhone.setText("");
         mTextViewEmail.setText("");
         mTextViewAddr.setText("");

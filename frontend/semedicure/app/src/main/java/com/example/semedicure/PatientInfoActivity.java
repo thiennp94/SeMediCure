@@ -2,7 +2,6 @@ package com.example.semedicure;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -28,7 +27,7 @@ import java.util.regex.Pattern;
 
 /**
  * The patient information activity of the app.
- * The entry point/welcome screen > Login > Patient Portal > Patient Profile > Patient Info
+ * The entry point/welcome screen > Login > Patient Portal > Patient Info
  */
 public class PatientInfoActivity extends AppCompatActivity {
 
@@ -63,9 +62,7 @@ public class PatientInfoActivity extends AppCompatActivity {
     private TextView mTextViewSSN;
     private TextView mTextViewInsurer;
     private TextView mTextViewPolicyHolder;
-    private TextView mTextViewHeight;
-    private TextView mTextViewPrescriptions;
-    private TextView mTextViewWeight;
+    private TextView mTextViewGroupNum;
     private RequestQueue mQueue;
 
     @Override
@@ -86,53 +83,17 @@ public class PatientInfoActivity extends AppCompatActivity {
         mTextViewSSN = findViewById(R.id.txtSSN);
         mTextViewInsurer = findViewById(R.id.txtInsurer);
         mTextViewPolicyHolder = findViewById(R.id.txtPolicyHolder);
-        mTextViewHeight = findViewById(R.id.txtHeight);
-        mTextViewPrescriptions = findViewById(R.id.txtPrescription);
-        mTextViewWeight = findViewById(R.id.txtWeight);
+        mTextViewGroupNum = findViewById(R.id.txtGroupNum);
+//        Button buttonCreate = findViewById(R.id.buttonUpdate);
 
         mQueue = Volley.newRequestQueue(this);
 
-        // Get data from Patient Profile screen
-        Intent intent = getIntent();
-        // account exists
-        if (intent.getIntExtra("id", 0) != 0) {
-            int id = intent.getIntExtra("id", 0);
-            String city = intent.getStringExtra("city");
-            int dateOfBirth = intent.getIntExtra("date_of_birth", 0);
-            String email = intent.getStringExtra("email");
-            String firstName = intent.getStringExtra("firstName");
-            int height = intent.getIntExtra("height", 0);
-            String insurerName = intent.getStringExtra("insurer_name");
-            String lastName = intent.getStringExtra("last_name");
-            String middleName = intent.getStringExtra("middle_name");
-            String password = intent.getStringExtra("password");
-            int phoneNumber = intent.getIntExtra("phone_number", 0);
-            String policyHolderName = intent.getStringExtra("policy_holder_name");
-            String prescriptions = intent.getStringExtra("prescription");
-            int ssn = intent.getIntExtra("ssn", 0);
-            String state = intent.getStringExtra("state");
-            String streetAddress = intent.getStringExtra("street_address");
-            String username = intent.getStringExtra("username");
-            int weight = intent.getIntExtra("weight", 0);
-            int zip = intent.getIntExtra("zip", 0);
-
-            mTextViewPatientFName.setText(firstName);
-            mTextViewPatientMName.setText(middleName);
-            mTextViewPatientLName.setText(lastName);
-            mTextViewPhone.setText(phoneNumber);
-            mTextViewEmail.setText(email);
-            mTextViewDOB.setText(dateOfBirth);
-            mTextViewAddr.setText(streetAddress);
-            mTextViewCity.setText(city);
-            mTextViewZip.setText(zip);
-            mTextViewState.setText(state);
-            mTextViewSSN.setText(ssn);
-            mTextViewInsurer.setText(insurerName);
-            mTextViewPolicyHolder.setText(policyHolderName);
-            mTextViewHeight.setText(height);
-            mTextViewWeight.setText(weight);
-            mTextViewPrescriptions.setText(prescriptions);
-        }
+//        buttonCreate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                jsonParse();
+//            }
+//        });
     }
 
     public void getPatientInfo(View view){
@@ -178,10 +139,10 @@ public class PatientInfoActivity extends AppCompatActivity {
             return false;
         }
 
-//        if (mTextViewGroupNum.length() == 0) {
-//            mTextViewGroupNum.setError("This field is required");
-//            return false;
-//        }
+        if (mTextViewGroupNum.length() == 0) {
+            mTextViewGroupNum.setError("This field is required");
+            return false;
+        }
 
         if (mTextViewPhone.length() == 0) {
             mTextViewPhone.setError("This field is required");
@@ -259,7 +220,7 @@ public class PatientInfoActivity extends AppCompatActivity {
                                 String ssn = patient.getString("ssn");
                                 String insurer = patient.getString("insurer");
                                 String policyholder = patient.getString("policyholder");
-//                                String group = patient.getString("group");
+                                String group = patient.getString("group");
 
                                 mTextViewPatientFName.setText(firstName);
                                 mTextViewPatientMName.setText(middleName);
@@ -274,7 +235,7 @@ public class PatientInfoActivity extends AppCompatActivity {
                                 mTextViewSSN.setText(ssn);
                                 mTextViewInsurer.setText(insurer);
                                 mTextViewPolicyHolder.setText(policyholder);
-//                                mTextViewGroupNum.setText(group);
+                                mTextViewGroupNum.setText(group);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -308,9 +269,7 @@ public class PatientInfoActivity extends AppCompatActivity {
         mTextViewSSN.setText("");
         mTextViewInsurer.setText("");
         mTextViewPolicyHolder.setText("");
-        mTextViewHeight.setText("");
-        mTextViewWeight.setText("");
-        mTextViewPrescriptions.setText("");
+        mTextViewGroupNum.setText("");
     }
 
     // POST
@@ -346,7 +305,7 @@ public class PatientInfoActivity extends AppCompatActivity {
                 params.put("ssn", mTextViewSSN.getText().toString());
                 params.put("insurer", mTextViewInsurer.getText().toString());
                 params.put("policyholder", mTextViewPolicyHolder.getText().toString());
-//                params.put("group", mTextViewGroupNum.getText().toString());
+                params.put("group", mTextViewGroupNum.getText().toString());
                 return params;
             }
         };

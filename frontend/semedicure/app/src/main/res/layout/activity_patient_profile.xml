@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="msg"
     tools:context=".PatientProfileActivity">
 
     <ImageView
-        android:id="@+id/imageView1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg1" />
+        android:id="@+id/imageView1"
+        android:src="@drawable/bg1"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/textView"
@@ -52,9 +51,9 @@
         android:layout_width="280dp"
         android:layout_height="48dp"
         android:layout_marginTop="280dp"
-        android:backgroundTint="@android:color/holo_blue_dark"
         android:onClick="patientInfo"
         android:text="@string/button_profile"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,27 +64,12 @@
         android:layout_width="280dp"
         android:layout_height="48dp"
         android:layout_marginTop="72dp"
-        android:backgroundTint="@android:color/holo_blue_dark"
         android:onClick="currentMedication"
         android:text="@string/button_currMed"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
-        android:onClick="msg"
-        android:src="@drawable/ic_baseline_message_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView1"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
