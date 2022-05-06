@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 /**
  * Acts as the view for the login screen.
  */
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     // digit + lowercase char + uppercase char + punctuation + symbol
     private static final String PASSWORD_PATTERN =
