@@ -27,4 +27,9 @@
     <string name="button_updateProfile">View/Update Profile</string>
     <string name="button_find">Find</string>
     <string name="button_orderNow">Order Now</string>
+    <string-array name="login_dropdown">
+        <item>Patient</item>
+        <item>Doctor</item>
+        <item>Administrator</item>
+    </string-array>
 </resources>

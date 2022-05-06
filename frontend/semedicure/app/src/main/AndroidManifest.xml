@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Semedicure">
         <activity
+            android:name=".WebSocketActivity"
+            android:exported="false" />
+        <activity
             android:name=".ScheduleApptActivity"
             android:exported="false" />
         <activity
