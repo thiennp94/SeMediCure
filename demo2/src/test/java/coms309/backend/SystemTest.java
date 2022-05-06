@@ -1,6 +1,7 @@
 package coms309.backend;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,6 +12,9 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import io.restassured.RestAssured;
+import io.restassured.RestAssured.*;
+import io.restassured.matcher.RestAssuredMatchers.*;
+import org.hamcrest.Matchers.*;
 import io.restassured.response.Response;
 
 import org.springframework.boot.test.context.SpringBootTest;
@@ -118,6 +122,28 @@ public class SystemTest {
             e.printStackTrace();
         }
 
+    }
+    
+    @Test
+    public void whenRequestGetAdmin_thenOK() {
+    	RestAssured.when().request("GET", "admin/all").then().statusCode(200);
+    }
+    
+    @Test
+    public void whenRequestGetDoctor_thenOK()
+    {
+    	RestAssured.when().request("GET", "doctor/all").then().statusCode(200);
+    }
+    
+    @Test
+    public void whenRequestGetPatient_thenOK() {
+    	RestAssured.when().request("GET", "patient/all").then().statusCode(200);
+    }
+    
+    @Test
+    public void whenRequestGetVisit_thenOK()
+    {
+    	RestAssured.when().request("GET", "visit/all").then().statusCode(200);
     }
 }
 
