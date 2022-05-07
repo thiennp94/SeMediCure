@@ -90,8 +90,8 @@ public class AdminController {
     //this post method uses the body of the site via a JSON to post to the database
     @PostMapping("admin/post")
     Admin PostTriviaByBody(@RequestBody Admin newAdmin){
-    	String pass = toCipher(newAdmin.getPassword());
-    	newAdmin.setPassword(toCipher(newAdmin.getPassword()));
+//    	String pass = toCipher(newAdmin.getPassword());
+//    	newAdmin.setPassword(toCipher(newAdmin.getPassword()));
         adminRepository.save(newAdmin);
         return newAdmin;
     }
@@ -122,14 +122,14 @@ public class AdminController {
         }
     }
     
-    public String toCipher(String input)
-    {
-        String output = "";
-        for(int i=0; i<input.length(); i++)
-        {
-            output = output + (input.charAt(i) + 5);
-        }
-        return output;
-    }
+//    public String toCipher(String input)
+//    {
+//        String output = "";
+//        for(int i=0; i<input.length(); i++)
+//        {
+//            output = output + (input.charAt(i) + 5);
+//        }
+//        return output;
+//    }
 
 }

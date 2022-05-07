@@ -15,6 +15,10 @@ import io.restassured.response.Response;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+import io.restassured.RestAssured.*;
+import io.restassured.matcher.RestAssuredMatchers.*;
+import org.hamcrest.Matchers.*;
+
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -26,11 +30,49 @@ public class SystemTest {
 
     @Before
     public void setUp() {
-        RestAssured.port = port;
-        RestAssured.baseURI = "http://coms-309-024.class.las.iastate.edu:8080";
+        RestAssured.port = 8080;
+        RestAssured.baseURI = "http://coms-309-024.class.las.iastate.edu";
     }
 
+
+
     //200 response code just makes sure it works.
+    @Test
+    public void testGetAdmin(){
+        Response response = RestAssured.given().
+                header("Content-Type", "text/plain").
+                header("charset","utf-8").
+//                body("hello").
+                when().
+                get("http://coms-309-024.class.las.iastate.edu:8080/admin/all");
+        int statusCode = response.getStatusCode();
+        assertEquals(200, statusCode);
+    }
+
+    @Test
+    public void testGetDoctor(){
+        Response response = RestAssured.given().
+                header("Content-Type", "text/plain").
+                header("charset","utf-8").
+//                body("hello").
+        when().
+                get("http://coms-309-024.class.las.iastate.edu:8080/doctor/all");
+        int statusCode = response.getStatusCode();
+        assertEquals(200, statusCode);
+    }
+
+    @Test
+    public void testGetPatient(){
+        Response response = RestAssured.given().
+                header("Content-Type", "text/plain").
+                header("charset","utf-8").
+//                body("hello").
+        when().
+                get("http://coms-309-024.class.las.iastate.edu:8080/patient/all");
+        int statusCode = response.getStatusCode();
+        assertEquals(200, statusCode);
+    }
+
     @Test
     public void reverseTest() {
         // Send request and receive response
@@ -81,7 +123,29 @@ public class SystemTest {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+        
+    }
+    
+    @Test
+    public void whenRequestGetAdmin_thenOK() {
+    	RestAssured.when().request("GET", "admin/all").then().statusCode(200);
+    }
+    
+    @Test
+    public void whenRequestGetDoctor_thenOK()
+    {
+    	RestAssured.when().request("GET", "doctor/all").then().statusCode(200);
+    }
+    
+    @Test
+    public void whenRequestGetPatient_thenOK() {
+    	RestAssured.when().request("GET", "patient/all").then().statusCode(200);
+    }
+    
+    @Test
+    public void whenRequestGetVisit_thenOK()
+    {
+    	RestAssured.when().request("GET", "visit/all").then().statusCode(200);
     }
 }
 

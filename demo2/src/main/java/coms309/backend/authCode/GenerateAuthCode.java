@@ -7,7 +7,7 @@ When the timer is finished it will it repeat generating a new code.
 
 public class GenerateAuthCode  {
 
-    public static GenerateAuthCode newAuthCode() {
+    public static String newAuthCode() {
         Timer time = new Timer();
         RandAlphaNum code = new RandAlphaNum();
         int i = 0;

@@ -80,21 +80,23 @@ public class PatientController {
     PatientRepository patientRepository;
 
     //created a new JSON object to put the user JSON data in during the login process.
-   JSONObject output = new JSONObject();
+    JSONObject output = new JSONObject();
+    JSONObject outputForAuth = new JSONObject();
 
     @GetMapping("patient/all")
-    List<Patient> GetAllPatients(){
+    List<Patient> GetAllPatients() {
         return patientRepository.findAll();
     }
 
     //this post method uses the body of the site via a JSON to post to the database
     @PostMapping("patient/post")
-    Patient PostTriviaByBody(@RequestBody Patient newPatient){
-    	String pass = toCipher(newPatient.getPassword());
-    	newPatient.setPassword(toCipher(newPatient.getPassword()));
+    Patient PostTriviaByBody(@RequestBody Patient newPatient) {
+//    	String pass = toCipher(newPatient.getPassword());
+//    	newPatient.setPassword(toCipher(newPatient.getPassword()));
         patientRepository.save(newPatient);
         return newPatient;
     }
+
     /* This will verify get the login information from the front end.  It will then check the database to verify
     there their email exists and that the password matches. Once that occures it will send back the data to the frontend
     To do this and be able to display the correct error message we packed the user JSON into another JSON called output
@@ -102,34 +104,35 @@ public class PatientController {
         the status (1 = no email, 2 = password is incorrect, 3 = successful login)
         and the userInfo which will contain the user JSON if the login is successful.
      */
-    @GetMapping("patient/login")
-    JSONObject LoginEmailVerification(@RequestParam String email, @RequestParam String password) {
-        Patient temp = patientRepository.findByEmail(email);
-        if (temp == null) {
-            output.put("status", 1); //status code for wrong email
-            output.put("userInfo", null);
-            return output;
-        }
-        if (!password.equals(temp.getPassword())) {
-            output.put("status", 2); //status code for incorrect password
-            output.put("userInfo", null);
-            return output;
-        } else {
-            output.put("status", 3); //status code for correct login information
-            output.put("userInfo", temp);
-            return output;
+        @GetMapping("patient/login")
+        JSONObject LoginEmailVerification (@RequestParam String email, @RequestParam String password){
+            Patient temp = patientRepository.findByEmail(email);
+            if (temp == null) {
+                output.put("status", 1); //status code for wrong email
+                output.put("userInfo", null);
+                return output;
+            }
+            if (!password.equals(temp.getPassword())) {
+                output.put("status", 2); //status code for incorrect password
+                output.put("userInfo", null);
+                return output;
+            } else {
+                output.put("status", 3); //status code for correct login information
+                output.put("userInfo", temp);
+                return output;
 
+            }
         }
-    }
-    
-    public String toCipher(String input)
-    {
-        String output = "";
-        for(int i=0; i<input.length(); i++)
-        {
-            output = output + (input.charAt(i) + 5);
-        }
-        return output;
-    }
+
+//    public String toCipher(String input)
+//    {
+//        String output = "";
+//        for(int i=0; i<input.length(); i++)
+//        {
+//            output = output + (input.charAt(i) + 5);
+//        }
+//        return output;
+//    }
+
 }
 
