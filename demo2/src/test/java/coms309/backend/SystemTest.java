@@ -123,7 +123,29 @@ public class SystemTest {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+        
+    }
+    
+    @Test
+    public void whenRequestGetAdmin_thenOK() {
+    	RestAssured.when().request("GET", "admin/all").then().statusCode(200);
+    }
+    
+    @Test
+    public void whenRequestGetDoctor_thenOK()
+    {
+    	RestAssured.when().request("GET", "doctor/all").then().statusCode(200);
+    }
+    
+    @Test
+    public void whenRequestGetPatient_thenOK() {
+    	RestAssured.when().request("GET", "patient/all").then().statusCode(200);
+    }
+    
+    @Test
+    public void whenRequestGetVisit_thenOK()
+    {
+    	RestAssured.when().request("GET", "visit/all").then().statusCode(200);
     }
 }
 
