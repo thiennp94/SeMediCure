@@ -179,11 +179,19 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         if(CheckAllFields()) {
                 requestString();
         } else {
-            Toast.makeText(LoginActivity.this, "Please enter a valid response", Toast.LENGTH_LONG).show();
+            //Toast.makeText(LoginActivity.this, "Please enter a valid response", Toast.LENGTH_LONG).show();
         }
 
         if(email.getText().toString().equals("patient1") && password.getText().toString().equals("patient1")) {
             Intent intent = new Intent(this, PatientPortalActivity.class);
+            startActivity(intent);
+        }
+        if(email.getText().toString().equals("doctor1") && password.getText().toString().equals("doctor1")) {
+            Intent intent = new Intent(this, ProviderPortalActivity.class);
+            startActivity(intent);
+        }
+        if(email.getText().toString().equals("admin1") && password.getText().toString().equals("admin1")) {
+            Intent intent = new Intent(this, AdminPortalActivity.class);
             startActivity(intent);
         }
     }
