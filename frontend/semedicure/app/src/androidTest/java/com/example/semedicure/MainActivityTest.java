@@ -2,28 +2,27 @@ package com.example.semedicure;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
-import android.content.Context;
+import android.widget.CalendarView;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 
-import androidx.annotation.ContentView;
-import androidx.test.espresso.ViewAction;
+import androidx.test.espresso.contrib.PickerActions;
 import androidx.test.filters.LargeTest;
-import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner;
-import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner;
 import androidx.test.rule.ActivityTestRule;
 
-import org.junit.Before;
+import org.hamcrest.Matchers;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import static org.junit.Assert.*;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -32,15 +31,13 @@ import static org.junit.Assert.*;
  */
 @RunWith(AndroidJUnit4ClassRunner.class)
 @LargeTest
-public class ExampleInstrumentedTest {
+public class MainActivityTest {
     @Rule
-    public ActivityTestRule<LoginActivity> loginActivity = new ActivityTestRule<>(LoginActivity.class);
+    public ActivityTestRule<MainActivity> mainActivity = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void testLoginScreen() {
-        onView(withId(R.id.editTextTextPersonName)).perform(typeText("patient1"));
-        onView(withId(R.id.editTextTextPersonName2)).perform(typeText("patient1"));
-        onView(withId(R.id.button2)).perform(click());
+    public void testMainActivity() {
+        onView(withId(R.id.button)).perform(click());
         onView(withId(R.id.textView)).check(matches(isDisplayed()));
     }
 
