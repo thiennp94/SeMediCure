@@ -27,8 +27,7 @@ import java.util.regex.Pattern;
  */
 public class ProviderInfoActivity extends AppCompatActivity {
 
-    private static final String EMAIL_PATTERN =
-            "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+    private static final String EMAIL_PATTERN = "^[A-Za-z0-9+_.-]+@(.+)$";
     private static final String PHONE_PATTERN = "^\\d{10}$";
     private static final String ADDR_PATTERN = "^\\d.{0,4}?\\s\\w+$";
     private static final String ZIP_PATTERN = "^\\d{5}$";
@@ -56,7 +55,6 @@ public class ProviderInfoActivity extends AppCompatActivity {
     private TextView mTextViewSSN;
     private TextView mTextViewSpecialty;
     private TextView mTextViewYearOfPractice;
-    private TextView mTextViewLicenseNumber;
     private RequestQueue mQueue;
 
     @Override
@@ -77,51 +75,40 @@ public class ProviderInfoActivity extends AppCompatActivity {
         mTextViewSSN = findViewById(R.id.txtSSN);
         mTextViewSpecialty = findViewById(R.id.txtSpecialty);
         mTextViewYearOfPractice = findViewById(R.id.txtYOP);
-        mTextViewLicenseNumber = findViewById(R.id.txtLicense);
         mQueue = Volley.newRequestQueue(this);
 
         // Get data from Provider Portal screen
         Intent intent = getIntent();
-        if(intent.getIntExtra("id", 0) != 0) {
-            int id = intent.getIntExtra("id", 0);
-            String city = intent.getStringExtra("city");
-            int dateOfBirth = intent.getIntExtra("date_of_birth", 0);
-            String lastName = intent.getStringExtra("last_name");
-            String firstName = intent.getStringExtra("firstName");
-            String middleName = intent.getStringExtra("middle_name");
-            String password = intent.getStringExtra("password");
-            int phoneNumber = intent.getIntExtra("phone_number", 0);
-            int ssn = intent.getIntExtra("ssn", 0);
-            String streetAddress = intent.getStringExtra("street_address");
-            int zip = intent.getIntExtra("zip", 0);
-            String email = intent.getStringExtra("email");
-            String specialty = intent.getStringExtra("specialty");
-            String state = intent.getStringExtra("state");
-            String username = intent.getStringExtra("username");
-            String yearOfPractice = intent.getStringExtra("year_of_practice");
-            String licenseNumber = intent.getStringExtra("license_num");
+        String data = intent.getStringExtra("data");
 
-            mTextViewClinicFName.setText(firstName);
-            mTextViewClinicMName.setText(middleName);
-            mTextViewClinicLName.setText(lastName);
-            mTextViewPhone.setText(phoneNumber);
-            mTextViewEmail.setText(email);
-            mTextViewAddr.setText(streetAddress);
-            mTextViewCity.setText(city);
-            mTextViewZip.setText(zip);
-            mTextViewState.setText(state);
-            mTextViewSSN.setText(ssn);
-            mTextViewDOB.setText(dateOfBirth);
-            mTextViewSpecialty.setText(specialty);
-            mTextViewYearOfPractice.setText(yearOfPractice);
-            mTextViewLicenseNumber.setText(licenseNumber);
+        try {
+            JSONObject json = new JSONObject(data);
+            JSONObject jsonArray = json.getJSONObject("userInfo");
+
+            mTextViewEmail.setText(jsonArray.getString("email").toString());
+            mTextViewClinicFName.setText(jsonArray.getString("firstName").toString());
+            mTextViewClinicLName.setText(jsonArray.getString("lastName").toString());
+            mTextViewClinicMName.setText(jsonArray.getString("middleName").toString());
+            mTextViewDOB.setText(jsonArray.getString("dateOfBirth").toString());
+            mTextViewSSN.setText(jsonArray.getString("ssn").toString());
+            mTextViewPhone.setText(jsonArray.getString("phoneNumber").toString());
+            mTextViewAddr.setText(jsonArray.getString("streetAddress").toString());
+            mTextViewCity.setText(jsonArray.getString("city").toString());
+            mTextViewZip.setText(jsonArray.getString("zip").toString());
+            mTextViewState.setText(jsonArray.getString("state").toString());
+            mTextViewSpecialty.setText(jsonArray.getString("specialty").toString());
+            mTextViewYearOfPractice.setText(jsonArray.getString("yearsOfPractice").toString());
+            mTextViewSSN.setText(jsonArray.getString("ssn").toString());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public void clinicInfo(View view){
-        if(CheckAllFields())
-            jsonParse();
-    }
+//    public void clinicInfo(View view){
+//        if(CheckAllFields())
+//            jsonParse();
+//    }
 
     /**
      * Validate all user inputs.
@@ -183,54 +170,6 @@ public class ProviderInfoActivity extends AppCompatActivity {
     }
 
     /**
-     * Parse JSON object data into screen fields.
-     */
-    private void jsonParse() {
-
-        String url = "https://4c1cb4dc-453e-425d-a7bb-82fec8d336d0.mock.pstmn.io/clients/";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("clinics");
-
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject clinic = jsonArray.getJSONObject(i);
-
-                                String clinicName = clinic.getString("clinicname");
-                                String phone = clinic.getString("phone");
-                                String email = clinic.getString("email");
-                                String dob = clinic.getString("dob");
-                                String address = clinic.getString("address");
-                                String city = clinic.getString("city");
-                                String state = clinic.getString("state");
-                                String zip = clinic.getString("zip");
-
-                                mTextViewClinicFName.setText(clinicName);
-                                mTextViewPhone.setText(phone);
-                                mTextViewEmail.setText(email);
-                                mTextViewAddr.setText(address);
-                                mTextViewCity.setText(city);
-                                mTextViewZip.setText(zip);
-                                mTextViewState.setText(state);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-
-        mQueue.add(request);
-    }
-
-    /**
      * Clear all the data user input on provider info screen.
      * @param view
      */
@@ -248,7 +187,6 @@ public class ProviderInfoActivity extends AppCompatActivity {
         mTextViewDOB.setText("");
         mTextViewSpecialty.setText("");
         mTextViewYearOfPractice.setText("");
-        mTextViewLicenseNumber.setText("");
     }
 
 }

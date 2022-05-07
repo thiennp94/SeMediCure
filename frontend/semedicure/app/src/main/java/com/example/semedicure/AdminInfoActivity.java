@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,8 +28,7 @@ import java.util.regex.Pattern;
  */
 public class AdminInfoActivity extends AppCompatActivity {
 
-    private static final String EMAIL_PATTERN =
-            "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+    private static final String EMAIL_PATTERN = "^[A-Za-z0-9+_.-]+@(.+)$";
     private static final String PHONE_PATTERN = "^\\d{10}$";
     private static final String ADDR_PATTERN = "^\\d.{0,4}?\\s\\w+$";
     private static final String ZIP_PATTERN = "^\\d{5}$";
@@ -73,40 +73,33 @@ public class AdminInfoActivity extends AppCompatActivity {
 
         // Get data from Admin Portal screen
         Intent intent = getIntent();
-        // account exists
-        if (intent.getIntExtra("id", 0) != 0) {
-            int id = intent.getIntExtra("id", 0);
-            String city = intent.getStringExtra("city");
-            int dateOfBirth = intent.getIntExtra("date_of_birth", 0);
-            String firstName = intent.getStringExtra("firstName");
-            String lastName = intent.getStringExtra("last_name");
-            String middleName = intent.getStringExtra("middle_name");
-            String password = intent.getStringExtra("password");
-            int phoneNumber = intent.getIntExtra("phone_number", 0);
-            int ssn = intent.getIntExtra("ssn", 0);
-            String streetAddress = intent.getStringExtra("street_address");
-            int zip = intent.getIntExtra("zip", 0);
-            String email = intent.getStringExtra("email");
-            String state = intent.getStringExtra("state");
-            String username = intent.getStringExtra("username");
+        String data = intent.getStringExtra("data");
 
-            mTextViewAdminFName.setText(firstName);
-            mTextViewAdminLName.setText(lastName);
-            mTextViewAdminMName.setText(middleName);
-            mTextViewDOB.setText(dateOfBirth);
-            mTextViewSSN.setText(ssn);
-            mTextViewPhone.setText(phoneNumber);
-            mTextViewEmail.setText(email);
-            mTextViewAddr.setText(streetAddress);
-            mTextViewCity.setText(city);
-            mTextViewZip.setText(zip);
-            mTextViewState.setText(state);
+        try {
+            JSONObject json = new JSONObject(data);
+            JSONObject jsonArray = json.getJSONObject("userInfo");
+
+            mTextViewEmail.setText(jsonArray.getString("email").toString());
+            mTextViewAdminFName.setText(jsonArray.getString("firstName").toString());
+            mTextViewAdminLName.setText(jsonArray.getString("lastName").toString());
+            mTextViewAdminMName.setText(jsonArray.getString("middleName").toString());
+            mTextViewDOB.setText(jsonArray.getString("dateOfBirth").toString());
+            mTextViewSSN.setText(jsonArray.getString("ssn").toString());
+            mTextViewPhone.setText(jsonArray.getString("phoneNumber").toString());
+            mTextViewAddr.setText(jsonArray.getString("streetAddress").toString());
+            mTextViewCity.setText(jsonArray.getString("city").toString());
+            mTextViewZip.setText(jsonArray.getString("zip").toString());
+            mTextViewState.setText(jsonArray.getString("state").toString());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+
     }
 
     public void createAdminInfo(View view){
-        if(CheckAllFields())
-            jsonParse();
+//        if(CheckAllFields())
+//            jsonParse();
     }
 
     /**
@@ -134,22 +127,22 @@ public class AdminInfoActivity extends AppCompatActivity {
         }
 
         if (mTextViewAddr.length() == 0) {
-            mTextViewAddr.setError("Email is required");
+            mTextViewAddr.setError("Address is required");
             return false;
         }
 
         if (mTextViewCity.length() == 0) {
-            mTextViewCity.setError("Email is required");
+            mTextViewCity.setError("City is required");
             return false;
         }
 
         if (mTextViewZip.length() == 0) {
-            mTextViewZip.setError("Email is required");
+            mTextViewZip.setError("Zip code is required");
             return false;
         }
 
         if (mTextViewState.length() == 0) {
-            mTextViewState.setError("Email is required");
+            mTextViewState.setError("State is required");
             return false;
         }
 
@@ -165,54 +158,6 @@ public class AdminInfoActivity extends AppCompatActivity {
         } else {
             return false;
         }
-    }
-
-    /**
-     * Parse JSON object data into screen fields.
-     */
-    private void jsonParse() {
-
-        String url = "https://4c1cb4dc-453e-425d-a7bb-82fec8d336d0.mock.pstmn.io/clients/";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("Admins");
-
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject Admin = jsonArray.getJSONObject(i);
-
-                                String AdminName = Admin.getString("adminname");
-                                String phone = Admin.getString("phone");
-                                String email = Admin.getString("email");
-                                String dob = Admin.getString("dob");
-                                String address = Admin.getString("address");
-                                String city = Admin.getString("city");
-                                String state = Admin.getString("state");
-                                String zip = Admin.getString("zip");
-
-//                                mTextViewAdminName.setText(AdminName);
-                                mTextViewPhone.setText(phone);
-                                mTextViewEmail.setText(email);
-                                mTextViewAddr.setText(address);
-                                mTextViewCity.setText(city);
-                                mTextViewZip.setText(zip);
-                                mTextViewState.setText(state);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-
-        mQueue.add(request);
     }
 
     /**
