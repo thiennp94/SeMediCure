@@ -11,11 +11,10 @@
         <entry key="app/src/main/res/layout/activity_admin_portal.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_admin_profile.xml" value="0.5541666666666667" />
         <entry key="app/src/main/res/layout/activity_appointment_history.xml" value="0.24010416666666667" />
-        <entry key="app/src/main/res/layout/activity_approve_appt.xml" value="0.5541666666666667" />
-        <entry key="app/src/main/res/layout/activity_check_in.xml" value="0.5541666666666667" />
+        <entry key="app/src/main/res/layout/activity_check_in.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_clinic_profile.xml" value="0.5541666666666667" />
         <entry key="app/src/main/res/layout/activity_find_patient.xml" value="0.24010416666666667" />
-        <entry key="app/src/main/res/layout/activity_forgot_pass.xml" value="0.5541666666666667" />
+        <entry key="app/src/main/res/layout/activity_forgot_pass.xml" value="0.2916274694261524" />
         <entry key="app/src/main/res/layout/activity_json_request.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2512019230769231" />
