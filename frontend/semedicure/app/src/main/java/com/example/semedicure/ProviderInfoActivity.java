@@ -105,10 +105,11 @@ public class ProviderInfoActivity extends AppCompatActivity {
         }
     }
 
-//    public void clinicInfo(View view){
-//        if(CheckAllFields())
-//            jsonParse();
-//    }
+    public void clinicInfo(View view){
+        if(CheckAllFields()) {
+            // do nothing
+        }
+    }
 
     /**
      * Validate all user inputs.

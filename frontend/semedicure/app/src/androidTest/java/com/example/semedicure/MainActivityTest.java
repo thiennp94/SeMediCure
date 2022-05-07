@@ -36,9 +36,15 @@ public class MainActivityTest {
     public ActivityTestRule<MainActivity> mainActivity = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void testMainActivity() {
-        onView(withId(R.id.button)).perform(click());
-        onView(withId(R.id.textView)).check(matches(isDisplayed()));
+    public void testMainActivityNewAccount() {
+        onView(withId(R.id.button)).perform(click()); // create new account
+        onView(withId(R.id.textView)).check(matches(isDisplayed())); // new account screen
+    }
+
+    @Test
+    public void testMainActivityLogin() {
+        onView(withId(R.id.button3)).perform(click()); // login
+        onView(withId(R.id.spinner)).check(matches(isDisplayed())); // login screen
     }
 
 }

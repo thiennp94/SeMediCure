@@ -98,8 +98,9 @@ public class AdminInfoActivity extends AppCompatActivity {
     }
 
     public void createAdminInfo(View view){
-//        if(CheckAllFields())
-//            jsonParse();
+        if(CheckAllFields()) {
+            // do nothing
+        }
     }
 
     /**
